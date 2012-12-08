@@ -14,7 +14,7 @@ openCallback:function(){},
 closeCallback:function(){},
 loadCompleteCallback:function(){},
 hideWhenOpened:true,
-imgSrc: 'http://173.230.150.168/gitprojects/seekfortruelove/shutterback/assets/jquery.shutter/shutter.png'
+imgSrc: 'shutter.png'
 },options);
 
 var element = this;
