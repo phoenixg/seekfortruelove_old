@@ -7,7 +7,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
 	{{ HTML::style('css/profile.css') }} 
-	{{ HTML::style('css/jquery.shutter/jquery.shutter.css') }} 
+	{{ HTML::script('js/jquery.shutter/jquery.shutter.css') }} 
 	 
 </head>
 
@@ -27,6 +27,6 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 {{ HTML::script('js/jquery-1.8.0.min.js') }}
 
 {{ HTML::script('js/jquery.shutter/jquery.shutter.js') }}
-{{ HTML::script('js/jquery.shutter/profile.js') }}								
+{{ HTML::script('js/profile.js') }}								
 </body>
 </html>
