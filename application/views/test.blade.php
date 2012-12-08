@@ -6,24 +6,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	<title></title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
-	<!-- 
 	{{ HTML::style('css/profile.css') }} 
-	-->
-	 <link rel="stylesheet" type="text/css" href="http://173.230.150.168/gitprojects/seekfortruelove/shutterback/assets/css/styles.css" />
-	
-
-	<!--
-	{{ HTML::style('css/jquery.shutter.css') }} 
-	-->
-	 <link rel="stylesheet" type="text/css" href="http://173.230.150.168/gitprojects/seekfortruelove/shutterback/assets/jquery.shutter/jquery.shutter.css" /> 
-
-
-
-
-	
-	
-	
-
+	{{ HTML::style('css/jquery.shutter/jquery.shutter.css') }} 
+	 
 </head>
 
 <body>
@@ -40,13 +25,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 
 {{ HTML::script('js/jquery-1.8.0.min.js') }}
-<!--
-{{ HTML::script('js/jquery.shutter.js') }}
-{{ HTML::script('js/profile.js') }}
--->
 
-<script src="http://173.230.150.168/gitprojects/seekfortruelove/shutterback/assets/jquery.shutter/jquery.shutter.js"></script>
-<script src="http://173.230.150.168/gitprojects/seekfortruelove/shutterback/assets/js/script.js"></script>
-									
+{{ HTML::script('js/jquery.shutter/jquery.shutter.js') }}
+{{ HTML::script('js/jquery.shutter/profile.js') }}								
 </body>
 </html>
