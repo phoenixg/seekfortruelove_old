@@ -1,0 +1,84 @@
+.thumbnails {
+    float: left;
+    width: 100%;
+}
+
+.thumbnails li {
+    background-image: url("../img/portfolio-bg.png");
+    float: left;
+    height: 147px;
+    margin-bottom: 25px;
+    margin-right: 8px;
+    padding-left: 4px;
+    padding-top: 4px;
+    width: 120px;
+}
+
+
+.search_filter div#sex {
+    padding: 18px 0;
+}
+
+.search_filter div#height {
+    padding: 18px 0;
+}
+
+.search_filter div#age {
+    padding: 18px 0;
+}
+
+.search_filter div#salary {
+    padding: 18px 0;
+}
+
+.search_filter div#academic {
+    padding: 18px 0;
+}
+
+.search_filter div#nationality {
+    padding: 10px 0;
+}
+
+.search_filter div#district {
+    padding: 10px 0;
+}
+
+
+.search_filter td.span2 {
+    font-size: 1.6em;
+}
+
+.search_filter #nationality span {
+    cursor: pointer;
+}
+
+.search_filter #district span {
+    cursor: pointer;
+}
+
+.search_button {
+    text-align: center;
+    position: relative;
+    left:-130px;
+}
+
+.search_result_title {
+    display: none;
+    padding-right: 80px;
+    padding-top: 50px;
+}
+
+#toTop {
+        border:1px solid #ccc;
+        background:#f7f7f7;
+        text-align:center;
+        padding:10px 30px;
+        position:fixed; /* this is the magic */
+        bottom:10px; /* together with this to put the div at the bottom*/
+        right:10px;
+        cursor:pointer;
+        display:none;
+        color:#333;
+        font-family:verdana;
+        font-size:20px;
+}

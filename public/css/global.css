@@ -1,0 +1,13 @@
+a.brand {
+	font-family: 'Leckerli One', cursive;
+}
+
+/* 解决fancybox图片打开后背景移动问题 */
+body { overflow-y:scroll;}
+div.navbar-fixed-top{position: relative;}
+
+
+#main {
+	margin-top: 40px;
+}
+
