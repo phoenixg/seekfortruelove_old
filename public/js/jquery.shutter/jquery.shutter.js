@@ -14,7 +14,7 @@ openCallback:function(){},
 closeCallback:function(){},
 loadCompleteCallback:function(){},
 hideWhenOpened:true,
-imgSrc: 'jquery.shutter/shutter.png'
+imgSrc: 'js/jquery.shutter/shutter.png'
 },options);
 
 var element = this;
