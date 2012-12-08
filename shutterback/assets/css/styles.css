@@ -7,6 +7,10 @@ padding:0;
 #container{
 width:640px;
 height:400px;
+width:240px;
+height:240px;
+
+
 margin:0 auto;
 border:5px solid #fff;
 overflow:hidden;
