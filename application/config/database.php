@@ -73,7 +73,7 @@ return array(
 			'host'     => '173.230.150.168',
 			'database' => 'truelove',
 			'username' => 'root',
-			'password' => 'nihaoma1234567',
+			'password' => '',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 		),
