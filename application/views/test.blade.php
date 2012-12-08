@@ -6,9 +6,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	<title></title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
-
+	{{ HTML::script('js/jquery-1.8.0.min.js') }}
+	<!--
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
+	-->
 </head>
 
 <body>
