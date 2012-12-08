@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 	container.tzShutter({
 		//imgSrc: 'assets/jquery.shutter/shutter.png',
-		imgSrc: 'shutter.png',
+		imgSrc: 'jquery.shutter/shutter.png',
 		closeCallback: function(){
 
 			// Cycling the visibility of the li items to
