@@ -33,11 +33,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 
 {{ HTML::script('js/jquery-1.8.0.min.js') }}
+<!--
 {{ HTML::script('js/jquery.shutter.js') }}
 {{ HTML::script('js/profile.js') }}
+-->
 
-
-
+<script src="http://173.230.150.168/gitprojects/seekfortruelove/shutterback/assets/jquery.shutter/jquery.shutter.js"></script>
+<script src="http://173.230.150.168/gitprojects/seekfortruelove/shutterback/assets/js/script.js"></script>
 									
 </body>
 </html>
