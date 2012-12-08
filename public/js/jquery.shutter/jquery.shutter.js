@@ -221,6 +221,7 @@ options.loadCompleteCallback();
 };
 
 img.src = options.imgSrc;
+console.log(img.src);
 
 },0);
 
