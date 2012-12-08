@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://173.230.150.168/gitprojects/laravel/public',
+	'url' => 'http://173.230.150.168/gitprojects/seekfortruelove/public',
 	//'url' => 'http://localhost/laravel/public',
 
 	/*
