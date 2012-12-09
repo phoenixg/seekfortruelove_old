@@ -51,6 +51,10 @@ class Account_Controller extends Base_Controller
 			));
 
 
+			// 发送激活邮件
+			
+
+			// 
 			return Redirect::to_route('welcome')
 				->with('message', '注册成功！');
 		}
