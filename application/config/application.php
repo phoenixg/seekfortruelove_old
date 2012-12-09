@@ -191,4 +191,7 @@ return array(
 	),
 
 	'upsizelimit' => 1 * 1024 * 102,
+
+	'mail_account' => 'gopher.huang@gmail.com',
+	'mail_password' => '',
 );

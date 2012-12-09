@@ -53,14 +53,7 @@ class Account_Controller extends Base_Controller
 
 			// 发送激活邮件
 // see http://bundles.laravel.com/bundle/swiftmailer
-Bundle::start('swiftmailer');
-Laravel\IoC::register('mailer.transport', function()
-{
-    return Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
-        ->setUsername('gopher.huang@gmail.com')
-        ->setPassword('')
-        ;
-});
+
 $mailer = Laravel\IoC::resolve('mailer');
 
 $message = Swift_Message::newInstance('Message From Website')
