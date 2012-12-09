@@ -177,3 +177,35 @@ set_path('image_profile_tmp', path('public') . 'images' . DS . 'profile' . DS . 
 set_path('image_profile_icon', path('public') . 'images' . DS . 'profile' . DS . 'icon' . DS);
 set_path('image_profile_large', path('public') .'images' . DS . 'profile' . DS . 'large' . DS);
 set_path('image_profile_small', path('public') .'images' . DS . 'profile' . DS . 'small' . DS);
+
+// see http://bundles.laravel.com/bundle/swiftmailer
+Bundle::start('swiftmailer');
+$mailer = IoC::resolve('mailer');
+/*
+//$message = Swift_Message::newInstance('Subject Of Email');
+
+// If you do not want to auto-load the bundle, you can use this
+//Bundle::start('swiftmailer');
+
+// Get the Swift Mailer instance
+$mailer = IoC::resolve('mailer');
+
+// Construct the message
+$message = Swift_Message::newInstance('Message From Website')
+    ->setFrom(array('example@example.com'=>'Mr Example'))
+    ->setTo(array('example@example.com'=>'Mr Example'))
+    ->addPart('My Plain Text Message','text/plain')
+    ->setBody('My HTML Message','text/html');
+
+// Send the email
+$mailer->send($message);
+*/
+
+
+
+
+
+
+
+
+
