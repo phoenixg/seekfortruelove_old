@@ -62,27 +62,16 @@ Laravel\IoC::register('mailer.transport', function()
         ;
 });
 $mailer = Laravel\IoC::resolve('mailer');
-print_r($mailer);
 
-/*
-//$message = Swift_Message::newInstance('Subject Of Email');
-
-// If you do not want to auto-load the bundle, you can use this
-//Bundle::start('swiftmailer');
-
-// Get the Swift Mailer instance
-$mailer = IoC::resolve('mailer');
-
-// Construct the message
 $message = Swift_Message::newInstance('Message From Website')
-    ->setFrom(array('example@example.com'=>'Mr Example'))
-    ->setTo(array('example@example.com'=>'Mr Example'))
-    ->addPart('My Plain Text Message','text/plain')
-    ->setBody('My HTML Message','text/html');
+		    ->setFrom(array('2814258914@qq.com'=>'Mr Example'))
+		    ->setTo(array('2814258914@qq.com'=>'Mr Example'))
+		    ->addPart('My Plain Text Message','text/plain')
+		    ->setBody('My HTML Message','text/html');
 
 // Send the email
 $mailer->send($message);
-*/
+
 die;
 
 			// 
