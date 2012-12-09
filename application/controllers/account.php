@@ -55,6 +55,7 @@ class Account_Controller extends Base_Controller
 // see http://bundles.laravel.com/bundle/swiftmailer
 Bundle::start('swiftmailer');
 $mailer = IoC::resolve('mailer');
+var_dump($mailer);
 /*
 //$message = Swift_Message::newInstance('Subject Of Email');
 
