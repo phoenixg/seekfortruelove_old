@@ -178,9 +178,6 @@ set_path('image_profile_icon', path('public') . 'images' . DS . 'profile' . DS .
 set_path('image_profile_large', path('public') .'images' . DS . 'profile' . DS . 'large' . DS);
 set_path('image_profile_small', path('public') .'images' . DS . 'profile' . DS . 'small' . DS);
 
-var_dump(Config::get('application.mail_account'));
-var_dump(Config::get('application.mail_password'));
-
 Bundle::start('swiftmailer');
 Laravel\IoC::register('mailer.transport', function()
 {
