@@ -52,7 +52,29 @@ class Account_Controller extends Base_Controller
 
 
 			// 发送激活邮件
-			
+// see http://bundles.laravel.com/bundle/swiftmailer
+Bundle::start('swiftmailer');
+$mailer = IoC::resolve('mailer');
+/*
+//$message = Swift_Message::newInstance('Subject Of Email');
+
+// If you do not want to auto-load the bundle, you can use this
+//Bundle::start('swiftmailer');
+
+// Get the Swift Mailer instance
+$mailer = IoC::resolve('mailer');
+
+// Construct the message
+$message = Swift_Message::newInstance('Message From Website')
+    ->setFrom(array('example@example.com'=>'Mr Example'))
+    ->setTo(array('example@example.com'=>'Mr Example'))
+    ->addPart('My Plain Text Message','text/plain')
+    ->setBody('My HTML Message','text/html');
+
+// Send the email
+$mailer->send($message);
+*/
+
 
 			// 
 			return Redirect::to_route('welcome')
