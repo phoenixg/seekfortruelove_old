@@ -56,16 +56,16 @@ class Account_Controller extends Base_Controller
 Bundle::start('swiftmailer');
 Laravel\IoC::register('mailer.transport', function()
 {
-    return Swift_SmtpTransport::newInstance('smtp.qq.com', 25)
-        ->setUsername('2814258914')
-        ->setPassword('nihaoma')
+    return Swift_SmtpTransport::newInstance('smtp.gmail.com', 465)
+        ->setUsername('gopher.huang@gmail.com')
+        ->setPassword('')
         ;
 });
 $mailer = Laravel\IoC::resolve('mailer');
 
 $message = Swift_Message::newInstance('Message From Website')
-		    ->setFrom(array('2814258914@qq.com'=>'Mr Example'))
-		    ->setTo(array('2814258914@qq.com'=>'Mr Example'))
+		    ->setFrom(array('gopher.huang@gmail.com'=>'Mr Example'))
+		    ->setTo(array('gopher.huang@gmail.com'=>'Mr Example'))
 		    ->addPart('My Plain Text Message','text/plain')
 		    ->setBody('My HTML Message','text/html');
 
