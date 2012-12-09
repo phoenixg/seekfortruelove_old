@@ -1,31 +1,31 @@
-# 模型 & 类库
+# Models & Libraries
 
-## 内容
+## Contents
 
-- [模型](#models)
-- [类库](#libraries)
-- [自动加载](#auto-loading)
-- [最佳实践](#best-practices)
+- [Models](#models)
+- [Libraries](#libraries)
+- [Auto-Loading](#auto-loading)
+- [Best Practices](#best-practices)
 
 <a name="models"></a>
-## 模型
+## Models
 
-模型是应用程序的心脏。 你的应用程序逻辑（控制器 / 路由） 和视图（html）仅仅是用户和你的模型交互的中间媒介。 模型中包含的最典型的逻辑的类型是[业务逻辑](http://en.wikipedia.org/wiki/Business_logic)。
+Models are the heart of your application. Your application logic (controllers / routes) and views (html) are just the mediums with which users interact with your models. The most typical type of logic contained within a model is [Business Logic](http://en.wikipedia.org/wiki/Business_logic).
 
-*模型中存在的功能的一些例子:*
+*Some examples of functionality that would exist within a model are:*
 
-- 数据库交互
-- 文件读写（I/O）
-- 同Web Services交互
+- Database Interactions
+- File I/O
+- Interactions with Web Services
 
-比如，也许你正在写一个博客程序。 你很可能想要有一个"Post"模型。 用户想要对posts做评论，所以你还要一个"Conmment"模型。 如果有要做评论的用户，那么你还要一个"User"模型。 明白了吗？
+For instance, perhaps you are writing a blog. You will likely want to have a "Post" model. Users may want to comment on posts so you'd also have a "Comment" model. If users are going to be commenting then we'll also need a "User" model. Get the idea?
 
 <a name="libraries"></a>
-## 类库
+## Libraries
 
-类库是执行应用程序里没有特殊指定的任务的类。 比如， 一个PDF生成类会转换HTML。 这样的任务，尽管复杂，但是没有在应用程序里指定的， 所以要考虑做成一个"library"。
+Libraries are classes that perform tasks that aren't specific to your application. For instance, consider a PDF generation library that converts HTML. That task, although complicated, is not specific to your application, so it is considered a "library". 
 
-创建一个类库和在libraries目录里创建并存储一个类一样简单。 下面的例子，我们创建了一个简单的类，有一个方法，echo一些你传递给它的文本。 我们在libraries目录里创建**printer.php**文件，代码如下：
+Creating a library is as easy as creating a class and storing it in the libraries folder. In the following example, we will create a simple library with a method that echos the text that is passed to it. We create the **printer.php** file in the libraries folder with the following code.
 
 	<?php
 
@@ -36,25 +36,25 @@
 		}
 	}
 
-你现在可以在应用程序的任何地方调用Printer::write('这些文本是通过write方法打印出来的！')。
+You can now call Printer::write('this text is being echod from the write method!') from anywhere within your application.  
 
 <a name="auto-loading"></a>
-## 自动加载
+## Auto Loading
 
-类库和模型之所以非常易于使用，这要感谢Laravel的自动加载器。 获取更多关于自动加载器的信息，见文档的 [自动加载器](/docs/loading)。
+Libraries and Models are very easy to use thanks to the Laravel auto-loader. To learn more about the auto-loader check out the documentation on [Auto-Loading](/docs/loading).
 
 <a name="best-practices"></a>
-## 最佳实践
+## Best Practices
 
-我们都听过这样的话:"控制器要瘦！" 但是，我们在现实中要如何做呢？ 问题很可能出在"model"。 这表示什么呢？ 这是不是一个有用的术语？ 许多跟"database"打交道的"model"，都会导致控制器变得臃肿，因而使用轻量的model访问数据库。 让我们看看还有什么其他途径。
+We've all head the mantra: "controllers should be thin!" But, how do we apply that in real life? It's possible that part of the problem is the word "model". What does it even mean? Is it even a useful term? Many associate "model" with "database", which leads to having very bloated controllers, with light models that access the database. Let's explore some alternatives.
 
-要是我们完全报废"models"目录会如何？ 我们将之命名为一些其他有用的东西。 事实上，我们就把它命名成application好了。 也许我们的卫星跟踪站点叫做"Trackler"， 于是我们创建了一个"trackler"目录，里面有application目录。
+What if we just totally scrapped the "models" directory? Let's name it something more useful. In fact, let's just give it the same as our application. Perhaps are our satellite tracking site is named "Trackler", so let's create a "trackler" directory within the application folder.
 
-很好！ 下一步，我们把类分成"entities", "services", and "repositories"。 于是，我们将在"trackler"目录下为他们的每一个创建三个目录。 我们看看每个：
+Great! Next, let's break our classes into "entities", "services", and "repositories". So, we'll create each of those three directories within our  "trackler" folder. Let's explore each one:
 
 ### Entities
 
-把entities想象成应用程序的数据容器。 他们主要就是包含属性而已。 所以，我们的应用程序里，可以有一个"Location" entity， 它有一个"latitude"和"longitude"属性。 像这样：
+Think of entities as the data containers of your application. They primarily just contain properties. So, in our application, we may have a "Location" entity which has "latitude" and "longitude" properties. It could look something like this:
 
 	<?php namespace Trackler\Entities;
 	
@@ -71,12 +71,11 @@
 
 	}
 
-看上去不错。 现在我们有两个一个entity， 让我们再来探索下其他两个文件夹。
+Looking good. Now that we have an entity, let's explore our other two folders.
 
 ### Services
 
-Services包含了应用程序的*processes*。 所以，让我们继续使用Trackler这个例子。 我们的应用程序也许有一个表单，用户会输入它们的GPS位置信息。 然而，我们需要验证它们格式是否正确。 我们需要*validate* 这个*location entity*。 所以，在我们的"services"目录里，我们可以在下面的类里创建一个"validators"文件夹：
-
+Services contain the *processes* of your application. So, let's keep using our Trackler example. Our application might have a form on which a user may enter their GPS location. However, we need to validate that the coordinates are correctly formatted. We need to *validate* the *location entity*. So, within our "services" directory, we could create a "validators" folder with the following class:
 
 	<?php namespace Trackler\Services\Validators;
 
@@ -91,11 +90,11 @@ Services包含了应用程序的*processes*。 所以，让我们继续使用Tra
 
 	}
 
-棒极了！ 现在我们有了独立于控制器和路由的测试验证的方法！ 所以，我们验证了位置，我们现在要准备存储它了。 我们要怎么做呢？
+Great! Now we have a great way to test our validation in isolation from our controllers and routes! So, we've validated the location and we're ready to store it. What do we do now?
 
 ### Repositories
 
-Repositories是应用程序数据访问层。 它们负责存储和解析应用程序的*entities*。 所以，我们继续使用我们的*location* entity。 我们需要位置repository来存储它们。 我们可以使用我们想要的机制来存储它们， 要么是关系型逐句哭，Redis，或下一代的存储方法。 我们看看例子：
+Repositories are the data access layer of your application. They are responsible for storing and retrieving the *entities* of your application. So, let's continue using our *location* entity in this example. We need a location repository that can store them. We could store them using any mechanism we want, whether that is a relational database, Redis, or the next storage hotness. Let's look at an example:
 
 	<?php namespace Trackler\Repositories;
 
@@ -110,8 +109,8 @@ Repositories是应用程序数据访问层。 它们负责存储和解析应用�
 
 	}
 
-现在我们干净地区分了应用程序entities, services, and repositories。 这意味着我们可以注入一些repositories进services或控制器，然后独立于数据库得测试应用程序中的一个片段。 而且，我们可以完全地切换存储方式，而无需影响我们的services, entities, 或控制器。 我们完成了一个优良的*关注点分离*。
+Now we have a clean separation of concerns between our application's entities, services, and repositories. This means we can inject stub repositories into our services or controllers, and test those pieces of our application in isolation from the database. Also, we can entirely switch data store technologies without affecting our services, entities, or controllers. We've achieved a good *separation of concerns*.
 
-*更多阅读:*
+*Further Reading:*
 
-- [IoC 容器](/docs/ioc)
+- [IoC Container](/docs/ioc)

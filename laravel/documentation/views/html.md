@@ -1,139 +1,141 @@
-# 建立 HTML
+# Building HTML
 
-## 内容
+## Content
 
-- [实体（Entities）](#entities)
-- [脚本和样式表](#scripts-and-style-sheets)
-- [链接](#links)
-- [链接至命名路由](#links-to-named-routes)
-- [链接至控制器actions](#links-to-controller-actions)
-- [Mail-To 链接](#mail-to-links)
-- [图片](#images)
-- [列表](#lists)
-- [自定义宏](#custom-macros)
+- [Entities](#entities)
+- [Scripts And Style Sheets](#scripts-and-style-sheets)
+- [Links](#links)
+- [Links To Named Routes](#links-to-named-routes)
+- [Links To Controller Actions](#links-to-controller-actions)
+- [Mail-To Links](#mail-to-links)
+- [Images](#images)
+- [Lists](#lists)
+- [Custom Macros](#custom-macros)
 
 <a name="entities"></a>
-## 实体（Entities）
+## Entities
 
-当你在视图里显示用户输入的时候，很重要的是，转换所有字符为HTML的"entity"表达形式。
+When displaying user input in your Views, it is important to convert all characters which have significance in HTML to their "entity" representation.
 
-比如， < 符号应该被转换成实体表达。 转换HTML字符串为实体帮助保护你的应用程序避免跨站脚本攻击：
+For example, the < symbol should be converted to its entity representation. Converting HTML characters to their entity representation helps protect your application from cross-site scripting:
 
-#### 转换字符串为实体:
+#### Converting a string to its entity representation:
 
-	echo HTML::entities('<script>alert('hi');</script>');
+	echo HTML::entities('<script>alert(\'hi\');</script>');
 
-#### 使用 "e" 全局辅助函数:
+#### Using the "e" global helper:
 
-	echo e('<script>alert('hi');</script>');
+	echo e('<script>alert(\'hi\');</script>');
 
 <a name="scripts-and-style-sheets"></a>
-## 脚本和样式表
+## Scripts And Style Sheets
 
-#### 生成一个指向JavaScript文件的引用:
+#### Generating a reference to a JavaScript file:
 
 	echo HTML::script('js/scrollTo.js');
 
-#### 生成一个指向CSS文件的引用:
+#### Generating a reference to a CSS file:
 
 	echo HTML::style('css/common.css');
 
-#### 生成一个指向给定media type的CSS文件的引用:
+#### Generating a reference to a CSS file using a given media type:
 
 	echo HTML::style('css/common.css', 'print');
 
-*更多阅读:*
+*Further Reading:*
 
-- *[管理 Assets](/docs/views/assets)*
+- *[Managing Assets](/docs/views/assets)*
 
 <a name="links"></a>
-## 链接
+## Links
 
-#### 生成一个来自URI的链接:
+#### Generating a link from a URI:
 
 	echo HTML::link('user/profile', 'User Profile');
 
-#### 生成一个使用HTTPS的链接:
+#### Generating a link that should use HTTPS:
 
 	echo HTML::secure_link('user/profile', 'User Profile');
 
-#### 生成一个指定额外HTML属性的链接:
+#### Generating a link and specifying extra HTML attributes:
 
 	echo HTML::link('user/profile', 'User Profile', array('id' => 'profile_link'));
 
 <a name="links-to-named-routes"></a>
-## 链接至命名路由
+## Links To Named Routes
 
-#### 生成一个指向命名路由的链接:
+#### Generating a link to a named route:
 
 	echo HTML::link_to_route('profile');
 
-#### 生成一个指向使用了通配符值的命名路由的链接:
+#### Generating a link to a named route with wildcard values:
 
-	$url = HTML::link_to_route('profile', array($username));
+	$url = HTML::link_to_route('profile', 'User Profile', array($username));
 
-*更多阅读:*
+*Further Reading:*
 
-- *[命名路由](/docs/routing#named-routes)*
+- *[Named Routes](/docs/routing#named-routes)*
 
 <a name="links-to-controller-actions"></a>
-## 链接至控制器actions
+## Links To Controller Actions
 
-#### 生成一个指向控制器action的链接:
+#### Generating a link to a controller action:
 
 	echo HTML::link_to_action('home@index');
 
-### 生成一个指向使用了通配符值的控制器action的链接:
+### Generating a link to a controller action with wildcard values:
 
-	echo HTML::link_to_action('user@profile', array($username));
+	echo HTML::link_to_action('user@profile', 'User Profile', array($username));
 
 <a name="mail-to-links"></a>
-## Mail-To 链接
+## Mail-To Links
 
-HTML类的"mailto"方法会混淆给定的e-mail地址，以免被机器人嗅探到。
+The "mailto" method on the HTML class obfuscates the given e-mail address so it is not sniffed by bots.
 
-#### 创建一个 mail-to 链接:
+#### Creating a mail-to link:
 
 	echo HTML::mailto('example@gmail.com', 'E-Mail Me!');
 
-#### 创建一个使用e-mail地址为链接文本的 mail-to 链接:
+#### Creating a mail-to link using the e-mail address as the link text:
 
 	echo HTML::mailto('example@gmail.com');
 
 <a name="images"></a>
-## 图片
+## Images
 
-#### 生成一个HTML图片标签:
+#### Generating an HTML image tag:
 
 	echo HTML::image('img/smile.jpg', $alt_text);
 
-#### 生成一个带有额外HTML属性的图片标签:
+#### Generating an HTML image tag with extra HTML attributes:
 
 	echo HTML::image('img/smile.jpg', $alt_text, array('id' => 'smile'));
 
 <a name="lists"></a>
-## 列表
+## Lists
 
-#### 从数组元素创建列表:
+#### Creating lists from an array of items:
 
 	echo HTML::ol(array('Get Peanut Butter', 'Get Chocolate', 'Feast'));
 
 	echo HTML::ul(array('Ubuntu', 'Snow Leopard', 'Windows'));
+	
+	echo HTML::dl(array('Ubuntu' => 'An operating system by Canonical', 'Windows' => 'An operating system by Microsoft'));
 
 <a name="custom-macros"></a>
-## 自定义宏
+## Custom Macros
 
-定义你自己的HTML类辅助函数叫做"macros"。下面是它如何工作的。 首先，只需要用给定的名称和一个闭包注册这个宏即可。
+It's easy to define your own custom HTML class helpers called "macros". Here's how it works. First, simply register the macro with a given name and a Closure:
 
-#### 注册一个HTML宏:
+#### Registering a HTML macro:
 
 	HTML::macro('my_element', function()
 	{
 		return '<article type="awesome">';
 	});
 
-现在你就可以用它的名称来调用这个宏了:
+Now you can call your macro using its name:
 
-#### 调用一个自定义的HTML宏:
+#### Calling a custom HTML macro:
 
 	echo HTML::my_element();

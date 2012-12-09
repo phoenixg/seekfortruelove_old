@@ -1,100 +1,108 @@
-# 任务
+# Tasks
 
-## 内容
+## Contents
 
-- [基础](#the-basics)
-- [创建 & 执行任务](#creating-tasks)
-- [Bundle 任务](#bundle-tasks)
-- [CLI 选项](#cli-options)
+- [The Basics](#the-basics)
+- [Creating & Running Tasks](#creating-tasks)
+- [Bundle Tasks](#bundle-tasks)
+- [CLI Options](#cli-options)
 
 <a name="the-basics"></a>
-## 基础
+## The Basics
 
-Laravel的命令行工具叫Artisan。 Artisan可以用来执行 "tasks"，比如移植（migrations），cronjobs， 单元测试或任何其他的事。 
+Laravel's command-line tool is called Artisan. Artisan can be used to run "tasks" such as migrations, cronjobs, unit-tests, or anything that want. 
 
 <a name="creating-tasks"></a>
-## 创建 & 执行任务
+## Creating & Running Tasks
 
-要创建一个任务，就在你的 **application/tasks** 目录下创建一个新类。 类名称应该以"_Task"作为后缀， 并且应该至少有一个"run"方法， 像这样：
+To create a task create a new class in your **application/tasks** directory. The class name should be suffixed with "_Task", and should at least have a "run" method, like this:
 
-#### 创建一个task类:
+#### Creating a task class:
 
 	class Notify_Task {
 
 		public function run($arguments)
 		{
-			// 做些牛比的事...
+			// Do awesome notifying...
 		}
 
 	}
 
-现在你可以通过命令行调用task的"run"方法了。 你甚至可以传递参数：
+Now you can call the "run" method of your task via the command-line. You can even pass arguments:
 
-#### 从命令行调用task:
+#### Calling a task from the command line:
 
 	php artisan notify
 
-#### 调用task，并传递参数:
+#### Calling a task and passing arguments:
 
 	php artisan notify taylor
 
-记住， 你可以在task上调用指定的方法， 因此，让我们添加一个 "urgent" 方法给这个notify task：
+#### Calling a task from your application:
 
-#### 为task添加一个方法:
+	Command::run(array('notify'));
+
+#### Calling a task from your application with arguements:
+
+	Command::run(array('notify', 'taylor'));
+
+Remember, you can call specific methods on your task, so, let's add an "urgent" method to the notify task:
+
+#### Adding a method to the task:
 
 	class Notify_Task {
 
 		public function run($arguments)
 		{
-			// 做些牛比的事...
+			// Do awesome notifying...
 		}
 
 		public function urgent($arguments)
 		{
-			// 这个很紧急!
+			// This is urgent!
 		}
 
 	}
 
-现在我们可以调用我们的"urgent"方法了：
+Now we can call our "urgent" method:
 
-#### 在task上调用一个指定的方法:
+#### Calling a specific method on a task:
 
 	php artisan notify:urgent
 
 <a name="bundle-tasks"></a>
-## Bundle 任务
+## Bundle Tasks
 
-要为你的bundle创建一个task，只需把bundle名称前缀为你的task名称。 因此， 如果你的bundle叫做"admin"，那么一个task就应该像这样：
+To create a task for your bundle just prefix the bundle name to the class name of your task. So, if your bundle was named "admin", a task might look like this:
 
-#### 创建一个属于bundle的task类:
+#### Creating a task class that belongs to a bundle:
 
 	class Admin_Generate_Task {
 
 		public function run($arguments)
 		{
-			// 创建admin!
+			// Generate the admin!
 		}
 
 	}
 
-要执行你的task，只需使用Laravel的双引号语法来指明bundle：
+To run your task just use the usual Laravel double-colon syntax to indicate the bundle:
 
-#### 执行一个属于bundle的task:
+#### Running a task belonging to a bundle:
 
 	php artisan admin::generate
 
-#### 执行一个属于bundle的task的指定方法:
+#### Running a specific method on a task belonging to a bundle:
 
 	php artisan admin::generate:list
 
 <a name="cli-options"></a>
-## CLI 选项
+## CLI Options
 
-#### 设置Laravel环境:
+#### Setting the Laravel environment:
 
 	php artisan foo --env=local
 
-#### 设置默认的数据库连接:
+#### Setting the default database connection:
 
 	php artisan foo --database=sqlite

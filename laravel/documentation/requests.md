@@ -1,77 +1,77 @@
-# 请求检查
+# Examining Requests
 
-## 内容
+## Contents
 
-- [同 URI 打交道](#working-with-the-uri)
-- [其他请求辅助函数](#other-request-helpers)
+- [Working With The URI](#working-with-the-uri)
+- [Other Request Helpers](#other-request-helpers)
 
 <a name="working-with-the-uri"></a>
-## 同 URI 打交道
+## Working With The URI
 
-#### 获得当前请求的URI:
+#### Getting the current URI for the request:
 
 	echo URI::current();
 
-#### 获取URI的一个段:
+#### Getting a specific segment from the URI:
 
 	echo URI::segment(1);
 
-#### 如果segment不存在，返回一个默认值:
+#### Returning a default value if the segment doesn't exist:
 
 	echo URI::segment(10, 'Foo');
 
-#### 获取完整的请求URI， 包括查询字符串:
+#### Getting the full request URI, including query string:
 
 	echo URI::full();
 
-有时候你也许想判断当前URI是否是一个给定的字符串， 或者以给定的字符串开头。 下面是如何使用is()方法来完成这个目的的例子：
+Sometimes you may need to determine if the current URI is a given string, or begins with a given string. Here's an example of how you can use the is() method to accomplish this:
 
-#### 判断URI是否是 "home":
+#### Determine if the URI is "home":
 
 	if (URI::is('home'))
 	{
-		// 当前URI是 "home"!
+		// The current URI is "home"!
 	}
 
-#### 判断当前URI是否以"docs/"开头:
+#### Determine if the current URI begins with "docs/":
 
 	if URI::is('docs/*'))
 	{
-		// 当前URI以 "docs/" 开头!
+		// The current URI begins with "docs/"!
 	}
 
 <a name="other-request-helpers"></a>
-## 其他请求辅助函数
+## Other Request Helpers
 
-#### 获取当前请求的方法:
+#### Getting the current request method:
 
 	echo Request::method();
 
-#### 访问 $_SERVER 全局数组:
+#### Accessing the $_SERVER global array:
 
 	echo Request::server('http_referer');
 
-#### 获取请求者的IP地址:
+#### Retrieving the requester's IP address:
 
 	echo Request::ip();
 
-#### 判断当前请求是否使用HTTPS:
+#### Determining if the current request is using HTTPS:
 
 	if (Request::secure())
 	{
-		// 请求是通过 HTTPS 的!
+		// This request is over HTTPS!
 	}
 
-#### 判断当前请求是否是AJAX:
+#### Determining if the current request is an AJAX request:
 
 	if (Request::ajax())
 	{
-		// 请求使用的是 AJAX!
+		// This request is using AJAX!
 	}
 
-#### 判断当前请求是否是通过Artisan CLI的:
+#### Determining if the current requst is via the Artisan CLI:
 
 	if (Request::cli())
 	{
-		//请求来自CLI!
+		// This request came from the CLI!
 	}

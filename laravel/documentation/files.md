@@ -1,84 +1,92 @@
-# 处理文件
+# Working With Files
 
-## 内容
+## Contents
 
-- [读取文件](#get)
-- [写入文件](#put)
-- [文件上传](#upload)
-- [文件扩展名](#ext)
-- [检查文件类型](#is)
-- [获取 MIME 类型](#mime)
-- [复制目录](#cpdir)
-- [移除目录](#rmdir)
+- [Reading Files](#get)
+- [Writing Files](#put)
+- [Removing files](#delete)
+- [File Uploads](#upload)
+- [File Extensions](#ext)
+- [Checking File Types](#is)
+- [Getting MIME Types](#mime)
+- [Copying Directories](#cpdir)
+- [Removing Directories](#rmdir)
 
 <a name="get"></a>
-## 读取文件
+## Reading Files
 
-#### 获取文件的内容:
+#### Getting the contents of a file:
 
 	$contents = File::get('path/to/file');
 
 <a name="put"></a>
-## 写入文件
+## Writing Files
 
-#### 写入一个文件:
+#### Writing to a file:
 
 	File::put('path/to/file', 'file contents');
 
-#### 添补一个文件:
+#### Appending to a file:
 
-	File::append('path/to/file', '添加的文本');
+	File::append('path/to/file', 'appended file content');
+
+<a name="delete"></a>
+## Removing Files
+
+#### Deleting a single file:
+
+	File::delete('path/to/file');
 
 <a name="upload"></a>
-## 文件上传
+## File Uploads
 
-#### 移除一个 $_FILE 到一个永久路径:
+#### Moving a $_FILE to a permanent location:
 
 	Input::upload('picture', 'path/to/pictures', 'filename.ext');
 
-> **注意:** 你可以轻易验证上传的文件， 使用 [Validator 类](/docs/validation).
+> **Note:** You can easily validate file uploads using the [Validator class](/docs/validation).
 
 <a name="ext"></a>
-## 文件扩展名
+## File Extensions
 
-#### 根据文件名获取文件扩展名:
+#### Getting the extension from a filename:
 
 	File::extension('picture.png');
 
 <a name="is"></a>
-## 检查文件类型
+## Checking File Types
 
-#### 判断文件是否是一个给定的类型:
+#### Determining if a file is given type:
 
 	if (File::is('jpg', 'path/to/file.jpg'))
 	{
 		//
 	}
 
-**is** 方法并不会简单地检查文件扩展名。 而是使用Fileinfo PHP扩展来读取文件内容， 进而判断出实际的MIME类型。 
+The **is** method does not simply check the file extension. The Fileinfo PHP extension will be used to read the content of the file and determine the actual MIME type.
 
-> **注意:** 你可以给 **is** 方法传递任何在 **application/config/mimes.php** 文件中定义的扩展名.
-> **注意:** 该功能是需要Fileinfo PHP 扩展支持的. 更多信息见 [PHP Fileinfo 页面](http://php.net/manual/en/book.fileinfo.php).
+> **Note:** You may pass any of the extensions defined in the **application/config/mimes.php** file to the **is** method.
+> **Note:** The Fileinfo PHP extension is required for this functionality. More information can be found on the [PHP Fileinfo page](http://php.net/manual/en/book.fileinfo.php).
 
 <a name="mime"></a>
-## 获取 MIME 类型
+## Getting MIME Types
 
-#### 获取跟扩展名有关的MIME类型:
+#### Getting the MIME type associated with an extension:
 
-	echo File::mime('gif');
+	echo File::mime('gif'); // outputs 'image/gif'
 
-> **注意:** 该方法只是简单地返回定义在 **application/config/mimes.php** 文件中的扩展名的 MIME类型定义
+> **Note:** This method simply returns the MIME type defined for the extension in the **application/config/mimes.php** file.
 
 <a name="cpdir"></a>
-## 复制目录
+## Copying Directories
 
-#### 递归地复制一个目录到指定的位置:
+#### Recursively copy a directory to a given location:
 
 	File::cpdir($directory, $destination);
 
 <a name="rmdir"></a>
-## 移除目录
+## Removing Directories
 
-#### 递归地删除一个目录:
+#### Recursively delete a directory:
 
 	File::rmdir($directory);

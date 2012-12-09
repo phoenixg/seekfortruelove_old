@@ -1,42 +1,38 @@
-# Session 用法
+# Session Usage
 
-## 内容
+## Contents
 
-- [存储项目](#put)
-- [解析项目](#get)
-- [删除项目](#forget)
-- [重新生成](#regeneration)
+- [Storing Items](#put)
+- [Retrieving Items](#get)
+- [Removing Items](#forget)
+- [Flashing Items](#flash)
+- [Regeneration](#regeneration)
 
 <a name="put"></a>
-## 存储项目
+## Storing Items
 
-要在session里存储项目，请调用Session类的put方法：
-
+To store items in the session call the put method on the Session class:
 
 	Session::put('name', 'Taylor');
 
-第一个参数是 session 项目的 **key**。 你要使用这个key来解析来自session的项目。 第二个参数是项目的 **value**。
-
-**flash** 方法则会在session里存储一个当下次请求时就会过期的项目。 对于存储临时的状态或错误消息，这很有用：
-
-	Session::flash('status', 'Welcome Back!');
+The first parameter is the **key** to the session item. You will use this key to retrieve the item from the session. The second parameter is the **value** of the item.
 
 <a name="get"></a>
-## 解析项目
+## Retrieving Items
 
-你可以使用Session类的  **get** 方法来解析任何session里的项目， 包括flash数据。 只需传递你要解析的项目的key即可：
+You can use the **get** method on the Session class to retrieve any item in the session, including flash data. Just pass the key of the item you wish to retrieve:
 
 	$name = Session::get('name');
 
-默认地， 如果不存在该session项目就会返回NULL。 但你可以给该方法传递第二个参数作为默认值：
+By default, NULL will be returned if the session item does not exist. However, you may pass a default value as a second parameter to the get method:
 
 	$name = Session::get('name', 'Fred');
 
 	$name = Session::get('name', function() {return 'Fred';});
 
-现在， 当session里不存在 "name" 项目时， 就会返回 "Fred"。
+Now, "Fred" will be returned if the "name" item does not exist in the session.
 
-Laravel设置提供了简单的方法来判断session项目是否存在， 请使用 **has** 方法：
+Laravel even provides a simple way to determine if a session item exists using the **has** method:
 
 	if (Session::has('name'))
 	{
@@ -44,19 +40,40 @@ Laravel设置提供了简单的方法来判断session项目是否存在， 请�
 	}
 
 <a name="forget"></a>
-## 删除项目
+## Removing Items
 
-要删除一个来自session的项目，请使用 Session 类的  **forget** 方法：
+To remove an item from the session use the **forget** method on the Session class:
 
 	Session::forget('name');
 
-你甚至可以删除所有session里的项目， 请使用 **flush** 方法： 
+You can even remove all of the items from the session using the **flush** method:
 
 	Session::flush();
 
-<a name="regeneration"></a>
-## 重新生成
+<a name="flash"></a>
+## Flashing Items
 
-有时候你会想要"regenerate" session ID。 这意味着session会被赋值一个新的、随机的session ID。 下面是如何做：
+The **flash** method stores an item in the session that will expire after the next request. It's useful for storing temporary data like status or error messages:
+
+	Session::flash('status', 'Welcome Back!');
+	
+Flash items that are expiring in subsequent requests can be retained for another request by using one of the **reflash** or **keep** methods:
+
+Retain all items for another request:
+
+	Session::reflash();
+	
+Retain an individual item for another request:
+	
+	Session::keep('status');
+	
+Retain several items for another request:
+	
+	Session::keep(array('status', 'other_item'));
+
+<a name="regeneration"></a>
+## Regeneration
+
+Sometimes you may want to "regenerate" the session ID. This simply means that a new, random session ID will be assigned to the session. Here's how to do it:
 
 	Session::regenerate();

@@ -1,30 +1,30 @@
-# 加密
+# Encryption
 
-## 内容
+## Contents
 
-- [基础](#the-basics)
-- [加密一个字符串](#encrypt)
-- [解密一个字符串](#decrypt)
+- [The Basics](#the-basics)
+- [Encrypting A String](#encrypt)
+- [Decrypting A String](#decrypt)
 
 <a name="the-basics"></a>
-## 基础
+## The Basics
 
-Laravel的  **Crypter** 类提供了简单的对处理安全、双向加密的接口。 默认地， Crypter类通过Mcrypt PHP 扩展提供了强大的AES-256加密和解密能力。 
+Laravel's **Crypter** class provides a simple interface for handling secure, two-way encryption. By default, the Crypter class provides strong AES-256 encryption and decryption out of the box via the Mcrypt PHP extension.
 
-> **注意:** 不要忘记在你的服务器上安装Mcrypt PHP 扩展.
+> **Note:** Don't forget to install the Mcrypt PHP extension on your server.
 
 <a name="encrypt"></a>
-## 加密一个字符串
+## Encrypting A String
 
-#### 加密一个给定的字符串:
+#### Encrypting a given string:
 
 	$encrypted = Crypter::encrypt($value);
 
 <a name="decrypt"></a>
-## 解密一个字符串
+## Decrypting A String
 
-#### 解密一个字符串:
+#### Decrypting a string:
 
 	$decrypted = Crypter::decrypt($encrypted);
 
-> **注意:** 极为重要的是， 解密方法只有办法解密你用 **你的** application key所加密的东西.
+> **Note:** It's incredibly important to point out that the decrypt method will only decrypt strings that were encrypted using **your** application key.

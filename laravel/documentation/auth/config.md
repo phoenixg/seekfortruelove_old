@@ -1,38 +1,38 @@
-# Auth 配置
+# Auth Configuration
 
-## 内容
+## Contents
 
-- [基础](#the-basics)
-- [Authentication 驱动器](#driver)
-- [默认的 "Username"](#username)
-- [Authentication 模型](#model)
-- [Authentication 数据表](#table)
+- [The Basics](#the-basics)
+- [The Authentication Driver](#driver)
+- [The Default "Username"](#username)
+- [Authentication Model](#model)
+- [Authentication Table](#table)
 
 <a name="the-basics"></a>
-## 基础
+## The Basics
 
-大多数交互性的应用程序都具备用户登录、注销的能力。 Laravel提供了简单的类来帮助你验证用户的资质， 解析关于当前用户的信息。 
+Most interactive applications have the ability for users to login and logout. Laravel provides a simple class to help you validate user credentials and retrieve information about the current user of your application.
 
-要开始，请看下 **application/config/auth.php** 文件。 authentication配置包含了一些基本的选项来帮助你启用 authentication。
+To get started, let's look over the **application/config/auth.php** file. The authentication configuration contains some basic options to help you get started with authentication.
 
 <a name="driver"></a>
-## Authentication 驱动器
+## The Authentication Driver
 
-Laravel 的 atuhentication 是基于驱动器的， 这意味着解析用户的责任交由几个"drivers"来完成。 原生自带了两个驱动器： Eloquent 和 Fluent， 你也可以写自己的驱动器！
+Laravel's authentication is driver based, meaning the responsibility for retrieving users during authentication is delegated to various "drivers". Two are included out of the box: Eloquent and Fluent, but you are free to write your own drivers if needed!
 
-**Eloquent** 驱动器使用了 Eloquent ORM 来加载应用程序的用户， 它是默认的authentication驱动器。 **Fluent** 驱动器使用了fluent query 构建器来加载你的用户。
+The **Eloquent** driver uses the Eloquent ORM to load the users of your application, and is the default authentication driver. The **Fluent** driver uses the fluent query builder to load your users.
 
 <a name="username"></a>
-## 默认的 "Username"
+## The Default "Username"
 
-配置文件中的第二个选项判断你的用户们默认的 "username"。 通常这会对应数据库的"users"数据表的字段，通常是"email"或"username"。
+The second option in the configuration file determines the default "username" of your users. This will typically correspond to a database column in your "users" table, and will usually be "email" or "username".
 
 <a name="model"></a>
-## Authentication 模型
+## Authentication Model
 
-当使用 **Eloquent** authentication 驱动器时， 该选项判断当加载用户时的Eloquent模型。
+When using the **Eloquent** authentication driver, this option determines the Eloquent model that should be used when loading users.
 
 <a name="table"></a>
-## Authentication 数据表
+## Authentication Table
 
-当使用 **Fluent** authentication 驱动器时， 该选项判断用户是在哪个数据表里。 
+When using the **Fluent** authentication drivers, this option determines the database table containing the users of your application.

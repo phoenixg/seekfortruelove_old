@@ -1,28 +1,28 @@
-# Authentication 用法
+# Authentication Usage
 
-## 内容
+## Contents
 
-- [加盐 & 哈希](#hash)
-- [登陆](#login)
-- [保护路由](#filter)
-- [解析已登陆用户](#user)
-- [注销](#logout)
-- [编写自定义驱动器](#drivers)
+- [Salting & Hashing](#hash)
+- [Logging In](#login)
+- [Protecting Routes](#filter)
+- [Retrieving The Logged In User](#user)
+- [Logging Out](#logout)
+- [Writing Custom Drivers](#drivers)
 
-> **注意:** 当使用Auth类时， 你必须 [指定一个session驱动器](/docs/session/config).
+> **Note:** Before using the Auth class, you must [specify a session driver](/docs/session/config).
 
 <a name="hash"></a>
-## 加盐 & 哈希
+## Salting & Hashing
 
-如果你使用Auth类， 我们强烈鼓励你hash和salt全部密码。 web开发必须是负责任的。 加盐、哈希密码对你密码起到了保护。 
+If you are using the Auth class, you are strongly encouraged to hash and salt all passwords. Web development must be done responsibly. Salted, hashed passwords make a rainbow table attack against your user's passwords impractical.
 
-加盐和哈希密码可以使用 **Hash** 类来完成。 Hash 类是使用 **bcrypt** 哈希算法。 看看这个例子：
+Salting and hashing passwords is done using the **Hash** class. The Hash class is uses the **bcrypt** hashing algorithm. Check out this example:
 
 	$password = Hash::make('secret');
 
-Hash类的 **make** 方法将返回一个60字符的哈希字符串。 
+The **make** method of the Hash class will return a 60 character hashed string.
 
-你可以比较一个未哈希的值和一个哈希后的值， 使用 **Hash** 类的 **check** 方法：
+You can compare an unhashed value against a hashed one using the **check** method on the **Hash** class:
 
 	if (Hash::check('secret', $hashed_value))
 	{
@@ -30,9 +30,9 @@ Hash类的 **make** 方法将返回一个60字符的哈希字符串。
 	}
 
 <a name="login"></a>
-## 登陆
+## Logging In
 
-使用Auth类的 **attempt** 方法来登陆用户非常简单。 简单地传递给该方法用户的username和password。 资格会包含在一个数组里， 该数组允许跨驱动器的最大灵活性， 一些驱动器会要求其他数量的参数。 如果资格有效， login方法会返回 **true**， 不然， 会返回 **false**：
+Logging a user into your application is simple using the **attempt** method on the Auth class. Simply pass the username and password of the user to the method. The credentials should be contained in an array, which allows for maximum flexibility across drivers, as some drivers may require a different number of arguments. The login method will return **true** if the credentials are valid. Otherwise, **false** will be returned:
 
 	$credentials = array('username' => 'example@gmail.com', 'password' => 'secret');
 
@@ -41,47 +41,46 @@ Hash类的 **make** 方法将返回一个60字符的哈希字符串。
 	     return Redirect::to('user/profile');
 	}
 
-如果用户的资格有效， 那么session里会存储一个user ID， 在随后对于应用程序的请求中， 用户会被当做 "logged in"。
+If the user's credentials are valid, the user ID will be stored in the session and the user will be considered "logged in" on subsequent requests to your application.
 
-要判断你的应用程序的用户是否已经 logged in， 请调用 **check** 方法：
+To determine if the user of your application is logged in, call the **check** method:
 
 	if (Auth::check())
 	{
 	     return "You're logged in!";
 	}
 
-使用 **login** 方法来登陆一个用户，无需检查其资格， 比如在用户首次注册你的应用程序时。 只需传递用户对象或用户ID即可；
+Use the **login** method to login a user without checking their credentials, such as after a user first registers to use your application. Just pass the user's ID:
 
-
-	Auth::login($user);
+	Auth::login($user->id);
 
 	Auth::login(15);
 
 <a name="filter"></a>
-## 保护路由
+## Protecting Routes
 
-经常你需要限制某些路由只给登陆的用户看。 在Laravel里， 可以使用 [auth 过滤器](/docs/routing#filters)完成。 如果用户已登陆， 该请求会正常工作；如果用户没有登陆， 那么他们会被重定向至"login"这个[命名路由](/docs/routing#named-routes).
+It is common to limit access to certain routes only to logged in users. In Laravel this is accomplished using the [auth filter](/docs/routing#filters). If the user is logged in, the request will proceed as normal; however, if the user is not logged in, they will be redirected to the "login" [named route](/docs/routing#named-routes).
 
-要保护一个路由，只需简单添加 **auth** 过滤器：
+To protect a route, simply attach the **auth** filter:
 
 	Route::get('admin', array('before' => 'auth', function() {}));
 
-> **注意:** 你可以随意编辑 **auth** 过滤器来满足你的需要。默认的在 **application/routes.php**.
+> **Note:** You are free to edit the **auth** filter however you like. A default implementation is located in **application/routes.php**.
 
 <a name="user"></a>
-## 解析已登陆用户
+## Retrieving The Logged In User
 
-一旦用户已登陆进你的应用程序， 你就可以使用Auth类的 **user** 方法来访问user模型：
+Once a user has logged in to your application, you can access the user model via the **user** method on the Auth class:
 
 	return Auth::user()->email;
 
-> **注意:** 如果你的用户没有登陆， 那么 **user** 方法会返回 NULL.
+> **Note:** If the user is not logged in, the **user** method will return NULL.
 
 <a name="logout"></a>
-## 注销
+## Logging Out
 
-准备好注销该用户了吗？
+Ready to log the user out of your application?
 
 	Auth::logout();
 
-该方法会删除session里的该user ID， 然后该用户在随后的请求里将不再被视为一个已登陆用户。 
+This method will remove the user ID from the session, and the user will no longer be considered logged in on subsequent requests to your application.

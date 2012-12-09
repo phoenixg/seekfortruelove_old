@@ -1,57 +1,57 @@
-# Cache 配置
+# Cache Configuration
 
-## 内容
+## Contents
 
-- [基础](#the-basics)
-- [数据库](#database)
+- [The Basics](#the-basics)
+- [Database](#database)
 - [Memcached](#memcached)
 - [Redis](#redis)
-- [Cache 键](#keys)
-- [内存中的 Cache](#memory)
+- [Cache Keys](#keys)
+- [In-Memory Cache](#memory)
 
 <a name="the-basics"></a>
-## 基础
+## The Basics
 
-想象一下你的应用程序要显示由用户投票出来的最受欢迎的十首歌曲。 难道每个用户访问你站点时，你都要查找一遍这十首歌曲吗？ 如果你能够10分钟存储一次， 或者1小时存储一次结果呢？这样你的应用程序会急剧加速。 Laravel的缓存让这变得简单。
+Imagine your application displays the ten most popular songs as voted on by your users. Do you really need to look up these ten songs every time someone visits your site? What if you could store them for 10 minutes, or even an hour, allowing you to dramatically speed up your application? Laravel's caching makes it simple.
 
-Laravel默认提供了以下五种缓存驱动器：
+Laravel provides five cache drivers out of the box:
 
-- 文件系统
-- 数据库
+- File System
+- Database
 - Memcached
 - APC
 - Redis
-- 内存 (数组)
+- Memory (Arrays)
 
-默认地， Laravel使用 **file** 系统作为缓存驱动器。无需配置， 即可使用。 文件系统驱动器会将缓存项目存储为文件， 存储在  **cache** 目录下。 如果你很满意这个驱动器， 就无需其他配置。 你可以开始使用它了。 
+By default, Laravel is configured to use the **file** system cache driver. It's ready to go out of the box with no configuration. The file system driver stores cached items as files in the **cache** directory. If you're satisfied with this driver, no other configuration is required. You're ready to start using it.
 
-> **注意:** 在使用文件系统缓存驱动器之前， 请确保 **storage/cache** 目录可写.
+> **Note:** Before using the file system cache driver, make sure your **storage/cache** directory is writeable.
 
 <a name="database"></a>
-## 数据库
+## Database
 
-数据库缓存驱动器使用了一张给定的数据表来作为简单的键-值存储。 为了启用， 首先要设置数据表的名称，在**application/config/cache.php**：
+The database cache driver uses a given database table as a simple key-value store. To get started, first set the name of the database table in **application/config/cache.php**:
 
 	'database' => array('table' => 'laravel_cache'),
 
-下面， 在数据库里创建该表。 该数据表应该有三个字段：
+Next, create the table on your database. The table should have three columns:
 
 - key (varchar)
 - value (text)
 - expiration (integer)
 
-就这么简单。 一旦你的配置和数据表设置好了， 你就可以开始使用缓存了！
+That's it. Once your configuration and table is setup, you're ready to start caching!
 
 <a name="memcached"></a>
 ## Memcached
 
-[Memcached](http://memcached.org) 是一个超快、开源的分布式内存对象缓存系统，它被Wikipedia和Facebook使用。 在使用Laravel的Memcached驱动器之前， 你应该需要安装和配置Memcached和PHP的Memcached扩展。
+[Memcached](http://memcached.org) is an ultra-fast, open-source distributed memory object caching system used by sites such as Wikipedia and Facebook. Before using Laravel's Memcached driver, you will need to install and configure Memcached and the PHP Memcache extension on your server.
 
-一旦你的服务器安装了Memcached， 你必须在 **application/config/cache.php** 文件中设置 **driver**：
+Once Memcached is installed on your server you must set the **driver** in the **application/config/cache.php** file:
 
 	'driver' => 'memcached'
 
-接着， 将Memcached服务器添加进 **servers** 数组：
+Then, add your Memcached servers to the **servers** array:
 
 	'servers' => array(
 	     array('host' => '127.0.0.1', 'port' => 11211, 'weight' => 100),
@@ -60,20 +60,20 @@ Laravel默认提供了以下五种缓存驱动器：
 <a name="redis"></a>
 ## Redis
 
-[Redis](http://redis.io)是一个开源、先进的键-值存储。 它经常被当做数据结构服务器，因为它可以包括 [strings](http://redis.io/topics/data-types#strings), [hashes](http://redis.io/topics/data-types#hashes), [lists](http://redis.io/topics/data-types#lists), [sets](http://redis.io/topics/data-types#sets), 和 [sorted sets](http://redis.io/topics/data-types#sorted-sets)
+[Redis](http://redis.io) is an open source, advanced key-value store. It is often referred to as a data structure server since keys can contain [strings](http://redis.io/topics/data-types#strings), [hashes](http://redis.io/topics/data-types#hashes), [lists](http://redis.io/topics/data-types#lists), [sets](http://redis.io/topics/data-types#sets), and [sorted sets](http://redis.io/topics/data-types#sorted-sets).
 
-在使用Redis缓存驱动器之前， 你必须 [配置Redis 服务器](/docs/database/redis#config)。 现在你可以只在 **application/config/cache.php** 文件里设置  **driver** 即可：
+Before using the Redis cache driver, you must [configure your Redis servers](/docs/database/redis#config). Now you can just set the **driver** in the **application/config/cache.php** file:
 
 	'driver' => 'redis'
 
 <a name="keys"></a>
-### 缓存键
+### Cache Keys
 
-为了避免命名同其他使用APC、Redis或Memcached服务器的应用程序冲突， Laravel用这些驱动器给每一个存储在缓存里的项目添加了一个 **key**。 你可以随意改变这个值：
+To avoid naming collisions with other applications using APC, Redis, or a Memcached server, Laravel prepends a **key** to each item stored in the cache using these drivers. Feel free to change this value:
 
 	'key' => 'laravel'
 
 <a name="memory"></a>
-### 内存中的缓存
+### In-Memory Cache
 
-"memory" 缓存驱动器并不会实际在磁盘上缓存任何东西。 它简单地在当前请求维护一份你的缓存的内部数组。 这使得独立于其他存储机制来为你的应用程序做单元测试变得很完美。 但是千万不要把它用作一个 "real" 缓存驱动器。  
+The "memory" cache driver does not actually cache anything to disk. It simply maintains an internal array of the cache data for the current request. This makes it perfect for unit testing your application in isolation from any storage mechanism. It should never be used as a "real" cache driver.

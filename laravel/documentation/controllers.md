@@ -1,28 +1,27 @@
-# 控制器
+# Controllers
 
-## 内容
+## Contents
 
-- [基础](#the-basics)
-- [控制器路由](#controller-routing)
-- [Bundle 控制器](#bundle-controllers)
-- [Action 过滤器](#action-filters)
-- [嵌套控制器](#nested-controllers)
-- [控制器 Layouts](#controller-layouts)
-- [RESTful 控制器](#restful-controllers)
-- [独立注入](#dependency-injection)
-- [控制器工厂](#controller-factory)
+- [The Basics](#the-basics)
+- [Controller Routing](#controller-routing)
+- [Bundle Controllers](#bundle-controllers)
+- [Action Filters](#action-filters)
+- [Nested Controllers](#nested-controllers)
+- [Controller Layouts](#controller-layouts)
+- [RESTful Controllers](#restful-controllers)
+- [Dependency Injection](#dependency-injection)
+- [Controller Factory](#controller-factory)
 
 <a name="the-basics"></a>
-##  基础
+## The Basics
 
-控制器是负责接受用户输入、管理来自model、libraries和view的交互的类。 通常，它们向model索要数据，然后返回给视图呈现给用户。
+Controllers are classes that are responsible for accepting user input and managing interactions between models, libraries, and views. Typically, they will ask a model for data, and then return a view that presents that data to the user.
 
-在现代网页开发中，控制器的用法是注入应用程序逻辑的常见方法。 然而，Laravel还引入了路由声明来加强开发者对应用程序逻辑植入的能力。 在[路由文档](/docs/routing)里详细说明了。 我们鼓励新用户以控制器开始开发。 没有什么应用程序逻辑是用路由能做而用控制器不能做的。
+The usage of controllers is the most common method of implementing application logic in modern web-development. However, Laravel also empowers developers to implement their application logic within routing declarations. This is explored in detail in the [routing document](/docs/routing). New users are encouraged to start with controllers. There is nothing that route-based application logic can do that controllers can't.
 
+Controller classes should be stored in **application/controllers** and should extend the Base\_Controller class. A Home\_Controller class is included with Laravel.
 
-控制器类应该存储在 **application/controllers** 文件夹里，并且要继承Base\_Controller类。一个Home\_Controller类已包含在Laravel框架里。
-
-#### 创建一个简单的控制器:
+#### Creating a simple controller:
 
 	class Admin_Controller extends Base_Controller
 	{
@@ -34,27 +33,27 @@
 
 	}
 
-**Actions** 是控制器方法的名称，它们倾向于网络可访问。 Actions应该以"action\_"作为前缀。 所有其他方法，不管scope是什么，都无法通过网络访问。
+**Actions** are the name of controller methods that are intended to be web-accessible.  Actions should be prefixed with "action\_". All other methods, regardless of scope, will not be web-accessible.
 
-> **注意:** Base\_Controller 类继承了主Laravel控制器类, 它提供了便捷的方式来放置所有控制器都通用的方法。
+> **Note:** The Base\_Controller class extends the main Laravel Controller class, and gives you a convenient place to put methods that are common to many controllers.
 
 <a name="controller-routing"></a>
-## 控制器路由
+## Controller Routing
 
-重要的一点，所有Laravel的路由必须明确指定，包括路由和控制器。
+It is important to be aware that all routes in Laravel must be explicitly defined, including routes to controllers.
 
-这意味着没有明确指定的控制器方法将**无法**访问。 你可以自动指定控制器的所有方法。 控制器路由注册通常定义在**application/routes.php**。
+This means that controller methods that have not been exposed through route registration **cannot** be accessed. It's possible to automatically expose all methods within a controller using controller route registration. Controller route registrations are typically defined in **application/routes.php**.
 
-查看 [路由页面](/docs/routing#controller-routing) 获取更多路由至控制器的信息。
+Check [the routing page](/docs/routing#controller-routing) for more information on routing to controllers.
 
 <a name="bundle-controllers"></a>
-## Bundle 控制器
+## Bundle Controllers
 
-Bundles是Laravel的模块管理系统。 Bundles可以轻松地处理应用程序的请求。 我们会在[bundles的更多信息](/docs/bundles)详细地说明。
+Bundles are Laravel's modular package system. Bundles can be easily configured to handle requests to your application. We'll be going over [bundles in more detail](/docs/bundles) in another document.
 
-创建属于bundles的控制器几乎和创建应用程序控制器一摸一样。 只要把控制器类名称前缀为bundle的名称即可，如果你的bundle名叫"admin"， 那么你的控制器类名称应该如此：
+Creating controllers that belong to bundles is almost identical to creating your application controllers. Just prefix the controller class name with the name of the bundle, so if your bundle is named "admin", your controller classes would look like this:
 
-#### 创建一个bundle控制器类:
+#### Creating a bundle controller class:
 
 	class Admin_Home_Controller extends Base_Controller
 	{
@@ -66,59 +65,57 @@ Bundles是Laravel的模块管理系统。 Bundles可以轻松地处理应用程�
 
 	}
 
-但是，你该如何注册bundle控制器的路由呢？ 很简单。 这样做：
+But, how do you register a bundle controller with the router? It's simple. Here's what it looks like:
 
-#### 注册一个bundles控制器的路由:
+#### Registering a bundle's controller with the router:
 
 	Route::controller('admin::home');
 
-太棒了！ 现在我们可以在web上访问我们的"admin" bundle的home控制器了。
+Great! Now we can access our "admin" bundle's home controller from the web!
 
-> **注意:** 纵观Laravel，双冒号语法被用作象征bundles。 更多关于bundles的信息见 [bundle 文档](/docs/bundles).
+> **Note:** Throughout Laravel the double-colon syntax is used to denote bundles.  More information on bundles can be found in the [bundle documentation](/docs/bundles).
 
 <a name="action-filters"></a>
-## Action 过滤器
+## Action Filters
 
-Action过滤器是可以在控制器action之前或之后执行的方法。 使用Laravel你不仅可以控制哪个过滤器应用于哪个方法，还可以选择哪种 http 动作 (post, get, put, and delete) 应用在过滤器上。
+Action filters are methods that can be run before or after a controller action.  With Laravel you don't only have control over which filters are assigned to which actions.  But, you can also choose which http verbs (post, get, put, and delete) will activate a filter.
 
-你可以在控制器的constructor里面给控制器actions指定"before"和"after"过滤器。
+You can assign "before" and "after" filters to controller actions within the controller's constructor.
 
-#### 为所有方法添加一个过滤器:
+#### Attaching a filter to all actions:
 
 	$this->filter('before', 'auth');
 
-这个例子中，'auth'过滤器会在每次运行该控制器的action之前执行。 auth action是Laravel自带的，可以在 **application/routes.php**找到。 auth过滤器验证用户是否已经登陆，如果没有，就重定向到'login'。
+In this example the 'auth' filter will be run before every action within this controller.  The auth action comes out-of-the-box with Laravel and can be found in **application/routes.php**.  The auth filter verifies that a user is logged in and redirects them to 'login' if they are not.
 
-#### 为部分方法添加一个过滤器:
+#### Attaching a filter to only some actions:
 
 	$this->filter('before', 'auth')->only(array('index', 'list'));
 
-这个例子中，auth过滤器会在action_index()或action_list()方法运行之前执行。 在访问这些页面之前，用户必须登陆。 此外，该控制器里没有其他action要求验证session。
+In this example the auth filter will be run before the action_index() or action_list() methods are run.  Users must be logged in before having access to these pages.  However, no other actions within this controller require an authenticated session.
 
-#### 为除了某些方法外的其他方法添加一个过滤器:
+#### Attaching a filter to all except a few actions:
 
 	$this->filter('before', 'auth')->except(array('add', 'posts'));
 
-类似上面的例子，这个声明确保auth过滤器只有在某些控制器方法才执行。 不是声明过滤器应用在哪个action，而是声明action不要求验证session的action。 有时候使用'except'方法更为安全，因为添加新的action时，有可能忘记在only()里面添加过滤器。 
+Much like the previous example, this declaration ensures that the auth filter is run on only some of this controller's actions.  Instead of declaring to which actions the filter applies we are instead declaring the actions that will not require authenticated sessions.  It can sometimes be safer to use the 'except' method as it's possible to add new actions to this controller and to forget to add them to only().  This could potentially lead your controller's action being unintentionally accessible by users who haven't been authenticated.
 
-
-#### 添加运行POST的过滤器:
+#### Attaching a filter to run on POST:
 
 	$this->filter('before', 'csrf')->on('post');
 
-这个例子显示了过滤器如何只针对某个特定的http动作。 在这个例子里，我们只在表单post提交的时候才运行csrf过滤器。 csrf过滤器被设计用来阻止表单提交内容来自其他系统（比如spam机器人），这个过滤器是Laravel自带的。 你可以在**application/routes.php**里找到这个csrf过滤器。
+This example shows how a filter can be run only on a specific http verb.  In this case we're running the csrf filter only when a form post is made.  The csrf filter is designed to prevent form posts from other systems (spam bots for example) and comes by default with Laravel.  You can find the csrf filter in **application/routes.php**.
 
+*Further Reading:*
 
-*进深阅读:*
-
-- *[路由过滤器](/docs/routing#filters)*
+- *[Route Filters](/docs/routing#filters)*
 
 <a name="nested-controllers"></a>
-## 嵌套控制器
+## Nested Controllers
 
-控制器可以在**application/controllers**文件夹的任何数量的子文件夹里嵌套。
+Controllers may be located within any number of sub-directories within the main **application/controllers** folder.
 
-将控制器类定义和存储于**controllers/admin/panel.php**.
+Define the controller class and store it in **controllers/admin/panel.php**.
 
 	class Admin_Panel_Controller extends Base_Controller
 	{
@@ -130,27 +127,27 @@ Action过滤器是可以在控制器action之前或之后执行的方法。 使�
 
 	}
 
-#### 使用"dot"语法注册嵌套控制器:
+#### Register the nested controller with the router using "dot" syntax:
 
 	Route::controller('admin.panel');
 
-> **注意:** 当使用嵌套控制器时，总是从最深到最浅的顺序注册你的控制器，以避免控制器路由阴影重叠。
+> **Note:** When using nested controllers, always register your controllers from most nested to least nested in order to avoid shadowing controller routes.
 
-#### 访问控制器的 "index" action:
+#### Access the "index" action of the controller:
 
 	http://localhost/admin/panel
 
 <a name="controller-layouts"></a>
-## 控制器 Layouts
+## Controller Layouts
 
-结合控制器使用Layouts 详见[模板页面](http://laravel.com/docs/views/templating).
+Full documentation on using layouts with Controllers [can be found on the Templating page](http://laravel.com/docs/views/templating).
 
 <a name="restful-controllers"></a>
-## RESTful 控制器
+## RESTful Controllers
 
-与其用"action_"前缀控制器，你还可以用它们要响应的HTTP动作来前缀它们。
+Instead of prefixing controller actions with "action_", you may prefix them with the HTTP verb they should respond to.
 
-#### 在控制器里添加一个 RESTful 属性:
+#### Adding the RESTful property to the controller:
 
 	class Home_Controller extends Base_Controller
 	{
@@ -159,7 +156,7 @@ Action过滤器是可以在控制器action之前或之后执行的方法。 使�
 
 	}
 
-#### 建立 RESTful 控制器actions:
+#### Building RESTful controller actions:
 
 	class Home_Controller extends Base_Controller
 	{
@@ -178,33 +175,32 @@ Action过滤器是可以在控制器action之前或之后执行的方法。 使�
 
 	}
 
-当建立CRUD方法时，这就非常有用，你可以区分哪个用来计算，哪个用来渲染表单，哪个用来验证和存储结果的逻辑。
+This is particularly useful when building CRUD methods as you can separate the logic which populates and renders a form from the logic that validates and stores the results.
 
 <a name="dependency-injection"></a>
-## 独立注入
+## Dependency Injection
 
-如果你专注于撰写测试代码， 你很可能想要注入独立的东西进控制器的constructor。 没问题。 只要注册你的控制器于[IoC 容器](/docs/ioc)就可以。 当使用容器来注册控制器的时候， 用**controller** 作为前缀的键。 所以，在我们的 **application/start.php**文件里，我们可以像这样注册user控制器：
+If you are focusing on writing testable code, you will probably want to inject dependencies into the constructor of your controller. No problem. Just register your controller in the [IoC container](/docs/ioc). When registering the controller with the container, prefix the key with **controller**. So, in our **application/start.php** file, we could register our user controller like so:
 
 	IoC::register('controller: user', function()
 	{
 		return new User_Controller;
 	});
 
-当针对一个控制器的请求来到你的应用程序的时候， Laravel会自动判断容器里面是否有已注册的控制器， 如果存在， 那么就会使用容器来解决控制器的实例。
+When a request to a controller enters your application, Laravel will automatically determine if the controller is registered in the container, and if it is, will use the container to resolve an instance of the controller.
 
 > **Note:** Before diving into controller dependency injection, you may wish to read the documentation on Laravel's beautiful [IoC container](/docs/ioc).
-> **注意:** 在更深地了解控制器独立注入之前， 你可以想要阅读下 Laravel漂亮的 [IoC 容器](/docs/ioc)文档。
 
 <a name="controller-factory"></a>
-## 控制器工厂
+## Controller Factory
 
-如果你想获得更多对于控制器实例的控制，比如使用第三方Ioc容器，你需要使用Laravel的控制器工厂。
+If you want even more control over the instantiation of your controllers, such as using a third-party IoC container, you'll need to use the Laravel controller factory.
 
-**注册一个处理控制器实例的事件:**
+**Register an event to handle controller instantiation:**
 
 	Event::listen(Controller::factory, function($controller)
 	{
 		return new $controller;
 	});
 
-该事件会接收需要resovled的控制器的类名称。 你所需要做的只是返回一个控制器的实例就行了。
+The event will receive the class name of the controller that needs to be resolved. All you need to do is return an instance of the controller.

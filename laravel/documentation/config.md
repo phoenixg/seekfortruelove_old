@@ -1,34 +1,34 @@
-# Runtime 配置
+# Runtime Configuration
 
-## 内容
+## Contents
 
-- [基础](#the-basics)
-- [解析选项](#retrieving-options)
-- [设置选项](#setting-options)
+- [The Basics](#the-basics)
+- [Retrieving Options](#retrieving-options)
+- [Setting Options](#setting-options)
 
 <a name="the-basics"></a>
-## 基础
+## The Basics
 
-有时候你想要在运行时获取和设置配置选项。 你可以使用 **Config** 类， 它利用了Laravel的"dot"语法来访问配置文件和项目。
+Sometimes you may need to get and set configuration options at runtime. For this you'll use the **Config** class, which utilizes Laravel's "dot" syntax for accessing configuration files and items.
 
 <a name="retrieving-options"></a>
-##  解析选项
+##  Retrieving Options
 
-#### 解析一个配置选项:
+#### Retrieve a configuration option:
 
 	$value = Config::get('application.url');
 
-#### 如果选项不存在，返回一个默认值:
+#### Return a default value if the option doesn't exist:
 
 	$value = Config::get('application.timezone', 'UTC');
 
-#### 解析一个完整的配置数组:
+#### Retrieve an entire configuration array:
 
 	$options = Config::get('database');
 
 <a name="setting-options"></a>
-## 设置选项
+## Setting Options
 
-#### 设置一个配置选项:
+#### Set a configuration option:
 
 	Config::set('cache.driver', 'apc');

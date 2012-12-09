@@ -1,20 +1,20 @@
 # Redis
 
-## 内容
+## Contents
 
-- [基础](#the-basics)
-- [配置](#config)
-- [用法](#usage)
+- [The Basics](#the-basics)
+- [Configuration](#config)
+- [Usage](#usage)
 
 <a name="the-basics"></a>
-## 基础
+## The Basics
 
-[Redis](http://redis.io)是一个开源、先进的键-值存储。 它被经常当做一种数据结构服务器， 因为键可以包含[strings](http://redis.io/topics/data-types#strings), [hashes](http://redis.io/topics/data-types#hashes), [lists](http://redis.io/topics/data-types#lists), [sets](http://redis.io/topics/data-types#sets), 和 [sorted sets](http://redis.io/topics/data-types#sorted-sets)。 
+[Redis](http://redis.io) is an open source, advanced key-value store. It is often referred to as a data structure server since keys can contain [strings](http://redis.io/topics/data-types#strings), [hashes](http://redis.io/topics/data-types#hashes), [lists](http://redis.io/topics/data-types#lists), [sets](http://redis.io/topics/data-types#sets), and [sorted sets](http://redis.io/topics/data-types#sorted-sets).
 
 <a name="config"></a>
-## 配置
+## Configuration
 
-你应用程序的Redis配置存储在 **application/config/database.php** 文件。 在这个文件里， 你会看到一个 **redis** 数组， 它包含你应用程序使用的Redis服务器。 
+The Redis configuration for your application lives in the **application/config/database.php** file. Within this file, you will see a **redis** array containing the Redis servers used by your application:
 
 	'redis' => array(
 
@@ -22,20 +22,20 @@
 
 	),
 
-默认的服务器配置应该满足你的开发了。 不过， 你也可以根据你的环境自由修改该数组。 只需要简单地给每个Redis服务器一个名称， 并指定服务器使用的host和port即可。 
+The default server configuration should suffice for development. However, you are free to modify this array based on your environment. Simply give each Redis server a name, and specify the host and port used by the server.
 
 <a name="usage"></a>
-## 用法
+## Usage
 
-你可以通过调用 **Redis** 类的 **db** 方法来获取一个Redis实例：
+You may get a Redis instance by calling the **db** method on the **Redis** class:
 
 	$redis = Redis::db();
 
-这会给你 **default** Redis服务器的实例。 你可以给该**db** 方法传递一个服务器名称来获取一个特定的服务器，正如在你Redis配置里定义的一样：
+This will give you an instance of the **default** Redis server. You may pass the server name to the **db** method to get a specific server as defined in your Redis configuration:
 
 	$redis = Redis::db('redis_2');
 
-棒！ 现在我们有了两个Redis客户端实例， 我们可以issue任何[Redis 命令](http://redis.io/commands) 给该实例。 Laravel使用魔术方法来传递命令至Redis服务器：
+Great! Now that we have an instance of the Redis client, we may issue any of the [Redis commands](http://redis.io/commands) to the instance. Laravel uses magic methods to pass the commands to the Redis server:
 
 	$redis->set('name', 'Taylor');
 
@@ -43,11 +43,11 @@
 
 	$values = $redis->lrange('names', 5, 10);
 
-请注意， comment的参数只是被简单传递进了魔术方法里。 当然， 你不用非得使用魔术方法， 你还可以使用 **run** 方法来传递命令至服务器：
+Notice the arguments to the command are simply passed into the magic method. Of course, you are not required to use the magic methods, you may also pass commands to the server using the **run** method:
 
 	$values = $redis->run('lrange', array(5, 10));
 
-只想要在默认的Redis服务器执行命令吗？ 你可以只使用Redis类的 static 魔术方法：
+Just want to execute commands on the default Redis server? You can just use static magic methods on the Redis class:
 
 	Redis::set('name', 'Taylor');
 
@@ -55,4 +55,4 @@
 
 	$values = Redis::lrange('names', 5, 10);
 
-> **注意:** Redis [cache](/docs/cache/config#redis) 和 [session](/docs/session/config#redis) 启动器在Laravel里都包括了.
+> **Note:** Redis [cache](/docs/cache/config#redis) and [session](/docs/session/config#redis) drivers are included with Laravel.

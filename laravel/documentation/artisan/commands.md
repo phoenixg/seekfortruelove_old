@@ -1,33 +1,41 @@
-# Artisan 命令
+# Artisan Commands
 
-## 内容
+## Contents
 
-- [应用程序配置](#application-configuration)
+- [Help](#help)
+- [Application Configuration](#application-configuration)
 - [Sessions](#sessions)
-- [移植](#migrations)
+- [Migrations](#migrations)
 - [Bundles](#bundles)
 - [Tasks](#tasks)
-- [单元测试](#unit-tests)
-- [路由](#routing)
-- [应用程序keys](#keys)
-- [CLI 选项](#cli-options)
+- [Unit Tests](#unit-tests)
+- [Routing](#routing)
+- [Application Keys](#keys)
+- [CLI Options](#cli-options)
+
+<a name="help"></a>
+## Help
+
+Description  | Command
+------------- | -------------
+View a list of available artisan commands. | `php artisan help:commands`
 
 <a name="application-configuration"></a>
-## 应用程序配置 <small>[(更多信息)](/docs/install#basic-configuration)</small>
+## Application Configuration <small>[(More Information)](/docs/install#basic-configuration)</small>
 
 Description  | Command
 ------------- | -------------
 Generate a secure application key. An application key will not be generated unless the field in **config/application.php** is empty. | `php artisan key:generate`
 
 <a name="sessions"></a>
-## 数据库 Sessions <small>[(更多信息)](/docs/session/config#database)</small>
+## Database Sessions <small>[(More Information)](/docs/session/config#database)</small>
 
 Description  | Command
 ------------- | -------------
 Create a session table  | `php artisan session:table`
 
 <a name="migrations"></a>
-## 移植 <small>[(更多信息)](/docs/database/migrations)</small>
+## Migrations <small>[(More Information)](/docs/database/migrations)</small>
 
 Description  | Command
 ------------- | -------------
@@ -41,7 +49,7 @@ Rolling back the last migration operation | `php artisan migrate:rollback`
 Roll back all migrations that have ever run  |  `php artisan migrate:reset`
 
 <a name="bundles"></a>
-## Bundles <small>[(更多信息)](/docs/bundles)</small>
+## Bundles <small>[(More Information)](/docs/bundles)</small>
 
 Description  | Command
 ------------- | -------------
@@ -52,10 +60,10 @@ Publish a bundle assets | `php artisan bundle:publish bundle_name`
 Publish all bundles assets | `php artisan bundle:publish`
 
 <br>
-> **注意:** 安装完毕后你需要 [注册该 bundle](../bundles/#registering-bundles)
+> **Note:** After installing you need to [register the bundle](../bundles/#registering-bundles)
 
 <a name="tasks"></a>
-## Tasks <small>[(更多信息)](/docs/artisan/tasks)</small>
+## Tasks <small>[(More Information)](/docs/artisan/tasks)</small>
 
 Description  | Command
 ------------- | -------------
@@ -66,7 +74,7 @@ Running a task on a bundle | `php artisan admin::generate`
 Running a specific method on a bundle  |  `php artisan admin::generate:list`
 
 <a name="unit-tests"></a>
-## 单元测试 <small>[(更多信息)](/docs/testing)</small>
+## Unit Tests <small>[(More Information)](/docs/testing)</small>
 
 Description  | Command
 ------------- | -------------
@@ -74,27 +82,27 @@ Running the application tests  |  `php artisan test`
 Running the bundle tests  |  `php artisan test bundle-name`
 
 <a name="routing"></a>
-## 路由 <small>[(更多信息)](/docs/routing)</small>
+## Routing <small>[(More Information)](/docs/routing)</small>
 
 Description  | Command
 ------------- | -------------
 Calling a route  |  `php artisan route:call get api/user/1`
 
 <br>
-> **注意:** 你可以用post, put, delete, etc取代get
+> **Note:** You can replace get with post, put, delete, etc.
 
 <a name="keys"></a>
-## 应用程序Keys
+## Application Keys
 
 Description  | Command
 ------------- | -------------
 Generate an application key  |  `php artisan key:generate`
 
 <br>
-> **注意:** 你可以指定另一个key长度，通过添加一个额外参数即可.
+> **Note:** You can specify an alternate key length by adding an extra argument to the command.
 
 <a name="cli-options"></a>
-## CLI 选项
+## CLI Options
 
 Description  | Command
 ------------- | -------------

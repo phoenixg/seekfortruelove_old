@@ -1,25 +1,25 @@
-# 类自动加载
+# Class Auto Loading
 
-## 内容
+## Contents
 
-- [基础](#the-basics)
-- [注册目录](#directories)
-- [注册映射](#mappings)
-- [注册命名空间](#namespaces)
+- [The Basics](#the-basics)
+- [Registering Directories](#directories)
+- [Registering Mappings](#mappings)
+- [Registering Namespaces](#namespaces)
 
 <a name="the-basics"></a>
-## 基础
+## The Basics
 
-自动加载允许你懒惰地加载类文件，只要它们需要，就无需明确*requiring* 或 *including* 它们。 所以，只要是你实际需要的类，你就只需跳过加载步骤，直接使用即可。
+Auto-loading allows you to lazily load class files when they are needed without explicitly *requiring* or *including* them. So, only the classes you actually need are loaded for any given request to your application, and you can just jump right in and start using any class without loading it's related file.
 
-默认地， **models** 和 **libraries**目录在**application/start.php**文件里由auto-loader注册。 加载器使用了类-文件名的共识，所有文件名都是小写。 比如， 一个位于models目录下的"User"类应该有一个"user.php"的文件。 你还可以用子目录嵌套类。 只需要将类的命名空间匹配目录结构即可。 因此， 一个"Entities\User"类就在models目录下有一个叫做"entities/user.php"的文件名。
+By default, the **models** and **libraries** directories are registered with the auto-loader in the **application/start.php** file. The loader uses a class to file name loading convention, where all file names are lower-cased. So for instance, a "User" class within the models directory should have a file name of "user.php". You may also nest classes within sub-directories. Just namespace the classes to match the directory structure. So, a "Entities\User" class would have a file name of "entities/user.php" within the models directory.
 
 <a name="directories"></a>
-## 注册目录
+## Registering Directories
 
-正如上面提及的，models和libraries目录默认由auto-loader所注册好了； 然而，你还可以注册任何你想要的目录，只要满足同样的类-文件名的共识即可：
+As noted above, the models and libraries directories are registered with the auto-loader by default; however, you may register any directories you like to use the same class to file name loading conventions:
 
-#### 用auto-loader注册目录:
+#### Registering directories with the auto-loader:
 
 	Autoloader::directories(array(
 		path('app').'entities',
@@ -27,11 +27,11 @@
 	));
 
 <a name="mappings"></a>
-## 注册映射
+## Registering Mappings
 
-有时你也许想要手动映射一个类至它有关的文件。 这是最优雅的加载类的方法：
+Sometimes you may wish to manually map a class to its related file. This is the most performant way of loading classes:
 
-#### 用auto-loader注册一个类和文件的映射:
+#### Registering a class to file mapping with the auto-loader:
 
 	Autoloader::map(array(
 		'User'    => path('app').'models/user.php',
@@ -39,19 +39,19 @@
 	));
 
 <a name="namespaces"></a>
-## 注册命名空间
+## Registering Namespaces
 
-许多第三方类库使用了PSR-0标准作为他们的结构。 PSR-0 规定类名称应该和它们的文件名匹配， 目录结构由命名空间指明。 如果你使用的是一个PSR-0类库， 那么只要用auto-loader注册它的根命名空间和目录即可：
+Many third-party libraries use the PSR-0 standard for their structure. PSR-0 states that class names should match their file names, and directory structure is indicated by namespaces. If you are using a PSR-0 library, just register it's root namespace and directory with the auto-loader:
 
-#### 用auto-loader注册一个命名空间:
+#### Registering a namespace with the auto-loader:
 
 	Autoloader::namespaces(array(
 		'Doctrine' => path('libraries').'Doctrine',
 	));
 
-在PHP拥有命名空间以前， 许多项目使用下划线来指明目录结构。 如果你使用的是这些遗物类库， 你仍旧可以简单地用auto-loader注册它。 比如，如果你使用了SwiftMailer， 你可能会注意到所有类都以 "Swift_" 开头。 因此， 我们就用auto-loader注册"Swift"为下划线项目的根。
+Before namespaces were available in PHP, many projects used underscores to indicate directory structure. If you are using one of these legacy libraries, you can still easily register it with the auto-loader. For example, if you are using SwiftMailer, you may have noticed all classes begin with "Swift_". So, we'll register "Swift" with the auto-loader as the root of an underscored project.
 
-#### 用auto-loader注册一个"下划线"类库:
+#### Registering an "underscored" library with the auto-loader:
 
 	Autoloader::underscored(array(
 		'Swift' => path('libraries').'SwiftMailer',

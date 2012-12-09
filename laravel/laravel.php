@@ -1,12 +1,16 @@
 <?php namespace Laravel;
 
+use Router;
+
 /*
 |--------------------------------------------------------------------------
-| 框架核心引导程序
+| Bootstrap The Framework Core
 |--------------------------------------------------------------------------
 |
-| 通过引用这个文件来设置框架内核，它包含类自动加载器和对于任何bundles的注册
-| 基本上，一旦这个文件被引用，框架就可以由开发者使用了
+| By including this file, the core of the framework will be setup which
+| includes the class auto-loader, and the registration of any bundles.
+| Basically, once this file has been included, the entire framework
+| may be used by the developer.
 |
 */
 
@@ -14,11 +18,12 @@ require 'core.php';
 
 /*
 |--------------------------------------------------------------------------
-| 设置错误 & 异常处理
+| Setup Error & Exception Handling
 |--------------------------------------------------------------------------
 |
-| 下面我们注册自定义的错误及异常处理器，以便我们可以为全部错误显示干净的错误消息
-| 并且自定义可被程序员设置的错误日志
+| Next we'll register custom handlers for all errors and exceptions so we
+| can display a clean error message for all errors, as well as do any
+| custom error logging that may be setup by the developer.
 |
 */
 
@@ -47,10 +52,12 @@ register_shutdown_function(function()
 
 /*
 |--------------------------------------------------------------------------
-| 报告全部错误
+| Report All Errors
 |--------------------------------------------------------------------------
 |
-| 把 error reporting 设置成 -1, 我们就强制PHP报告所有的错误
+| By setting error reporting to -1, we essentially force PHP to report
+| every error, and this is guaranteed to show every error on future
+| releases of PHP. This allows everything to be fixed early!
 |
 */
 
@@ -58,21 +65,26 @@ error_reporting(-1);
 
 /*
 |--------------------------------------------------------------------------
-| 开始应用程序 Bundle
+| Start The Application Bundle
 |--------------------------------------------------------------------------
 |
-| 应用程序（application） "bundle"是安装后默认的bundle，
-| 我们把它先激活。在这个bundle的引导器里可以设置更多程序员可以hook进去一些核心框架事件，比如配置加载器|
+| The application "bundle" is the default bundle for the installation and
+| we'll fire it up first. In this bundle's bootstrap, more configuration
+| will take place and the developer can hook into some of the core
+| framework events such as the configuration loader.
+|
 */
 
 Bundle::start(DEFAULT_BUNDLE);
 
 /*
 |--------------------------------------------------------------------------
-| 自动启动其他Bundles
+| Auto-Start Other Bundles
 |--------------------------------------------------------------------------
 |
-| 全站使用的Bundles可以被自动启动，这样就可以在每次请求时立即使用，无需在应用程序里特别另外开启
+| Bundles that are used throughout the application may be auto-started
+| so they are immediately available on every request without needing
+| to explicitly start them within the application.
 |
 */
 
@@ -83,20 +95,61 @@ foreach (Bundle::$bundles as $bundle => $config)
 
 /*
 |--------------------------------------------------------------------------
-| 注册 Catch-All 路由
+| Register The Catch-All Route
 |--------------------------------------------------------------------------
 |
-| 这个路由会抓取所有请求，并且会监听404事件
 | This route will catch all requests that do not hit another route in
 | the application, and will raise the 404 error event so the error
 | can be handled by the developer in their 404 event listener.
 |
 */
 
-Routing\Router::register('*', '(:all)', function()
+Router::register('*', '(:all)', function()
 {
 	return Event::first('404');
 });
+
+/*
+|--------------------------------------------------------------------------
+| Gather The URI And Locales
+|--------------------------------------------------------------------------
+|
+| When routing, we'll need to grab the URI and the supported locales for
+| the route so we can properly set the language and route the request
+| to the proper end-point in the application.
+|
+*/
+
+$uri = URI::current();
+
+$languages = Config::get('application.languages', array());
+
+$languages[] = Config::get('application.language');
+
+/*
+|--------------------------------------------------------------------------
+| Set The Locale Based On The Route
+|--------------------------------------------------------------------------
+|
+| If the URI starts with one of the supported languages, we will set
+| the default lagnauge to match that URI segment and shorten the
+| URI we'll pass to the router to not include the lang segment.
+|
+*/
+
+foreach ($languages as $language)
+{
+	if (preg_match("#^{$language}(?:$|/)#i", $uri))
+	{
+		Config::set('application.language', $language);
+
+		$uri = trim(substr($uri, strlen($language)), '/'); break;
+	}
+}
+
+if ($uri == '') $uri = '/';
+
+URI::$uri = $uri;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,9 +162,7 @@ Routing\Router::register('*', '(:all)', function()
 |
 */
 
-$uri = URI::current();
-
-Request::$route = Routing\Router::route(Request::method(), $uri);
+Request::$route = Router::route(Request::method(), $uri);
 
 $response = Request::$route->call();
 
@@ -134,7 +185,7 @@ $response->render();
 |--------------------------------------------------------------------------
 |
 | If a session driver has been configured, we will save the session to
-| storage so it is avaiable for the next request. This will also set
+| storage so it is available for the next request. This will also set
 | the session cookie in the cookie jar to be sent to the user.
 |
 */
@@ -163,7 +214,7 @@ $response->send();
 | And We're Done!
 |--------------------------------------------------------------------------
 |
-| Raise the "done" event so extra output can be attached to the response
+| Raise the "done" event so extra output can be attached to the response.
 | This allows the adding of debug toolbars, etc. to the view, or may be
 | used to do some kind of logging by the application.
 |
@@ -171,4 +222,16 @@ $response->send();
 
 Event::fire('laravel.done', array($response));
 
+/*
+|--------------------------------------------------------------------------
+| Finish the request for PHP-FastCGI
+|--------------------------------------------------------------------------
+|
+| Stopping the PHP process for PHP-FastCGI users to speed up some
+| PHP queries. Acceleration is possible when there are actions in the
+| process of script execution that do not affect server response.
+| For example, saving the session in memcached can occur after the page
+| has been formed and passed to a web server.
+*/
 
+$response->foundation->finish();

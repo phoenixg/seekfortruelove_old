@@ -1,101 +1,100 @@
-# 事件
+# Events
 
-## 内容
+## Contents
 
-- [基础](#the-basics)
-- [激活事件](#firing-events)
-- [监听事件](#listening-to-events)
-- [排队事件](#queued-events)
-- [Laravel 事件](#laravel-events)
+- [The Basics](#the-basics)
+- [Firing Events](#firing-events)
+- [Listening To Events](#listening-to-events)
+- [Queued Events](#queued-events)
+- [Laravel Events](#laravel-events)
 
 <a name="the-basics"></a>
-## 基础
+## The Basics
 
-事件可以提供一种很好的方法来建立de-coupled应用程序， 允许插件来切换应用程序核心的同时无需修改其代码。
+Events can provide a great away to build de-coupled applications, and allow plug-ins to tap into the core of your application without modifying its code.
 
 <a name="firing-events"></a>
-## 激活事件
+## Firing Events
 
-要激活一个事件， 只需要告诉 **Event** 类你要激活的事件名称即可。 
+To fire an event, just tell the **Event** class the name of the event you want to fire:
 
-#### 激活一个事件:
+#### Firing an event:
 
 	$responses = Event::fire('loaded');
 
-注意我们将**fire** 方法的结果赋值为一个变量。 这个方法会返回一个数组， 包括所有该事件监听器的响应。 
+Notice that we assigned the result of the **fire** method to a variable. This method will return an array containing the responses of all the event's listeners.
 
+Sometimes you may want to fire an event, but just get the first response. Here's how:
 
-有时候你可能像要激活一个事件， 但只要获取首次响应即可。 那么这样做：
-
-#### 激活一个时间， 解析首次的响应:
+#### Firing an event and retrieving the first response:
 
 	$response = Event::first('loaded');
 
-> **注意:** **first** 方法仍旧会激活监听该事件的处理器， 但只会返回首次响应。
+> **Note:** The **first** method will still fire all of the handlers listening to the event, but will only return the first response.
 
-**Event::until** 方法会执行事件处理器， 直到返回非null的响应。
+The **Event::until** method will execute the event handlers until the first non-null response is returned.
 
-#### 激活一个事件，直到收到第一个非null响应:
+#### Firing an event until the first non-null response:
 
 	$response = Event::until('loaded');
 
 <a name="listening-to-events"></a>
-## 监听事件
+## Listening To Events
 
-那么，如果没人在监听，事件有什么用呢？ 这样来注册一个当事件激活时，会调用的事件处理器。
+So, what good are events if nobody is listening? Register an event handler that will be called when an event fires:
 
-#### 注册一个事件处理器:
+#### Registering an event handler:
 
 	Event::listen('loaded', function()
 	{
-		// 在 "loaded" 事件发生时我会被执行!
+		// I'm executed on the "loaded" event!
 	});
 
-我们在这里提供给该方法的这个闭包会在每次"loaded"事件被激活时执行。 
+The Closure we provided to the method will be executed each time the "loaded" event is fired.
 
 <a name="queued-events"></a>
-## 排队事件
+## Queued Events
 
-有时候你可能想"queue"一个要激活的事件，而不是立马激活它。 那么就使用 `queue` 和 `flush` 方法。 首先，用一个独特的识别符抛出一个事件在一个给定的队列上。 
+Sometimes you may wish to "queue" an event for firing, but not fire it immediately. This is possible using the `queue` and `flush` methods. First, throw an event on a given queue with a unique identifier:
 
-#### 注册一个队列事件:
+#### Registering a queued event:
 
 	Event::queue('foo', $user->id, array($user));
 
-这个方法接受三个参数。 第一个参数是队列的名称， 第二个参数是为这个队列项目而设置的独特的识别符，第三个参数是传递给队列flusher的数据数组。 
+This method accepts three parameters. The first is the name of the queue, the second is a unique identifier for this item on the queue, and the third is an array of data to pass to the queue flusher.
 
-下面，我们会为`foo`队列注册一个flusher：
+Next, we'll register a flusher for the `foo` queue:
 
-#### 注册一个事件 flusher:
+#### Registering an event flusher:
 
 	Event::flusher('foo', function($key, $user)
 	{
 		//
 	});
 
-注意， 事件flusher接受两个参数。 第一个参数， 是队列事件的独特的识别符， 这个例子里就是用户的ID。 第二个参数（以及其他的参数）是该队列事件负载的项目。 
+Note that the event flusher receives two arguments. The first, is the unique identifier for the queued event, which in this case would be the user's ID. The second (and any remaining) parameters would be the payload items for the queued event.
 
-最后， 我们可以运行我们的flusher， 使用`flush` 方法把所有队列事件都flush掉：
+Finally, we can run our flusher and flush all queued events using the `flush` method:
 
 	Event::flush('foo');
 
 <a name="laravel-events"></a>
-## Laravel 事件
+## Laravel Events
 
-Laravel内核激活了几个事件。 它们是：
+There are several events that are fired by the Laravel core. Here they are:
 
-#### 当启用一个bundle的时候激活的事件:
+#### Event fired when a bundle is started:
 
 	Event::listen('laravel.started: bundle', function() {});
 
-#### 当数据库查询被执行的时候激活的事件:
+#### Event fired when a database query is executed:
 
 	Event::listen('laravel.query', function($sql, $bindings, $time) {});
 
-#### 当响应被发送至浏览器之前激活的事件:
+#### Event fired right before response is sent to browser:
 
 	Event::listen('laravel.done', function($response) {});
 
-#### 当使用Log类日志一条消息时激活的事件:
+#### Event fired when a messaged is logged using the Log class:
 
 	Event::listen('laravel.log', function($type, $message) {});

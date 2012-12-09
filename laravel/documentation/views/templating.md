@@ -1,19 +1,19 @@
-# 模板
+# Templating
 
-## 内容
+## Contents
 
-- [基础](#the-basics)
-- [段落（section）](#sections)
-- [Blade 模板引擎](#blade-template-engine)
+- [The Basics](#the-basics)
+- [Sections](#sections)
+- [Blade Template Engine](#blade-template-engine)
+- [Blade Control Structures](#blade-control-structures)
 - [Blade Layouts](#blade-layouts)
 
 <a name="the-basics"></a>
-## 基础
+## The Basics
 
-你的应用程序很可能使用一个常见的横跨大多数页面的layout。 在每个控制器的action里面手动的创建这个layout会非常痛苦。 因此指定控制器所用到的layout会让你的应用程序更加有趣。 我们来开始：
+Your application probably uses a common layout across most of its pages. Manually creating this layout within every controller action can be a pain. Specifying a controller layout will make your development much more enjoyable. Here's how to get started:
 
-
-#### 指定控制器的 "layout" 属性:
+#### Specify a "layout" property on your controller:
 
 	class Base_Controller extends Controller {
 
@@ -21,33 +21,33 @@
 
 	}
 
-#### 访问来自控制器action的layout:
+#### Access the layout from the controllers' action:
 
 	public function action_profile()
 	{
 		$this->layout->nest('content', 'user.profile');
 	}
 
-> **注意:** 当使用 layouts 的时候, actions 无需return任何东西.
+> **Note:** When using layouts, actions do not need to return anything.
 
 <a name="sections"></a>
-## 段落（Sections）
+## Sections
 
-视图section提供了简单的方式在嵌套视图里往layouts注入内容。 比如，也许你想在嵌套视图里注入其需要的JavaScript至layout的header里。我们看：
+View sections provide a simple way to inject content into layouts from nested views. For example, perhaps you want to inject a nested view's needed JavaScript into the header of your layout. Let's dig in:
 
-#### 在视图里创建一个section:
+#### Creating a section within a view:
 
 	<?php Section::start('scripts'); ?>
 		<script src="jquery.js"></script>
 	<?php Section::stop(); ?>
 
-#### 渲染section的内容:
+#### Rendering the contents of a section:
 
 	<head>
 		<?php echo Section::yield('scripts'); ?>
 	</head>
 
-#### 使用 Blade 捷径方式来操作 sections:
+#### Using Blade short-cuts to work with sections:
 
 	@section('scripts')
 		<script src="jquery.js"></script>
@@ -58,91 +58,116 @@
 	</head>
 
 <a name="blade-template-engine"></a>
-## Blade 模板引擎
+## Blade Template Engine
 
-Blade让你的视图撰写变得轻松。 要创建blade视图，只要把视图文件命名成".blade.php"。 Blade允许你使用漂亮的、无障碍的语法来撰写PHP控制器结构、打印数据。 比如：
+Blade makes writing your views pure bliss. To create a blade view, simply name your view file with a ".blade.php" extension. Blade allows you to use beautiful, unobtrusive syntax for writing PHP control structures and echoing data. Here's an example:
 
-#### 用Blade打印变量:
+#### Echoing a variable using Blade:
 
-	Hello, {{$name}}.
-	
-#### 用Blade打印函数结果:
+	Hello, {{ $name }}.
+
+#### Echoing function results using Blade:
 
 	{{ Asset::styles() }}
 
-#### 渲染视图:
+#### Render a view:
+
+You can use **@include** to render a view into another view. The rendered view will automatically inherit all of the data from the current view.
 
 	<h1>Profile</hi>
-
 	@include('user.profile')
 
-> **注意:** 当使用 **@include** Blade 表达式时，视图会自动继承所有当前视图的数据。
+Similarly, you can use **@render**, which behaves the same as **@include** except the rendered view will **not** inherit the data from the current view.
 
-#### 用Blade创建循环:
+	@render('admin.list')
 
-	<h1>评论</h1>
+#### Blade comments:
 
-	@foreach ($comments as $comment)
-		评论内容是 {{$comment->body}}.
-	@endforeach
+	{{-- This is a comment --}}
 
-#### 其他Blade控制结构:
+	{{--
+		This is a
+		multi-line
+		comment.
+	--}}
 
-	@if (count($comments) > 0)
-		存在评论!
-	@else
-		不存在评论!
-	@endif
+> **Note:** Unlike HTML comments, Blade comments are not visible in the HTML source.
 
-	@for ($i =0; $i < count($comments) - 1; $i++)
-		评论内容是 {{$comments[$i]}}
+<a name='blade-control-structures'></a>
+## Blade Control Structures
+
+#### For Loop:
+
+	@for ($i = 0; $i <= count($comments); $i++)
+		The comment body is {{ $comments[$i] }}
 	@endfor
 
+#### Foreach Loop:
+
+	@foreach ($comments as $comment)
+		The comment body is {{ $comment->body }}.
+	@endforeach
+
+#### While Loop:
+
 	@while ($something)
-		我还在循环!
+		I am still looping!
 	@endwhile
 
-#### "for-else" 控制结构:
+#### If Statement:
+
+	@if ( $message == true )
+		I'm displaying the message!
+	@endif
+
+#### If Else Statement:
+
+	@if (count($comments) > 0)
+		I have comments!
+	@else
+		I have no comments!
+	@endif
+
+#### Else If Statement:
+
+	@if ( $message == 'success' )
+		It was a success!
+	@elseif ( $message == 'error' )
+		An error occurred.
+	@else
+		Did it work?
+	@endif
+
+#### For Else Statement:
 
 	@forelse ($posts as $post)
 		{{ $post->body }}
 	@empty
-		数组里没有post!
+		There are not posts in the array!
 	@endforelse
 
-<a name="blade-unless"></a>
-#### "unless" 控制结构:
+#### Unless Statement:
 
 	@unless(Auth::check())
-		{{ HTML::link_to_route('login', 'Login'); }}
+		Login
 	@endunless
 
-	// 等价于...
+	// Equivalent to...
 
 	<?php if ( ! Auth::check()): ?>
-		...
+		Login
 	<?php endif; ?>
-
-<a name="blade-comments"></a>
-#### Blade 注释:
-	
-	@if ($check)
-		{{-- 这是一条注释 --}}
-		...
-	@endif
-
-> **注意:** Blade 注释, 不像 HTML 注释, 在HTML源代码里是看不见的.
 
 <a name="blade-layouts"></a>
 ## Blade Layouts
 
-Blade不仅提供了干净、优雅的语法来书写常见的PHP控制结构， 它还给你漂亮的方法来使用视图的layouts。 比如， 也许你的应用程序使用了一个"master"视图用来提供通用的外观。 可能像这样子：
+Not only does Blade provide clean, elegant syntax for common PHP control structures, it also gives you a beautiful method of using layouts for your views. For example, perhaps your application uses a "master" view to provide a common look and feel for your application. It may look something like this:
 
 	<html>
 		<ul class="navigation">
 			@section('navigation')
-				<li>导航项目 1</li>
-				<li>导航项目 2</li>
+				<li>Nav Item 1</li>
+				<li>Nav Item 2</li>
 			@yield_section
 		</ul>
 
@@ -151,31 +176,35 @@ Blade不仅提供了干净、优雅的语法来书写常见的PHP控制结构，
 		</div>
 	</html>
 
-注意"content" section被yielded。 我们需要用一些文本来填补这个section， 所以我们创建另一个使用这个layout的视图：
+Notice the "content" section being yielded. We need to fill this section with some text, so let's make another view that uses this layout:
 
 	@layout('master')
 
 	@section('content')
-		欢迎来到profile页面!
+		Welcome to the profile page!
 	@endsection
 
-棒极了! 现在，我们可以在路由里轻松返回"profile"视图:
+Great! Now, we can simply return the "profile" view from our route:
 
 	return View::make('profile');
 
-profile视图会自动使用"master"模板， 这要归功于Blade的**@layout**表达式。
+The profile view will automatically use the "master" template thanks to Blade's **@layout** expression.
 
-有时候你会想要在section后面补充而不是重写掉它。 比如，看看我们这个"master" layout的导航列表例子。 我们假设只想添加一个新项目。 我们就这样做：
+> **Important:** The **@layout** call must always be on the very first line of the file, with no leading whitespaces or newline breaks.
+
+#### Appending with @parent
+
+Sometimes you may want to only append to a section of a layout rather than overwrite it. For example, consider the navigation list in our "master" layout. Let's assume we just want to append a new list item. Here's how to do it:
 
 	@layout('master')
 
 	@section('navigation')
 		@parent
-		<li>导航项目 3</li>
+		<li>Nav Item 3</li>
 	@endsection
 
 	@section('content')
-		欢迎来到profile页面!
+		Welcome to the profile page!
 	@endsection
 
-注意到 **@parent** Blade结构了吗？ 它会被layout的navigation section替代， 这为你提供了漂亮和强大的执行layout扩展和继承的能力。
+**@parent** will be replaced with the contents of the layout's *navigation* section, providing you with a beautiful and powerful method of performing layout extension and inheritance.

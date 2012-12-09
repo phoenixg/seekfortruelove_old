@@ -1,22 +1,21 @@
-# 单元测试
+# Unit Testing
 
-## 内容
+## Contents
 
-- [基础](#the-basics)
-- [创建测试类](#creating-test-classes)
-- [运行测试](#running-tests)
-- [在测试里调用控制器](#calling-controllers-from-tests)
+- [The Basics](#the-basics)
+- [Creating Test Classes](#creating-test-classes)
+- [Running Tests](#running-tests)
+- [Calling Controllers From Tests](#calling-controllers-from-tests)
 
 <a name="the-basics"></a>
-## 基础
+## The Basics
 
-单元测试允许你测试代码，验证它们是否正常工作。 实际上， 许多人主张你应该先写测试再写代码！ Laravel提供了漂亮的对流行的[PHPUnit](http://www.phpunit.de/manual/current/en/) 测试类库的整合， 这让你写测试变得非常方便。 实际上， Laravel框架本身就有几百个单元测试！
-
+Unit Testing allows you to test your code and verify that it is working correctly. In fact, many advocate that you should even write your tests before you write your code! Laravel provides beautiful integration with the popular [PHPUnit](http://www.phpunit.de/manual/current/en/) testing library, making it easy to get started writing your tests. In fact, the Laravel framework itself has hundreds of unit tests!
 
 <a name="creating-test-classes"></a>
-## 创建测试类
+## Creating Test Classes
 
-你应用程序的全部测试都位于**application/tests**目录。 在这个目录里， 你会发现一个基础的**example.test.php**文件。 打开它， 看看它包含了：  
+All of your application's tests live in the **application/tests** directory. In this directory, you will find a basic **example.test.php** file. Pop it open and look at the class it contains:
 
 	<?php
 
@@ -34,37 +33,36 @@
 
 	}
 
-尤其注意**.test.php**后缀。 这会告诉Laravel它应该将这个类作为测试case包括进来。 任何在test目录下的文件，如果不以该后缀命名， 那么不会被当做一个测试case。 
+Take special note of the **.test.php** file suffix. This tells Laravel that it should include this class as a test case when running your test. Any files in the test directory that are not named with this suffix will not be considered a test case.
 
+If you are writing tests for a bundle, just place them in a **tests** directory within the bundle. Laravel will take care of the rest!
 
-如果你在为bundle写一个测试， 只需要把他们放在bundle底下的**tests** 目录中。 Laravel会搞定剩下的一切！ 
-
-更多关于创建测试cases的信息， 看看 [PHPUnit 文档](http://www.phpunit.de/manual/current/en/).
+For more information regarding creating test cases, check out the [PHPUnit documentation](http://www.phpunit.de/manual/current/en/).
 
 <a name="running-tests"></a>
-## 运行测试
+## Running Tests
 
-要运行测试， 你应该使用Laravel的Artisan命令行套件：
+To run your tests, you can use Laravel's Artisan command-line utility:
 
-#### 通过Artisan CLI运行应用程序测试:
+#### Running the application's tests via the Artisan CLI:
 
 	php artisan test
 
-#### 为bundle运行单元测试:
+#### Running the unit tests for a bundle:
 
 	php artisan test bundle-name
 
 <a name="#calling-controllers-from-tests"></a>
-## 在测试里调用控制器
+## Calling Controllers From Tests
 
-下面是你如何在测试里调用控制器的例子：
+Here's an example of how you can call your controllers from your tests:
 
-#### 在测试里调用控制器:
+#### Calling a controller from a test:
 
 	$response = Controller::call('home@index', $parameters);
 
-#### 在测试里化解一个控制器实例:
+#### Resolving an instance of a controller from a test:
 
 	$controller = Controller::resolve('application', 'home@index');
 
-> **注意:** 当使用 Controller::call 来执行控制器actions的时候， 控制器的 action 过滤器仍旧会运行。
+> **Note:** The controller's action filters will still run when using Controller::call to execute controller actions.

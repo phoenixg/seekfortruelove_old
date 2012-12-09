@@ -1,46 +1,46 @@
-# 路由
+# Routing
 
-## 内容
+## Contents
 
-- [基础](#the-basics)
-- [通配符](#wildcards)
-- [404 事件](#the-404-event)
-- [过滤器](#filters)
-- [Pattern 过滤器](#pattern-filters)
-- [Global 过滤器](#global-filters)
-- [路由组](#route-groups)
-- [命名路由](#named-routes)
-- [HTTPS 路由](#https-routes)
-- [Bundle 路由](#bundle-routes)
-- [Controller 路由](#controller-routing)
-- [CLI 路由测试](#cli-route-testing)
+- [The Basics](#the-basics)
+- [Wildcards](#wildcards)
+- [The 404 Event](#the-404-event)
+- [Filters](#filters)
+- [Pattern Filters](#pattern-filters)
+- [Global Filters](#global-filters)
+- [Route Groups](#route-groups)
+- [Named Routes](#named-routes)
+- [HTTPS Routes](#https-routes)
+- [Bundle Routes](#bundle-routes)
+- [Controller Routing](#controller-routing)
+- [CLI Route Testing](#cli-route-testing)
 
 <a name="the-basics"></a>
-## 基础
+## The Basics
 
-Laravel使用最新的PHP 5.3的特性来使得路由变得简单而富有表达性。 从简单的API到复杂的web应用程序，都尽可能简单。路由通常定义在**application/routes.php**。
+Laravel uses the latest features of PHP 5.3 to make routing simple and expressive. It's important that building everything from APIs to complex web applications is as easy as possible. Routes are typically defined in **application/routes.php**.
 
-与其他框架不同，Laravel可以以两种方式嵌入应用程序逻辑。控制器时最普遍的，还可以用路由。小型站的话用路由极其方便。
+Unlike many other frameworks with Laravel it's possible to embed application logic in two ways. While controllers are the most common way to implement application logic it's also possible to embed your logic directly into routes. This is **especially** nice for small sites that contain only a few pages as you don't have to create a bunch of controllers just to expose half a dozen methods or put a handful of unrelated methods into the same controller and then have to manually designate routes that point to them.
 
-下面的例子里，第一个参数是你“注册”的路由。 第二个参数是包含针对那个路由的函数逻辑。路由无需前置斜杠来定义。除了默认路由外，它**只有**一个前斜杠。
+In the following example the first parameter is the route that you're "registering" with the router. The second parameter is the function containing the logic for that route. Routes are defined without a front-slash. The only exception to this is the default route which is represented with **only** a front-slash.
 
-> **注意:** 路由按照注册的顺序来生效, 所以请在**routes.php**文件的底部注册任何 "catch-all" 路由。
+> **Note:** Routes are evaluated in the order that they are registered, so register any "catch-all" routes at the bottom of your **routes.php** file.
 
-#### 注册一条响应 "GET /" 的路由:
+#### Registering a route that responds to "GET /":
 
 	Route::get('/', function()
 	{
 		return "Hello World!";
 	});
 
-#### 注册一条针对任何HTTP动作的路由 (GET, POST, PUT, 和 DELETE):
+#### Registering a route that is valid for any HTTP verb (GET, POST, PUT, and DELETE):
 
 	Route::any('/', function()
 	{
 		return "Hello World!";
 	});
 
-#### 注册响应其他方法的路由：
+#### Registering routes for other request methods:
 
 	Route::post('user', function()
 	{
@@ -57,28 +57,35 @@ Laravel使用最新的PHP 5.3的特性来使得路由变得简单而富有表达
 		//
 	});
 
-**注册一条URI，响应多种HTTP动作:**
+**Registering a single URI for multiple HTTP verbs:**
 
 	Router::register(array('GET', 'POST'), $uri, $callback);
 
 <a name="wildcards"></a>
-## 通配符
+## Wildcards
 
-#### 强制一个URI段为任意数字:
+#### Forcing a URI segment to be any digit:
 
 	Route::get('user/(:num)', function($id)
 	{
 		//
 	});
 
-#### 允许一个URI段为任意字母-数字结合的字符串:
+#### Allowing a URI segment to be any alpha-numeric string:
 
 	Route::get('post/(:any)', function($title)
 	{
 		//
 	});
 
-#### 允许一个URI段为可选的:
+#### Catching the remaining URI without limitations:
+
+	Route::get('files/(:all)', function($path)
+	{
+		//
+	});
+
+#### Allowing a URI segment to be optional:
 
 	Route::get('page/(:any?)', function($page = 'index')
 	{
@@ -86,57 +93,57 @@ Laravel使用最新的PHP 5.3的特性来使得路由变得简单而富有表达
 	});
 
 <a name="the-404-event"></a>
-## 404 事件
+## The 404 Event
 
-如果进入你应用程序的请求不满足任何已存在的路由，那么404事件就被激活。你可以在**application/routes.php**文件中找到默认的事件处理机制。
+If a request enters your application but does not match any existing route, the 404 event will be raised. You can find the default event handler in your **application/routes.php** file.
 
-#### 默认的404事件处理器:
+#### The default 404 event handler:
 
 	Event::listen('404', function()
 	{
 		return Response::error('404');
 	});
 
-你可以按自己的需求随意更改这里！
+You are free to change this to fit the needs of your application!
 
-*进深阅读:*
+*Further Reading:*
 
-- *[事件](/docs/events)*
+- *[Events](/docs/events)*
 
 <a name="filters"></a>
-## 过滤器
+## Filters
 
-路由过滤器可以在一条路由执行前或执行后运行。如果"before"过滤器返回了一个值，那么这个值就是路由没有执行请求的响应，当植入验证过滤器等时，这很有用。过滤器通常定义在**application/routes.php**。
+Route filters may be run before or after a route is executed. If a "before" filter returns a value, that value is considered the response to the request and the route is not executed, which is convenient when implementing authentication filters, etc. Filters are typically defined in **application/routes.php**.
 
-#### 注册一个过滤器:
+#### Registering a filter:
 
 	Route::filter('filter', function()
 	{
 		return Redirect::to('home');
 	});
 
-#### 为路由添加一个过滤器:
+#### Attaching a filter to a route:
 
 	Route::get('blocked', array('before' => 'filter', function()
 	{
 		return View::make('blocked');
 	}));
 
-#### 为路由添加一个"after"过滤器:
+#### Attaching an "after" filter to a route:
 
 	Route::get('download', array('after' => 'log', function()
 	{
 		//
 	}));
 
-#### 为路由添加多个过滤器:
+#### Attaching multiple filters to a route:
 
 	Route::get('create', array('before' => 'auth|csrf', function()
 	{
 		//
 	}));
 
-#### 为过滤器传递参数:
+#### Passing parameters to filters:
 
 	Route::get('panel', array('before' => 'role:admin', function()
 	{
@@ -144,26 +151,34 @@ Laravel使用最新的PHP 5.3的特性来使得路由变得简单而富有表达
 	}));
 
 <a name="pattern-filters"></a>
-## Pattern 过滤器
+## Pattern Filters
 
-有时候你可能要添加一个过滤器给所有以某个URI开始的所有请求。比如，你可能想要添加一个"auth"过滤器给所有以"admin"开头的URI。可以这样做：
+Sometimes you may want to attach a filter to all requests that begin with a given URI. For example, you may want to attach the "auth" filter to all requests with URIs that begin with "admin". Here's how to do it:
 
-#### 定义一个基于 URI pattern 的过滤器:
+#### Defining a URI pattern based filter:
 
 	Route::filter('pattern: admin/*', 'auth');
 
+Optionally you can register filters directly when attaching filters to a given URI by supplying an array with the name of the filter and a callback.
+
+#### Defining a filter and URI pattern based filter in one:
+
+    Route::filter('pattern: admin/*', array('name' => 'auth', function()
+    {
+        // 
+    }));
+
 <a name="global-filters"></a>
-## Global 过滤器
+## Global Filters
 
-Laravel有两种"global"过滤器，执行针对你的应用程序每次 **before** 和 **after**的请求。你可以在**application/routes.php**文件里找到它们。这些过滤器在启用common bundles或添加全局assets的时候非常有用。
+Laravel has two "global" filters that run **before** and **after** every request to your application. You can find them both in the **application/routes.php** file. These filters make great places to start common bundles or add global assets.
 
-
-> **注意:**  **after** 过滤器为当前请求接受 **Response** 对象。
+> **Note:** The **after** filter receives the **Response** object for the current request.
 
 <a name="route-groups"></a>
-## 路由组
+## Route Groups
 
-路由组允许你添加一系列的属性给路由组，允许你保持代码的整洁。
+Route groups allow you to attach a set of attributes to a group of routes, allowing you to keep your code neat and tidy.
 
 	Route::group(array('before' => 'auth'), function()
 	{
@@ -179,47 +194,47 @@ Laravel有两种"global"过滤器，执行针对你的应用程序每次 **befor
 	});
 
 <a name="named-routes"></a>
-## 命名路由
+## Named Routes
 
-频繁地使用路由的URI来生成URLs或重定向，在路由日后改变的时候可能引起问题。给路由的赋值一个名称给了你便捷的方法来在应用程序中引用你的路由。当路由改变发生时，生成的链接也会指向新的路由，无需另外的配置。
+Constantly generating URLs or redirects using a route's URI can cause problems when routes are later changed. Assigning the route a name gives you a convenient way to refer to the route throughout your application. When a route change occurs the generated links will point to the new route with no further configuration needed.
 
-#### 注册一个命名路由:
+#### Registering a named route:
 
 	Route::get('/', array('as' => 'home', function()
 	{
 		return "Hello World";
 	}));
 
-#### 为命名路由生成一个URL:
+#### Generating a URL to a named route:
 
 	$url = URL::to_route('home');
 
-#### 重定向至命名路由:
+#### Redirecting to the named route:
 
 	return Redirect::to_route('home');
 
-只有当你有命名路由的时候，你才可以使用给定的名称简单地检查路由是否处理了当前请求。
+Once you have named a route, you may easily check if the route handling the current request has a given name.
 
-#### 决定处理请求的路由是否存在一个给定的名称:
+#### Determine if the route handling the request has a given name:
 
 	if (Request::route()->is('home'))
 	{
-		// "home" 路由正在处理请求!
+		// The "home" route is handling the request!
 	}
 
 <a name="https-routes"></a>
-## HTTPS 路由
+## HTTPS Routes
 
-当定义路由时，你可以使用"https"属性来指明当生成URL或重定向到那条路由时要采用HTTPS协议。
+When defining routes, you may use the "https" attribute to indicate that the HTTPS protocol should be used when generating a URL or Redirect to that route.
 
-#### 定义一条 HTTPS 路由:
+#### Defining an HTTPS route:
 
 	Route::get('login', array('https' => true, function()
 	{
 		return View::make('login');
 	}));
 
-#### 使用 "secure" 捷径方法:
+#### Using the "secure" short-cut method:
 
 	Route::secure('GET', 'login', function()
 	{
@@ -227,13 +242,13 @@ Laravel有两种"global"过滤器，执行针对你的应用程序每次 **befor
 	});
 
 <a name="bundle-routes"></a>
-## Bundle 路由
+## Bundle Routes
 
-Bundles是Laravel的模块管理系统。 Bundles可以简单地在应用程序里配置来处理请求。 我们会在[更多bundles的信息](/docs/bundles) 详细解释。 目前为止，阅读这段，只要知道路由可以用在bundles里，也可以在bundles里注册就可以了。
+Bundles are Laravel's modular package system. Bundles can easily be configured to handle requests to your application. We'll be going over [bundles in more detail](/docs/bundles) in another document. For now, read through this section and just be aware that not only can routes be used to expose functionality in bundles, but they can also be registered from within bundles.
 
-我们打开**application/bundles.php**文件，添加一些东西：
+Let's open the **application/bundles.php** file and add something:
 
-#### 注册bundle来处理路由:
+#### Registering a bundle to handle routes:
 
 	return array(
 
@@ -241,82 +256,84 @@ Bundles是Laravel的模块管理系统。 Bundles可以简单地在应用程序�
 
 	);
 
-注意，我们的bundle配置数组里新的**handles**选项？这告诉Laravel要去在任何以"admin"开始的URI的请求时加载Admin bundle。
+Notice the new **handles** option in our bundle configuration array? This tells Laravel to load the Admin bundle on any requests where the URI begins with "admin".
 
-现在你已经准备好为bundle注册一些路由了呃，所以请在bundle的根目录创建一个**routes.php**文件：
+Now you're ready to register some routes for your bundle, so create a **routes.php** file within the root directory of your bundle and add the following:
 
-#### 为bundle注册一个根路由:
+#### Registering a root route for a bundle:
 
 	Route::get('(:bundle)', function()
 	{
-		return '欢迎来到 Admin bundle!';
+		return 'Welcome to the Admin bundle!';
 	});
 
-我们查看这个例子。注意到 **(:bundle)**这个占位符了吗？ 这会替换你用来注册bundle的 **handles** 从句的值。 这让你的代码保持[D.R.Y.](http://en.wikipedia.org/wiki/Don't_repeat_yourself) ，允许使用你的bundle的人改变根URI而不破坏你的路由！ 漂亮，不是吗？
+Let's explore this example. Notice the **(:bundle)** place-holder? That will be replaced with the value of the **handles** clause that you used to register your bundle. This keeps your code [D.R.Y.](http://en.wikipedia.org/wiki/Don't_repeat_yourself) and allows those who use your bundle to change it's root URI without breaking your routes! Nice, right?
 
-当然，你可以给所有路由使用 **(:bundle)** 占位符，而不仅仅是你的根路由。
+Of course, you can use the **(:bundle)** place-holder for all of your routes, not just your root route.
 
-#### 注册bundle路由:
+#### Registering bundle routes:
 
 	Route::get('(:bundle)/panel', function()
 	{
-		return "我处理向 admin/panel 提交的请求!";
+		return "I handle requests to admin/panel!";
 	});
 
 <a name="controller-routing"></a>
-## Controller 路由
+## Controller Routing
 
-控制器提供了其他管理你的应用程序逻辑的方式。如果你不熟悉控制器，你也许想要阅读下[了解一下控制器](/docs/controllers) ，然后返回这个段落。
+Controllers provide another way to manage your application logic. If you're unfamiliar with controllers you may want to [read about controllers](/docs/controllers) and return to this section.
 
-重要的一点，Laravel的所有路由必须明确指定，包括路由到控制器。 这意味着控制器方法如果没有在路由里面注册，就**无法**访问到。 可以通过在控制器里使用控制器的路由注册来自动暴露全部的方法。 控制器路由注册一般定义在**application/routes.php**。
+It is important to be aware that all routes in Laravel must be explicitly defined, including routes to controllers. This means that controller methods that have not been exposed through route registration **cannot** be accessed. It's possible to automatically expose all methods within a controller using controller route registration. Controller route registrations are typically defined in **application/routes.php**.
 
-最可能的，你仅仅想要注册"controllers"目录下的全部控制器。 你可以用一条语句来完成。这样做：
+Most likely, you just want to register all of the controllers in your application's "controllers" directory. You can do it in one simple statement. Here's how:
 
-#### 注册全部的控制器:
+#### Register all controllers for the application:
 
 	Route::controller(Controller::detect());
 
-**Controller::detect** 方法简单地返回全部已定义的控制器的方法为数组。
+The **Controller::detect** method simply returns an array of all of the controllers defined for the application.
 
-如果你想要在bundle里面自动侦测控制器，只需要给该方法传递一个bundle名称。 如果没有指定bundle，那么就会搜索application目录下的controller。
+If you wish to automatically detect the controllers in a bundle, just pass the bundle name to the method. If no bundle is specified, the application folder's controller directory will be searched.
 
-#### 注册全部"admin" bundle的控制器:
+> **Note:** It is important to note that this method gives you no control over the order in which controllers are loaded. Controller::detect() should only be used to Route controllers in very small sites. "Manually" routing controllers gives you much more control, is more self-documenting, and is certainly advised.
+
+#### Register all controllers for the "admin" bundle:
 
 	Route::controller(Controller::detect('admin'));
 
-#### 注册"home"控制器的路由:
+#### Registering the "home" controller with the Router:
 
 	Route::controller('home');
 
-#### 注册几个控制器的路由:
+#### Registering several controllers with the router:
 
 	Route::controller(array('dashboard.panel', 'admin'));
 
-一旦一个控制器被注册了，你可以使用简单的URI约定来访问它的方法：
+Once a controller is registered, you may access its methods using a simple URI convention:
 
 	http://localhost/controller/method/arguments
 
-这个约定类似CodeIgniter和其他流行框架的访问方式， 第一段是控制器名称，第二段是方法名称，剩余的段用来传递方法的参数。 如果没有方法传递，那么就会使用"index"方法。
+This convention is similar to that employed by CodeIgniter and other popular frameworks, where the first segment is the controller name, the second is the method, and the remaining segments are passed to the method as arguments. If no method segment is present, the "index" method will be used.
 
-这个路由约定也许不能适用于全部场景，所以你也可以明确地路由URIs至控制器的方法，可以用这样的语法。
+This routing convention may not be desirable for every situation, so you may also explicitly route URIs to controller actions using a simple, intuitive syntax.
 
-#### 注册一个路由，指向控制器的某个方法:
+#### Registering a route that points to a controller action:
 
 	Route::get('welcome', 'home@index');
 
-#### 注册一个过滤的路由，指向控制器的某个方法:
+#### Registering a filtered route that points to a controller action:
 
 	Route::get('welcome', array('after' => 'log', 'uses' => 'home@index'));
 
-#### 注册一个命名的路由，指向控制器的某个方法:
+#### Registering a named route that points to a controller action:
 
 	Route::get('welcome', array('as' => 'home.welcome', 'uses' => 'home@index'));
 
 <a name="cli-route-testing"></a>
-## CLI 路由测试
+## CLI Route Testing
 
-你可以使用Laravel的"Artisan"命令行工具来测试路由。 简单的指定你要使用的请求方法和URI就可以了。 路由响应会以var_dump的形式返回到CLI输出。
+You may test your routes using Laravel's "Artisan" CLI. Simple specify the request method and URI you want to use. The route response will be var_dump'd back to the CLI.
 
-#### 通过Artisan CLI调用一条路由:
+#### Calling a route via the Artisan CLI:
 
 	php artisan route:call get api/user/1

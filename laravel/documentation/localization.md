@@ -1,23 +1,21 @@
-# 本地化
+# Localization
 
-## 内容
+## Contents
 
-- [基础](#the-basics)
-- [获取一个语言行](#get)
-- [占位符 & 替换](#replace)
+- [The Basics](#the-basics)
+- [Retrieving A Language Line](#get)
+- [Place Holders & Replacements](#replace)
 
 <a name="the-basics"></a>
-## 基础
+## The Basics
 
-本地化是将你的应用程序翻译成其他语言的过程。 **Lang** 类提供了简单的机制来帮助你组织和解析多语言应用程序的文本。 
+Localization is the process of translating your application into different languages. The **Lang** class provides a simple mechanism to help you organize and retrieve the text of your multilingual application.
 
-所有的语言文件都存放在 **application/language** 目录。 在 **application/language** 目录下， 你应该为每个支持语言创建一个文件夹， 比如如果你的应用程序既要有英语也要有西班牙语，就创建**en** 和 **sp** 目录于 **language** 目录下。 
+All of the language files for your application live under the **application/language** directory. Within the **application/language** directory, you should create a directory for each language your application speaks. So, for example, if your application speaks English and Spanish, you might create **en** and **sp** directories under the **language** directory.
 
+Each language directory may contain many different language files. Each language file is simply an array of string values in that language. In fact, language files are structured identically to configuration files. For example, within the **application/language/en** directory, you could create a **marketing.php** file that looks like this:
 
-每个语言目录都包含许多不同语言文件。 每个语言文件都是简单的用该语言写的数组。 实际上， 语言文件的结构和配置文件是一样的。 比如， 在 **application/language/en** 目录里， 你可以创建一个 **marketing.php** 文件， 像这样：
-
-
-#### 创建一个语言文件:
+#### Creating a language file:
 
 	return array(
 
@@ -25,7 +23,7 @@
 
 	);
 
-下面， 你应该在 **application/language/sp** 下面创建一个相对应的 **marketing.php** 文件。 该文件应该像这样：
+Next, you should create a corresponding **marketing.php** file within the **application/language/sp** directory. The file would look something like this:
 
 	return array(
 
@@ -33,40 +31,40 @@
 
 	);
 
-非常棒！ 现在你知道如何设置语言文件和目录了。 我们继续本地化！
+Nice! Now you know how to get started setting up your language files and directories. Let's keep localizing!
 
 <a name="get"></a>
-## 获取一个语言行
+## Retrieving A Language Line
 
-#### 获取一个语言行:
+#### Retrieving a language line:
 
 	echo Lang::line('marketing.welcome')->get();
 
-#### 获取一个语言行, 使用 "__" 辅助函数:
+#### Retrieving a language line using the "__" helper:
 
 	echo __('marketing.welcome');
 
-注意到一个句点被用来分隔"marketing" 和 "welcome"了吗？ 句点之前的文本对应语言文件， 句点之后的文本对应特定该语言文件的字符串。 
+Notice how a dot was used to separate "marketing" and "welcome"? The text before the dot corresponds to the language file, while the text after the dot corresponds to a specific string within that file.
 
-你需要解析语言的一行而不是默认的吗？ 没问题。 只需要用到 **get** 方法来提及语言即可。 
+Need to retrieve the line in a language other than your default? Not a problem. Just mention the language to the **get** method:
 
-#### 用给定的语言获取一个语言行:
+#### Getting a language line in a given language:
 
 	echo Lang::line('marketing.welcome')->get('sp');
 
 <a name="replace"></a>
-## 占位符 & 替换
+## Place Holders & Replacements
 
-现在， 我们来玩玩欢迎消息。 "Welcome to our website!" 是一个很不错的消息。 可以用来指定你要打招呼的对方的姓名。 但是， 为每个用户创建语言行很费事、夸张。 幸好你无需这么做。 你可以指定语言文件里的占位符。 占位符用冒号来开头：
+Now, let's work on our welcome message. "Welcome to our website!" is a pretty generic message. It would be helpful to be able to specify the name of the person we are welcoming. But, creating a language line for each user of our application would be time-consuming and ridiculous. Thankfully, you don't have to. You can specify "place-holders" within your language lines. Place-holders are preceded by a colon:
 
-#### 用占位符创建一个语言行:
+#### Creating a language line with place-holders:
 
 	'welcome' => 'Welcome to our website, :name!'
 
-#### 用替换文本来解析一个语言行:
+#### Retrieving a language line with replacements:
 
 	echo Lang::line('marketing.welcome', array('name' => 'Taylor'))->get();
 
-#### 用替换文本来解析一个语言行，使用 "__":
+#### Retrieving a language line with replacements using "__":
 
 	echo __('marketing.welcome', array('name' => 'Taylor'));
