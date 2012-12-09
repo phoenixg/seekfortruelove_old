@@ -75,7 +75,7 @@ $message = Swift_Message::newInstance('Message From Website')
 // Send the email
 $mailer->send($message);
 */
-
+die;
 
 			// 
 			return Redirect::to_route('welcome')
@@ -87,6 +87,8 @@ $mailer->send($message);
 
 	public function get_welcome()
 	{
+		//如果session里头没有message就直接跳转
+
 		return View::make('welcome');
 	}
 
