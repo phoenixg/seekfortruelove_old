@@ -57,7 +57,7 @@ Bundle::start('swiftmailer');
 Laravel\IoC::register('mailer.transport', function()
 {
     return Swift_SmtpTransport::newInstance('smtp.qq.com', 25)
-        ->setUsername('2814258914@qq.com')
+        ->setUsername('2814258914')
         ->setPassword('nihaoma')
         ;
 });
