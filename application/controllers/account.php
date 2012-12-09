@@ -56,7 +56,7 @@ class Account_Controller extends Base_Controller
 Bundle::start('swiftmailer');
 Laravel\IoC::register('mailer.transport', function()
 {
-    return Swift_SmtpTransport::newInstance('smtp.gmail.com', 465)
+    return Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
         ->setUsername('gopher.huang@gmail.com')
         ->setPassword('')
         ;
