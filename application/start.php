@@ -181,7 +181,7 @@ set_path('image_profile_small', path('public') .'images' . DS . 'profile' . DS .
 Bundle::start('swiftmailer');
 Laravel\IoC::register('mailer.transport', function()
 {
-    return Swift_SmtpTransport::newInstance(Config::get('application.mail_smtp_addr'), Config::get('application.mail_smtp_port'))
+    return Swift_SmtpTransport::newInstance(Config::get('application.mail_smtp_addr'), Config::get('application.mail_smtp_port'), 'ssl')
 						      ->setUsername(Config::get('application.mail_account'))
 						      ->setPassword(Config::get('application.mail_password'));
 });
