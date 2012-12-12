@@ -29,7 +29,7 @@ class Account_Controller extends Base_Controller
 					->with_input();
 		} else {
 			User::create(array(
-				'email' => Input::get('email'),
+				'email' => trim(Input::get('email')),
 				'nickname' => Input::get('nickname'),
 				'password' => Hash::make(Input::get('password')),
 				'sex' => Input::get('sex'),
@@ -74,9 +74,8 @@ class Account_Controller extends Base_Controller
 
 						// 发送激活邮件
 			$message = Swift_Message::newInstance('来自seekfortruelove的注册激活邮件')
-					    ->setFrom(array('gopher.huang@gmail.com'=>'管理员'))
-					    //->setTo(array('2814258914@qq.com'=> Input::get('nickname')))
-					    ->setTo(array('phoenix50000@126.com'=> Input::get('nickname')))
+					    ->setFrom(array(Config::get('application.mail_account') => 'SEEKFORTRUELOVE'))
+					    ->setTo(array(trim(Input::get('email')) => trim(Input::get('nickname'))))
 					    ->setBody($messageBody,'text/html');
 
 
