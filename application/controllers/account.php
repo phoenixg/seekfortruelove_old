@@ -52,15 +52,11 @@ class Account_Controller extends Base_Controller
 
 
 			// 发送激活邮件
-// see http://bundles.laravel.com/bundle/swiftmailer
-
-$mailer = Laravel\IoC::resolve('mailer');
-
-$message = Swift_Message::newInstance('Message From Website')
-		    ->setFrom(array('gopher.huang@gmail.com'=>'Mr Example'))
-		    ->setTo(array('gopher.huang@gmail.com'=>'Mr Example'))
-		    ->addPart('My Plain Text Message','text/plain')
-		    ->setBody('My HTML Message','text/html');
+$message = Swift_Message::newInstance('来自seekfortruelove的注册反馈信息')
+		    ->setFrom(array('gopher.huang@gmail.com'=>'管理员'))
+		    ->setTo(array('gopher.huang@gmail.com'=> Input::get('nickname')))
+		    ->addPart('Plain Text Message','text/plain')
+		    ->setBody('点这个链接吧：<a href="www.baidu.com/>点</a>"','text/html');
 
 // Send the email
 $mailer->send($message);

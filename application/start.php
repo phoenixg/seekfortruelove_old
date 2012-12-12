@@ -186,6 +186,7 @@ Laravel\IoC::register('mailer.transport', function()
 						      ->setPassword(Config::get('application.mail_password'));
 });
 
+$mailer = Laravel\IoC::resolve('mailer');
 
 
 
