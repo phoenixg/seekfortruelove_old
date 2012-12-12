@@ -29,7 +29,7 @@ class Account_Controller extends Base_Controller
 					->with_input();
 		} else {
 			User::create(array(
-				'email' => trim(Input::get('email'))),
+				'email' => trim(Input::get('email')),
 				'nickname' => trim(Input::get('nickname')),
 				'password' => Hash::make(trim(Input::get('password'))),
 				'sex' => trim(Input::get('sex')),
