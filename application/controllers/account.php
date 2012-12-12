@@ -50,6 +50,7 @@ class Account_Controller extends Base_Controller
 				'blog' => Input::get('blog')
 			));
 
+$mailer = Laravel\IoC::resolve('mailer');
 
 			// 发送激活邮件
 $message = Swift_Message::newInstance('来自seekfortruelove的注册反馈信息')
