@@ -26,6 +26,7 @@ class Create_Users_Table{
       $table->integer('companytype');
       $table->integer('salary');
       $table->string('blog', 100);
+      $table->integer('verified', 1);
 
       $table->timestamps();
     });
@@ -51,6 +52,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '3',
       'blog' => 'blog.sample.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -76,6 +78,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '4',
       'blog' => 'blog.sample.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -101,6 +104,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '5',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -126,6 +130,7 @@ class Create_Users_Table{
       'companytype' => '4',
       'salary' => '5',
       'blog' => 'blog.aaa.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -151,6 +156,7 @@ class Create_Users_Table{
       'companytype' => '2',
       'salary' => '5',
       'blog' => 'blog.aaa.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -176,6 +182,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '8',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -201,6 +208,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '6',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -226,6 +234,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '6',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -251,6 +260,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '7',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -276,6 +286,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '8',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -301,6 +312,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '9',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -326,6 +338,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '8',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -351,6 +364,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '6',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -376,6 +390,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '8',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -401,6 +416,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '9',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -426,6 +442,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '10',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -451,6 +468,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '11',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -476,6 +494,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '8',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -501,6 +520,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '9',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -526,6 +546,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '7',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -551,6 +572,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '8',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -576,6 +598,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '7',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -601,6 +624,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '6',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -626,6 +650,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '5',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -651,6 +676,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '4',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -676,6 +702,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '9',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -701,6 +728,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '6',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -726,6 +754,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '8',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -752,6 +781,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '9',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -778,6 +808,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '5',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -803,6 +834,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '7',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -828,6 +860,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '12',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -854,6 +887,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '13',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -879,6 +913,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '15',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -904,6 +939,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '9',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -930,6 +966,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '7',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -955,6 +992,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '5',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -981,6 +1019,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '10',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -1006,6 +1045,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '7',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
@@ -1031,6 +1071,7 @@ class Create_Users_Table{
       'companytype' => '1',
       'salary' => '2',
       'blog' => 'blog.test.com',
+      'verified' => '0',
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
     ));
