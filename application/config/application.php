@@ -192,6 +192,8 @@ return array(
 
 	'upsizelimit' => 1 * 1024 * 102,
 
-	'mail_account' => 'gopher.huang@gmail.com',
+	'mail_smtp_addr'    => 'smtp.qq.com',
+	'mail_smtp_port'    => '25',
+	'mail_account' => '2814258914@qq.com',
 	'mail_password' => '',
 );
