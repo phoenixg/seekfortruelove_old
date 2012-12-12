@@ -52,12 +52,62 @@ class Account_Controller extends Base_Controller
 
 $mailer = Laravel\IoC::resolve('mailer');
 
+$messageBody = 
+'您好'.Input::get('nickname').
+'弟兄/姐妹，这封信是由seekfortruelove网站自动发出的，您收到这封邮件，是由于在[seekfortruelove网址]进行了新用户注册。您的用户名是：'.Input::get('email').'
+
+如果您并没有访问过seekfortruelove网站，请忽略这封邮件。
+
+您只需点击下面的链接即可激活您的帐号：
+http://www.domain.com/code123456789
+(如果上面不是链接形式，请将该地址手工粘贴到浏览器地址栏再访问)
+
+此电邮为系统自动发出，请勿回复。 
+
+感谢您的访问，祝您使用愉快！
+
+此致
+SEEKFORTRUELOVE
+http://www.domain.com/
+如有疑问请发邮件至：test@gmail.com
+';
+
+
+/*
+
+您好 Input::get('nickname') 弟兄/姐妹，
+
+这封信是由seekfortruelove网站自动发出的，您收到这封邮件，是由于在[seekfortruelove网址]进行了新用户注册。您的用户名是：Input::get('email')
+
+如果您并没有访问过seekfortruelove网站，请忽略这封邮件。
+
+您只需点击下面的链接即可激活您的帐号：
+http://www.domain.com/code123456789
+(如果上面不是链接形式，请将该地址手工粘贴到浏览器地址栏再访问)
+
+此电邮为系统自动发出，请勿回复。 
+
+感谢您的访问，祝您使用愉快！
+
+此致
+SEEKFORTRUELOVE
+http://www.domain.com/
+如有疑问请发邮件至：test@gmail.com
+
+*/
+
+
 			// 发送激活邮件
 $message = Swift_Message::newInstance('来自seekfortruelove的注册反馈信息')
 		    ->setFrom(array('gopher.huang@gmail.com'=>'管理员'))
 		    ->setTo(array('2814258914@qq.com'=> Input::get('nickname')))
 		    ->addPart('Plain Text Message','text/plain')
-		    ->setBody('点这个链接吧：www.baidu.com','text/html');
+		    ->setBody($messageBody,'text/html');
+
+
+
+
+
 
 // Send the email
 $mailer->send($message);
