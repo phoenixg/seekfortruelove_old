@@ -29,25 +29,25 @@ class Account_Controller extends Base_Controller
 					->with_input();
 		} else {
 			User::create(array(
-				'email' => trim(Input::get('email')),
-				'nickname' => Input::get('nickname'),
-				'password' => Hash::make(Input::get('password')),
-				'sex' => Input::get('sex'),
-				'ethnic' => Input::get('ethnic'),
-				'nationality' => Input::get('nationality'),
-				'height' => Input::get('height'),
-				'weight' => Input::get('weight'),
-				'born' => Input::get('born'),
-				'district' => Input::get('district'),
-				'marriage' => Input::get('marriage'),
-				'living' => Input::get('living'),
-				'academic' => Input::get('academic'),
-				'school' => Input::get('school'),
-				'industry' => Input::get('industry'),
-				'profession' => Input::get('profession'),
-				'companytype' => Input::get('companytype'),
-				'salary' => Input::get('salary'),
-				'blog' => Input::get('blog')
+				'email' => trim(Input::get('email'))),
+				'nickname' => trim(Input::get('nickname')),
+				'password' => Hash::make(trim(Input::get('password'))),
+				'sex' => trim(Input::get('sex')),
+				'ethnic' => trim(Input::get('ethnic')),
+				'nationality' => trim(Input::get('nationality')),
+				'height' => trim(Input::get('height')),
+				'weight' => trim(Input::get('weight')),
+				'born' => trim(Input::get('born')),
+				'district' => trim(Input::get('district')),
+				'marriage' => trim(Input::get('marriage')),
+				'living' => trim(Input::get('living')),
+				'academic' => trim(Input::get('academic')),
+				'school' => trim(Input::get('school')),
+				'industry' => trim(Input::get('industry')),
+				'profession' => trim(Input::get('profession')),
+				'companytype' => trim(Input::get('companytype')),
+				'salary' => trim(Input::get('salary')),
+				'blog' => trim(Input::get('blog'))
 			));
 
 			$mailer = Laravel\IoC::resolve('mailer');
