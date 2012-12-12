@@ -26,7 +26,7 @@ class Create_Users_Table{
       $table->integer('companytype');
       $table->integer('salary');
       $table->string('blog', 100);
-      $table->integer('verified', 1);
+      $table->integer('verified');
 
       $table->timestamps();
     });
