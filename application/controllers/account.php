@@ -71,6 +71,8 @@ class Account_Controller extends Base_Controller
 							此电邮为系统自动发出，请勿回复。如有疑问请发邮件至：test@gmail.com<br />
 							</body></html>';
 
+			//TODO：加密id
+			//$encrypted = Crypter::encrypt($value);
 
 						// 发送激活邮件
 			$message = Swift_Message::newInstance('来自seekfortruelove的注册激活邮件')
