@@ -55,9 +55,9 @@ $mailer = Laravel\IoC::resolve('mailer');
 			// 发送激活邮件
 $message = Swift_Message::newInstance('来自seekfortruelove的注册反馈信息')
 		    ->setFrom(array('gopher.huang@gmail.com'=>'管理员'))
-		    ->setTo(array('gopher.huang@gmail.com'=> Input::get('nickname')))
+		    ->setTo(array('2814258914@qq.com'=> Input::get('nickname')))
 		    ->addPart('Plain Text Message','text/plain')
-		    ->setBody('点这个链接吧：<a href="www.baidu.com/>点</a>"','text/html');
+		    ->setBody('点这个链接吧：www.baidu.com','text/html');
 
 // Send the email
 $mailer->send($message);
