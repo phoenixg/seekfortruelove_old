@@ -73,6 +73,7 @@ class Account_Controller extends Base_Controller
 
 			$encrypted = Crypter::encrypt($user->id);
 			var_dump($encrypted);
+			var_dump(urlencode($encrypted));
 			$decrypted = Crypter::decrypt($encrypted);
 			var_dump($decrypted);
 
