@@ -132,7 +132,7 @@ class Account_Controller extends Base_Controller
 		return Redirect::to_route('login');
 	}
 
-	public function get_verify()
+	public function get_verify($key)
 	{
 		var_dump(Input::get());
 		var_dump('you are not in get_verify');
