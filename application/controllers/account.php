@@ -52,14 +52,15 @@ class Account_Controller extends Base_Controller
 
 			$mailer = Laravel\IoC::resolve('mailer');
 
+			$key = urlencode(Crypter::encrypt($user->id));
 			$messageBody = '<html><head></head><body>
 							您好'.Input::get('nickname'). '弟兄/姐妹，<br /><br />
 							这封信是由seekfortruelove网站自动发出的，您收到这封邮件，是由于在[seekfortruelove网址]进行了新用户注册。您的用户名是：'.Input::get('email').'<br /><br />
 
 							如果您并没有访问过seekfortruelove网站，请忽略这封邮件。<br /><br />
 
-							您只需点击下面的链接即可激活您的帐号：<br />
-							http://www.domain.com/code123456789
+							您只需点击下面的链接即可激活您的帐号：<br />'.
+							'http://173.230.150.168/gitprojects/seekfortruelove/public/account/verify/'.$key.'
 							<br />
 							(如果上面不是链接形式，请将该地址手工粘贴到浏览器地址栏再访问)<br /><br />
 
@@ -71,11 +72,9 @@ class Account_Controller extends Base_Controller
 							此电邮为系统自动发出，请勿回复。如有疑问请发邮件至：test@gmail.com<br />
 							</body></html>';
 
-			$key = urlencode(Crypter::encrypt($user->id));
-			$decrypted = Crypter::decrypt(urldecode($key));
-			var_dump($decrypted);
-
-			die;
+			
+			//$id = Crypter::decrypt(urldecode($key));
+			
 
 			// 发送激活邮件
 			$message = Swift_Message::newInstance('来自seekfortruelove的注册激活邮件')
@@ -131,6 +130,12 @@ class Account_Controller extends Base_Controller
 	{
 		Auth::logout();
 		return Redirect::to_route('login');
+	}
+
+	public function get_verify()
+	{
+		var_dump(Input::get());
+		var_dump('you are not in get_verify');
 	}
 
 }
