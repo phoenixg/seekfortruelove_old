@@ -34,7 +34,7 @@ Route::get('/', array('as' => 'home', function(){
 //common pages
 Route::get('register', array('as' => 'register', 'uses' => 'account@register'));
 Route::post('create', array('as' => 'create', 'uses' => 'account@create'));
-Route::get('verify/(:any)', array('as' => 'verify', 'uses' => 'account@verify'));
+Route::get('verify/(:all)', array('as' => 'verify', 'uses' => 'account@verify'));
 Route::get('welcome', array('as' => 'welcome', 'uses' => 'account@welcome'));
 Route::get('login', array('as' => 'login', 'uses' => 'account@login'));
 Route::post('login', array('as' => 'login', 'uses' => 'account@login'));

@@ -134,9 +134,6 @@ class Account_Controller extends Base_Controller
 
 	public function get_verify($key)
 	{
-		
-		var_dump(Input::get());
-		var_dump('you are now in get_verify');
 		var_dump($key);
 	}
 
