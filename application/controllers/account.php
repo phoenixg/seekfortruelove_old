@@ -52,7 +52,9 @@ class Account_Controller extends Base_Controller
 
 			$mailer = Laravel\IoC::resolve('mailer');
 
-			$key = hash('MD5', Config::get('application.key'));
+			// 爱因斯坦也猜不到
+			$key = md5(Config::get('application.key') . $user->id)
+			
 			var_dump($key);die;
 			$messageBody = '<html><head></head><body>
 							您好'.Input::get('nickname'). '弟兄/姐妹，<br /><br />
