@@ -29,30 +29,31 @@ class Account_Controller extends Base_Controller
 					->with_input();
 		} else {
 			$user = User::create(array(
-				'email' => trim(Input::get('email')),
-				'nickname' => trim(Input::get('nickname')),
-				'password' => Hash::make(trim(Input::get('password'))),
-				'sex' => trim(Input::get('sex')),
-				'ethnic' => trim(Input::get('ethnic')),
-				'nationality' => trim(Input::get('nationality')),
-				'height' => trim(Input::get('height')),
-				'weight' => trim(Input::get('weight')),
-				'born' => trim(Input::get('born')),
-				'district' => trim(Input::get('district')),
-				'marriage' => trim(Input::get('marriage')),
-				'living' => trim(Input::get('living')),
-				'academic' => trim(Input::get('academic')),
-				'school' => trim(Input::get('school')),
-				'industry' => trim(Input::get('industry')),
-				'profession' => trim(Input::get('profession')),
-				'companytype' => trim(Input::get('companytype')),
-				'salary' => trim(Input::get('salary')),
-				'blog' => trim(Input::get('blog'))
+				'email'           => trim(Input::get('email')),
+				'nickname'        => trim(Input::get('nickname')),
+				'password'        => Hash::make(trim(Input::get('password'))),
+				'sex'             => trim(Input::get('sex')),
+				'ethnic'          => trim(Input::get('ethnic')),
+				'nationality'     => trim(Input::get('nationality')),
+				'height'          => trim(Input::get('height')),
+				'weight'          => trim(Input::get('weight')),
+				'born'            => trim(Input::get('born')),
+				'district'        => trim(Input::get('district')),
+				'marriage'        => trim(Input::get('marriage')),
+				'living'          => trim(Input::get('living')),
+				'academic'        => trim(Input::get('academic')),
+				'school'          => trim(Input::get('school')),
+				'industry'        => trim(Input::get('industry')),
+				'profession'      => trim(Input::get('profession')),
+				'companytype'     => trim(Input::get('companytype')),
+				'salary'          => trim(Input::get('salary')),
+				'blog'            => trim(Input::get('blog'))
 			));
 
 			$mailer = Laravel\IoC::resolve('mailer');
 
-			$key = urlencode(Crypter::encrypt($user->id));
+			$key = hash('MD5', Config::get('application.key'));
+			var_dump($key);die;
 			$messageBody = '<html><head></head><body>
 							您好'.Input::get('nickname'). '弟兄/姐妹，<br /><br />
 
