@@ -28,7 +28,7 @@ class Account_Controller extends Base_Controller
 					->with_errors($validation)
 					->with_input();
 		} else {
-			User::create(array(
+			$user = User::create(array(
 				'email' => trim(Input::get('email')),
 				'nickname' => trim(Input::get('nickname')),
 				'password' => Hash::make(trim(Input::get('password'))),
@@ -72,9 +72,13 @@ class Account_Controller extends Base_Controller
 							</body></html>';
 
 			//TODO：加密id
-			//$encrypted = Crypter::encrypt($value);
+			$encrypted = Crypter::encrypt($user->id);
+			$decrypted = Crypter::decrypt($encrypted);
+			var_dump($decrypted);
 
-						// 发送激活邮件
+			die;
+
+			// 发送激活邮件
 			$message = Swift_Message::newInstance('来自seekfortruelove的注册激活邮件')
 					    ->setFrom(array(Config::get('application.mail_account') => 'SEEKFORTRUELOVE'))
 					    ->setTo(array(trim(Input::get('email')) => trim(Input::get('nickname'))))
