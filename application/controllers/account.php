@@ -148,12 +148,19 @@ class Account_Controller extends Base_Controller
 				->with('msg_verify_error', '这是无效的激活链接');
 			exit;
 		}else{
+
+			$user = User::find($uid);
+			$user->verified = '1';
+			$user->save();
+
+			/*
 			$affected = DB::table('users')
 				->where('id', '=', $uid)
 				->update(array('verified' => '1'));
 
 			var_dump($affected);die;
-
+			*/
+			die;
 			return Redirect::to_route('verifymail')
 				->with('msg_verify_pass', '有效的');
 			exit;
