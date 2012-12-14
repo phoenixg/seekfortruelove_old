@@ -86,7 +86,7 @@ class Account_Controller extends Base_Controller
  	
 
 			return Redirect::to_route('verifymail')
-				->with('email', trim(Input::get('email'));
+				->with('email', trim(Input::get('email')));
  			/*
 			return Redirect::to_route('welcome')
 				->with('message', '注册成功！');
