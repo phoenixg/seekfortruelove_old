@@ -145,7 +145,7 @@ class Account_Controller extends Base_Controller
 		// 判断激活链接是否正确
 		if($key != md5(Config::get('application.key') . $uid)){
 			return Redirect::to_route('verifymail')
-				->with('msg_verify_error', '这是无效的激活链接');
+				->with('msg_verify_error', '');
 			exit;
 		}else{
 
@@ -153,16 +153,8 @@ class Account_Controller extends Base_Controller
 			$user->verified = '1';
 			$user->save();
 
-			/*
-			$affected = DB::table('users')
-				->where('id', '=', $uid)
-				->update(array('verified' => '1'));
-
-			var_dump($affected);die;
-			*/
-			die;
 			return Redirect::to_route('verifymail')
-				->with('msg_verify_pass', '有效的');
+				->with('msg_verify_pass', '');
 			exit;
 		}
 	}

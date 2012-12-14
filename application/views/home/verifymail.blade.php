@@ -5,14 +5,17 @@
 	@if(Session::has('msg_verify_error'))
 	<div class="hero-unit">
 		<h2>糟糕！</h2>
-		<p>{{ Session::get('msg_verify_error') }}</p>
+		<p>这是无效的激活链接</p>
 	</div>
 	@endif
 
 	@if(Session::has('msg_verify_pass'))
 	<div class="hero-unit">
 		<h2>祝贺！</h2>
-		<p>{{ Session::get('msg_verify_pass') }}</p>
+		<p>
+			您的账号激活成功！现在可以直接
+			{{ HTML::link_to_route('login', '登录', array('class'=>'btn btn-primary')) }}
+		</p>
 	</div>
 	@endif
 
