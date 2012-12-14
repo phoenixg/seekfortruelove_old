@@ -141,12 +141,19 @@ class Account_Controller extends Base_Controller
 	public function get_verify($key)
 	{
 		$uid = trim(Input::get('uid'));
-		// 如果链接非法
+
+		// 判断激活链接是否正确
 		if($key != md5(Config::get('application.key') . $uid)){
 			return Redirect::to_route('verifymail')
-				->with('msg_verify_error', '此链接是无效的激活链接');
+				->with('msg_verify_error', '这是无效的激活链接');
 			exit;
 		}else{
+			$affected = DB::table('users')
+				->where('id', '=', $uid)
+				->update(array('verified' => '1'));
+
+			var_dump($affected);die;
+
 			return Redirect::to_route('verifymail')
 				->with('msg_verify_pass', '有效的');
 			exit;

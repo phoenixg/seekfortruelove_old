@@ -4,6 +4,9 @@ class Create_Users_Table{
        
   public function up()
   {
+    /*
+      verified : 0 未验证， 1 已验证， 2 被封禁
+    */
     Schema::create('users', function($table){
       $table->increments('id');
       $table->string('email', 128);
