@@ -143,10 +143,13 @@ class Account_Controller extends Base_Controller
 		$uid = trim(Input::get('uid'));
 		// 如果链接非法
 		if($key != md5(Config::get('application.key') . $uid)){
-			return Redirect::to_route('home');
+			return Redirect::to_route('verifymail')
+				->with('msg_verify_error', '此链接是无效的激活链接');
 			exit;
 		}else{
-			echo '通过了';	
+			return Redirect::to_route('verifymail')
+				->with('msg_verify_pass', '有效的');
+			exit;
 		}
 	}
 
