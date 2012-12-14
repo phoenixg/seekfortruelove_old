@@ -149,6 +149,9 @@ class Account_Controller extends Base_Controller
 			exit;
 		}else{
 
+			// 如果没被禁用才能激活哦
+			// TODO
+
 			$user = User::find($uid);
 			$user->verified = '1';
 			$user->save();
