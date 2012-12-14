@@ -143,7 +143,8 @@ class Account_Controller extends Base_Controller
 		$uid = trim(Input::get('uid'));
 		// 如果链接非法
 		if($key != md5(Config::get('application.key') . $uid)){
-			echo '不通过';
+			return Redirect::to('home.index');
+			exit;
 		}else{
 			echo '通过了';	
 		}
