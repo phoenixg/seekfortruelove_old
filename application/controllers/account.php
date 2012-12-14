@@ -82,18 +82,23 @@ class Account_Controller extends Base_Controller
 					    ->setTo(array(trim(Input::get('email')) => trim(Input::get('nickname'))))
 					    ->setBody($messageBody,'text/html');
 
-
-			// Send the email
 			$mailer->send($message);
+ 	
 
-			die;
-
-			// 
+			return Redirect::to_route('verifymail')
+				->with('email', trim(Input::get('email'));
+ 			/*
 			return Redirect::to_route('welcome')
 				->with('message', '注册成功！');
+			*/
 		}
 
 		exit;
+	}
+
+	public function get_verifymail()
+	{
+		return View::make('home.verifymail');
 	}
 
 	public function get_welcome()
@@ -132,9 +137,11 @@ class Account_Controller extends Base_Controller
 		return Redirect::to_route('login');
 	}
 
+	// 通过邮件发送的激活链接，执行数据表修改
 	public function get_verify($key)
 	{
 		$uid = trim(Input::get('uid'));
+		// 如果链接非法
 		if($key != md5(Config::get('application.key') . $uid)){
 			echo '不通过';
 		}else{
