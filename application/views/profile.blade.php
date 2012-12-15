@@ -13,7 +13,44 @@
 @endsection
 @section('content')
 <div>
-	{{ $user->nickname }}
+	{{ $user->nickname }} 
+	<br>
+	{{ $user->sex }}
+	<br>
+	{{ $user->ethnic }}
+	<br>
+	{{ $user->nationality }}
+	<br>
+	{{ $user->height }}
+	<br>
+	{{ $user->weight }}
+	<br>
+	{{ $user->born }}
+	<br>
+	{{ $user->district }}
+	<br>
+	{{ $user->marriage }}
+	<br>
+	{{ $user->living }}
+	<br>
+	{{ $user->academic }}
+	<br>
+	{{ $user->school }}
+	<br>
+	{{ $user->major }}
+	<br>
+	{{ $user->industry }}
+	<br>
+	{{ $user->profession }}
+	<br>
+	{{ $user->companytype }}
+	<br>
+	{{ $user->salary }}
+	<br>
+	{{ $user->blog }}
+	<br>
+	
+
 
 	<br />
 
