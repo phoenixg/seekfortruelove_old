@@ -145,21 +145,17 @@ class Account_Controller extends Base_Controller
 		// 判断激活链接是否正确
 		if($key != md5(Config::get('application.key') . $uid)){
 			return Redirect::to_route('verifymail')
-				->with('msg_verify_error', '');
+				->with('msg_verify_error_wrong', '');
 			exit;
 		}else{
 
 			// 判断帐号是否已被禁用
 			$user = User::find($uid);
 			if ($user->verified == '2') {
-				echo '这是2哦';
+				return Redirect::to_route('verifymail')
+				->with('msg_verify_error_forbidden', '');
+				exit;
 			}
-			
-			die;
-
-
-			// TODO
-
 			
 			$user->verified = '1';
 			$user->save();
