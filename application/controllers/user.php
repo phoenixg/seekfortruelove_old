@@ -124,6 +124,7 @@ class User_Controller extends Base_Controller
 	    	->join('static_companytypes', 'users.companytype', '=', 'static_companytypes.id')
 	    	->join('static_academics', 'users.academic', '=', 'static_academics.id')
 	    	->join('static_nationalities', 'users.nationality', '=', 'static_nationalities.id')
+	    	->join('static_professions', 'users.profession', '=', 'static_professions.id')
 	    	->get(array(
 	    		'users.id',
 	    		'static_ethnics.name as ethnic',
@@ -133,7 +134,8 @@ class User_Controller extends Base_Controller
 	    		'static_industries.type as industry',
 	    		'static_companytypes.type as companytype',
 	    		'static_academics.academic as academic',
-	    		'static_nationalities.nationality as nationality'
+	    		'static_nationalities.nationality as nationality',
+	    		'static_professions.profession as profession'
 	    		)
 	    	);
 	    echo '<pre>';print_r($user);
