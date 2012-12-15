@@ -55,40 +55,7 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="span12">
-
-			
-
-			<table class="table table-condensed">
-			        <tbody>
-			          <tr>
-			            <td>昵称</td>
-			            <td>phx</td>
-			            
-			            <td>学历</td>
-			            <td>本科</td>
-			          </tr>
-			          <tr>
-			            <td>民族</td>
-			            <td>汉</td>
-			            
-			            <td>专业</td>
-			            <td>计算机</td>
-			          </tr>
-			          <tr>
-			            <td>工资</td>
-			            <td>2000-3000</td>
-			            
-			            <td>出生</td>
-			            <td>1928</td>
-			          </tr>
-			        </tbody>
-			</table>
-
-
-
-			<br />
-
+		<div class="span4">
 			<ul id="thumbnails" class="thumbnails">
 				<li>
 					<a href="" class="fancybox" rel="external">
@@ -97,9 +64,39 @@
 					</a>
 				</li>
 			</ul>
-
 		</div>
 	</div>
+
+	<div class="row">
+		<div class="span8">
+			<table class="table table-condensed">
+		        <tbody>
+		          <tr>
+		            <td>昵称</td>
+		            <td>phx</td>
+		            
+		            <td>学历</td>
+		            <td>本科</td>
+		          </tr>
+		          <tr>
+		            <td>民族</td>
+		            <td>汉</td>
+		            
+		            <td>专业</td>
+		            <td>计算机</td>
+		          </tr>
+		          <tr>
+		            <td>工资</td>
+		            <td>2000-3000</td>
+		            
+		            <td>出生</td>
+		            <td>1928</td>
+		          </tr>
+		        </tbody>
+			</table>
+		</div>
+	</div>
+
 </div>
 @endsection
 
