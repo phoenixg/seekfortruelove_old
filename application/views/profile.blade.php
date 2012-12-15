@@ -67,7 +67,7 @@
 		</div>
 
 		<div class="span10">
-			<table class="table table-condensed">
+			<table class="table table-bordered">
 		        <tbody>
 		          <tr>
 		            <td><strong>昵称</strong></td>
