@@ -71,7 +71,7 @@
 		        <tbody>
 		          <tr>
 		            <td><strong>昵称</strong></td>
-		            <td colspan="2">phx</td>
+		            <td colspan="3">phx</td>
 		            
 		            <td><strong>性别</strong></td>
 		            <td>男</td>
@@ -82,10 +82,7 @@
 		            <td><strong>籍贯</strong></td>
 		            <td>广东</td>
 
-					<td></td>
-					<td></td>
-					<td></td>
-
+					<td colspan="2"></td>
 		          </tr>
 
 		          <tr>
@@ -118,12 +115,7 @@
 					<td><strong>专业</strong></td>
 		            <td>计算机</td>
 		            
-		            <td></td>
-		            <td></td>
-		            <td></td>
-		            <td></td>
-		            <td></td>
-		            <td></td>
+		            <td colspan="6"></td>
 		          </tr>
 
 		          <tr>
@@ -139,10 +131,7 @@
 					<td><strong>税前月薪</strong></td>
 		            <td>4000k</td>
 
-		        	<td></td>
-		            <td></td> 
-		            <td></td>
-		            <td></td>       
+		        	<td colspan="4"></td>      
 		          </tr>
 
 		          <tr>
