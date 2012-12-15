@@ -117,7 +117,13 @@ class User_Controller extends Base_Controller
 
 	    $user = DB::table('users')
 	    	->join('static_ethnics', 'users.ethnic', '=', 'static_ethnics.id')
-	    	->get(array('static_ethnics.name'));
+	    	->join('static_marriages', 'users.marriage', '=', 'static_marriages.id')
+	    	->get(array(
+	    		'users.id',
+	    		'static_ethnics.name',
+	    		'static_marriages.status'
+	    		)
+	    	);
 	    echo '<pre>';print_r($user);
 	    die;
 
