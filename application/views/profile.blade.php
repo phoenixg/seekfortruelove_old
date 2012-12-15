@@ -99,8 +99,38 @@
 
 		           	<td>住房情况</td>
 		            <td>住自己家</td> 
-
 		          </tr>
+
+		          <tr>
+					<td>最高学历</td>
+		            <td>本科</td>
+
+					<td>毕业院校</td>
+		            <td>中山大学</td>
+					
+					<td>专业</td>
+		            <td>计算机</td>
+		          </tr>
+
+		          <tr>
+					<td>行业</td>
+		            <td>教会/神学</td>
+
+					<td>职业</td>
+		            <td>牧师</td>	            
+
+					<td>公司类型</td>
+		            <td>外企</td>	
+
+					<td>税前月薪</td>
+		            <td>4000k</td>	
+		          </tr>
+
+		          <tr>
+		          	<td>个人博客</td>
+		          	<td>http://www.domain.com</td>
+		          </tr>
+
 		        
 		        </tbody>
 			</table>
