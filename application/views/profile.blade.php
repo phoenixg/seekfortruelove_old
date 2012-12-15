@@ -73,23 +73,35 @@
 		            <td>昵称</td>
 		            <td>phx</td>
 		            
-		            <td>学历</td>
-		            <td>本科</td>
-		          </tr>
-		          <tr>
+		            <td>性别</td>
+		            <td>男</td>
+
 		            <td>民族</td>
 		            <td>汉</td>
 		            
-		            <td>专业</td>
-		            <td>计算机</td>
-		          </tr>
-		          <tr>
-		            <td>工资</td>
-		            <td>2000-3000</td>
+		            <td>籍贯</td>
+		            <td>广东</td>
+
+		            <td>身高</td>
+		            <td>188</td>
 		            
-		            <td>出生</td>
-		            <td>1928</td>
+		            <td>体重</td>
+		            <td>69</td>
+
+		            <td>出生年份</td>
+		            <td>1988</td>
+
+					<td>常住区域</td>
+		            <td>黄浦</td>
+
+					<td>婚姻状况</td>
+		            <td>未婚</td>
+
+		           	<td>住房情况</td>
+		            <td>住自己家</td> 
+
 		          </tr>
+		        
 		        </tbody>
 			</table>
 		</div>
