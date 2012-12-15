@@ -1,6 +1,7 @@
 @layout('layouts.default')
 @section('page_styles_header')
 	{{ HTML::style('css/profile.css') }}
+	<?php /* search.css 头像需要 */?>
 	{{ HTML::style('css/search.css') }}
 	{{ HTML::style('css/jquery....css') }}
 @endsection
