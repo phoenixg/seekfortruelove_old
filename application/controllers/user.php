@@ -121,7 +121,7 @@ class User_Controller extends Base_Controller
 	    	->join('static_livings', 'users.living', '=', 'static_livings.id')
 	    	->join('static_districts', 'users.district', '=', 'static_districts.id')
 	    	->join('static_industries', 'users.industry', '=', 'static_industries.id')
-	    	->join('static_companytypes', 'user.companytype', '=', 'static_companytypes.id')
+	    	->join('static_companytypes', 'users.companytype', '=', 'static_companytypes.id')
 	    	->get(array(
 	    		'users.id',
 	    		'static_ethnics.name as ethnic',
