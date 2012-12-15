@@ -116,7 +116,7 @@ class User_Controller extends Base_Controller
 	public function get_profile($id) {
 
 	    $user = DB::table('users')
-	    	->join('ethnic', 'users.ethnic', '=', 'static_ethnics.id')
+	    	->join('static_ethnics', 'users.ethnic', '=', 'static_ethnics.id')
 	    	->get(array('ethnic.name'));
 	    var_dump($user);
 	    die;
