@@ -151,7 +151,7 @@ class Account_Controller extends Base_Controller
 
 			// 判断帐号是否已被禁用
 			$user = User::find($uid);
-			if ($user->id == '2') {
+			if ($user->verified == '2') {
 				echo '这是2哦';
 			}
 			
