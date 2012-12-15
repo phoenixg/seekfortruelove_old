@@ -70,8 +70,8 @@
 			<table class="table table-condensed">
 		        <tbody>
 		          <tr>
-		            <td>昵称</td>
-		            <td>phx</td>
+		            <td colspan="2">昵称</td>
+		            <td colspan="2">phx</td>
 		            
 		            <td>性别</td>
 		            <td>男</td>
@@ -81,7 +81,9 @@
 		            
 		            <td>籍贯</td>
 		            <td>广东</td>
+		          </tr>
 
+		          <tr>
 		            <td>身高</td>
 		            <td>188</td>
 		            
@@ -110,6 +112,11 @@
 					
 					<td>专业</td>
 		            <td>计算机</td>
+		            
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
 		          </tr>
 
 		          <tr>
@@ -123,12 +130,15 @@
 		            <td>外企</td>	
 
 					<td>税前月薪</td>
-		            <td>4000k</td>	
+		            <td>4000k</td>
+
+		        	<td></td>
+		            <td></td>    
 		          </tr>
 
 		          <tr>
-		          	<td>个人博客</td>
-		          	<td>http://www.domain.com</td>
+		          	<td colspan="2">个人博客</td>
+		          	<td colspan="3">http://www.domain.com</td>
 		          </tr>
 
 		        
