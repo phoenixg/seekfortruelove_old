@@ -121,9 +121,9 @@ class User_Controller extends Base_Controller
 	    	->join('static_livings', 'users.living', '=', 'static_livings.id')
 	    	->get(array(
 	    		'users.id',
-	    		'static_ethnics.name',
-	    		'static_marriages.status',
-	    		'static_livings.status'
+	    		'static_ethnics.name as ethnic',
+	    		'static_marriages.status as marriage',
+	    		'static_livings.status as living'
 	    		)
 	    	);
 	    echo '<pre>';print_r($user);
