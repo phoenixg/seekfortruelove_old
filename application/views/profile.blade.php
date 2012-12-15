@@ -55,7 +55,7 @@
 
 @section('content')
 
-<?php var_dump($user);?>
+<?php var_dump($user->id);?>
 
 
 <div class="container">
