@@ -55,7 +55,9 @@
 
 @section('content')
 
-<?php var_dump($user->id);?>
+<?php var_dump($user);
+var_dump(gettype($user));
+?>
 
 
 <div class="container">
