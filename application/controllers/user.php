@@ -142,13 +142,8 @@ class User_Controller extends Base_Controller
 	    		'static_salaries.range as salary'
 	    		)
 	    	);
-	    echo '<pre>';print_r($user);
-	    die;
-
-
-
 
 		return View::make('profile')
-			->with('user', User::find($id));
+			->with('user', $user);
 	}
 }

@@ -13,7 +13,7 @@
 
 @endsection
 
-<?php /*
+
 			{{ $user->nickname }} 
 			<br>
 			{{ $user->sex }}
@@ -50,8 +50,8 @@
 			<br>
 			{{ $user->blog }}
 			<br>
-*/
-?>
+
+
 
 @section('content')
 <div class="container">
