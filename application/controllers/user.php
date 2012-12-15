@@ -115,6 +115,7 @@ class User_Controller extends Base_Controller
 
 	public function get_profile($id) {
 
+		// 写进model里
 	    $user = DB::table('users')
 	    	->join('static_ethnics', 'users.ethnic', '=', 'static_ethnics.id')
 	    	->join('static_marriages', 'users.marriage', '=', 'static_marriages.id')
@@ -126,6 +127,7 @@ class User_Controller extends Base_Controller
 	    	->join('static_nationalities', 'users.nationality', '=', 'static_nationalities.id')
 	    	->join('static_professions', 'users.profession', '=', 'static_professions.id')
 	    	->join('static_salaries', 'users.salary', '=', 'static_salaries.id')
+	    	->where('users.id', '=', $id)
 	    	->get(array(
 	    		'users.id',
 	    		'static_ethnics.name as ethnic',
