@@ -70,47 +70,47 @@
 			<table class="table table-condensed">
 		        <tbody>
 		          <tr>
-		            <td colspan="2">昵称</td>
+		            <td><strong>昵称</strong></td>
 		            <td colspan="2">phx</td>
 		            
-		            <td>性别</td>
+		            <td><strong>性别</strong></td>
 		            <td>男</td>
 
-		            <td>民族</td>
+		            <td><strong>民族</strong></td>
 		            <td>汉</td>
 		            
-		            <td>籍贯</td>
+		            <td><strong>籍贯</strong></td>
 		            <td>广东</td>
 		          </tr>
 
 		          <tr>
-		            <td>身高</td>
+		            <td><strong>身高</strong></td>
 		            <td>188</td>
 		            
-		            <td>体重</td>
+		            <td><strong>体重</strong></td>
 		            <td>69</td>
 
-		            <td>出生年份</td>
+		            <td><strong>出生年份</strong></td>
 		            <td>1988</td>
 
-					<td>常住区域</td>
+					<td><strong>常住区域</strong></td>
 		            <td>黄浦</td>
 
-					<td>婚姻状况</td>
+					<td><strong>婚姻状况</strong></td>
 		            <td>未婚</td>
 
-		           	<td>住房情况</td>
+		           	<td><strong>住房情况</strong></td>
 		            <td>住自己家</td> 
 		          </tr>
 
 		          <tr>
-					<td>最高学历</td>
+					<td><strong>最高学历</strong></td>
 		            <td>本科</td>
 
-					<td>毕业院校</td>
+					<td><strong>毕业院校</strong></td>
 		            <td>中山大学</td>
 					
-					<td>专业</td>
+					<td><strong>专业</strong></td>
 		            <td>计算机</td>
 		            
 		            <td></td>
@@ -120,16 +120,16 @@
 		          </tr>
 
 		          <tr>
-					<td>行业</td>
+					<td><strong>行业</strong></td>
 		            <td>教会/神学</td>
 
-					<td>职业</td>
+					<td><strong>职业</strong></td>
 		            <td>牧师</td>	            
 
-					<td>公司类型</td>
+					<td><strong>公司类型</strong></td>
 		            <td>外企</td>	
 
-					<td>税前月薪</td>
+					<td><strong>税前月薪</strong></td>
 		            <td>4000k</td>
 
 		        	<td></td>
@@ -137,7 +137,7 @@
 		          </tr>
 
 		          <tr>
-		          	<td colspan="2">个人博客</td>
+		          	<td><strong>个人博客</strong></td>
 		          	<td colspan="3">http://www.domain.com</td>
 		          </tr>
 
