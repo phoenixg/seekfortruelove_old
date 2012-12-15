@@ -55,7 +55,7 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="span4">
+		<div class="span2">
 			<ul id="thumbnails" class="thumbnails">
 				<li>
 					<a href="" class="fancybox" rel="external">
@@ -65,10 +65,8 @@
 				</li>
 			</ul>
 		</div>
-	</div>
 
-	<div class="row">
-		<div class="span8">
+		<div class="span10">
 			<table class="table table-condensed">
 		        <tbody>
 		          <tr>
@@ -96,6 +94,7 @@
 			</table>
 		</div>
 	</div>
+
 
 </div>
 @endsection
