@@ -123,7 +123,7 @@ class User_Controller extends Base_Controller
 	    		'users.id',
 	    		'static_ethnics.name',
 	    		'static_marriages.status',
-	    		'static_livings'
+	    		'static_livings.status'
 	    		)
 	    	);
 	    echo '<pre>';print_r($user);
