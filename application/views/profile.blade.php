@@ -11,10 +11,8 @@
 @section('page_scripts_footer')
 
 @endsection
-@section('content')
-<div class="container">
-	<div class="row">
-		<div class="span12">
+
+<?php /*
 			{{ $user->nickname }} 
 			<br>
 			{{ $user->sex }}
@@ -51,38 +49,41 @@
 			<br>
 			{{ $user->blog }}
 			<br>
+*/
+?>
+
+@section('content')
+<div class="container">
+	<div class="row">
+		<div class="span12">
+
 			
 
-	<table class="table table-condensed">
-		    <thead>
-	          <tr>
-	            <th>#</th>
-	            <th>电视剧</th>
-	            <th>类型</th>
-	            <th>年代</th>
-	          </tr>
-	        </thead>
-	        <tbody>
-	          <tr>
-	            <td>1</td>
-	            <td>爱情公寓</td>
-	            <td>都市爱情喜剧</td>
-	            <td>2010</td>
-	          </tr>
-	          <tr>
-	            <td>2</td>
-	            <td>邪恶力量</td>
-	            <td>悬疑魔幻</td>
-	            <td>2005</td>
-	          </tr>
-	          <tr>
-	            <td>3</td>
-	            <td>神探伽俐略</td>
-	            <td>推理探案</td>
-	            <td>2008</td>
-	          </tr>
-	        </tbody>
-	</table>
+			<table class="table table-condensed">
+			        <tbody>
+			          <tr>
+			            <td>昵称</td>
+			            <td>phx</td>
+			            
+			            <td>学历</td>
+			            <td>本科</td>
+			          </tr>
+			          <tr>
+			            <td>民族</td>
+			            <td>汉</td>
+			            
+			            <td>专业</td>
+			            <td>计算机</td>
+			          </tr>
+			          <tr>
+			            <td>工资</td>
+			            <td>2000-3000</td>
+			            
+			            <td>出生</td>
+			            <td>1928</td>
+			          </tr>
+			        </tbody>
+			</table>
 
 
 
