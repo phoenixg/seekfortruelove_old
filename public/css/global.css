@@ -11,3 +11,22 @@ div.navbar-fixed-top{position: relative;}
 	margin-top: 40px;
 }
 
+
+/* used in search and profile */
+.thumbnails {
+    float: left;
+    width: 100%;
+}
+
+.thumbnails li {
+    background-image: url("../img/portfolio-bg.png");
+    float: left;
+    height: 147px;
+    margin-bottom: 25px;
+    margin-right: 8px;
+    padding-left: 4px;
+    padding-top: 4px;
+    width: 120px;
+}
+
+
