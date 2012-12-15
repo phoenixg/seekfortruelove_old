@@ -81,6 +81,11 @@
 		            
 		            <td><strong>籍贯</strong></td>
 		            <td>广东</td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+
 		          </tr>
 
 		          <tr>
@@ -117,6 +122,8 @@
 		            <td></td>
 		            <td></td>
 		            <td></td>
+		            <td></td>
+		            <td></td>
 		          </tr>
 
 		          <tr>
@@ -133,12 +140,14 @@
 		            <td>4000k</td>
 
 		        	<td></td>
-		            <td></td>    
+		            <td></td> 
+		            <td></td>
+		            <td></td>       
 		          </tr>
 
 		          <tr>
 		          	<td><strong>个人博客</strong></td>
-		          	<td colspan="3">http://www.domain.com</td>
+		          	<td colspan="11">http://www.domain.com</td>
 		          </tr>
 
 		        
