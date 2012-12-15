@@ -1,6 +1,7 @@
 @layout('layouts.default')
 @section('page_styles_header')
 	{{ HTML::style('css/profile.css') }}
+	{{ HTML::style('css/search.css') }}
 	{{ HTML::style('css/jquery....css') }}
 @endsection
 @section('page_scripts_header')
