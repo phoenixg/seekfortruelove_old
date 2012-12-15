@@ -123,6 +123,7 @@ class User_Controller extends Base_Controller
 	    	->join('static_industries', 'users.industry', '=', 'static_industries.id')
 	    	->join('static_companytypes', 'users.companytype', '=', 'static_companytypes.id')
 	    	->join('static_academics', 'users.academic', '=', 'static_academics.id')
+	    	->join('static_nationalities', 'users.nationality', '=', 'static_nationalities.id')
 	    	->get(array(
 	    		'users.id',
 	    		'static_ethnics.name as ethnic',
@@ -131,7 +132,8 @@ class User_Controller extends Base_Controller
 	    		'static_districts.district as district',
 	    		'static_industries.type as industry',
 	    		'static_companytypes.type as companytype',
-	    		'static_academics.academic as academic'
+	    		'static_academics.academic as academic',
+	    		'static_nationalities.nationality as nationality'
 	    		)
 	    	);
 	    echo '<pre>';print_r($user);
