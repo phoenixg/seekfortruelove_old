@@ -148,12 +148,19 @@ class Account_Controller extends Base_Controller
 				->with('msg_verify_error_wrong', '');
 			exit;
 		}else{
+			$user = User::find($uid);
 
 			// 判断帐号是否已被禁用
-			$user = User::find($uid);
 			if ($user->verified == '2') {
 				return Redirect::to_route('verifymail')
 				->with('msg_verify_error_forbidden', '');
+				exit;
+			}
+
+			// 判断帐号是否已激活过
+			if ($user->verified == '1') {
+				return Redirect::to_route('verifymail')
+				->with('msg_verify_error_verified', '');
 				exit;
 			}
 			

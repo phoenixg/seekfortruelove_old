@@ -16,6 +16,13 @@
 	</div>
 	@endif
 
+	@if(Session::has('msg_verify_error_verified'))
+	<div class="hero-unit">
+		<h2>哎呀呀！</h2>
+		<p>帐号已经激活过了</p>
+	</div>
+	@endif
+
 	@if(Session::has('msg_verify_pass'))
 	<div class="hero-unit">
 		<h2>祝贺！</h2>
