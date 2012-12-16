@@ -5,7 +5,7 @@
 
 #profile-table .span2, #profile-table .span4, #profile-table .span10 {
 	margin:0;
-	border:1px solid green;
+	border-left:1px solid green;
 	border-collapse:collapse;
 
 }
