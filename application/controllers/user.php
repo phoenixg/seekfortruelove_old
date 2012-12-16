@@ -131,6 +131,7 @@ class User_Controller extends Base_Controller
 	    	->first(array(
 	    		'users.id',
 	    		'users.nickname',
+	    		'users.sex',
 	    		'static_ethnics.name as ethnic',
 	    		'static_marriages.status as marriage',
 	    		'static_livings.status as living',
