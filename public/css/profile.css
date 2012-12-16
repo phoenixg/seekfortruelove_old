@@ -5,6 +5,17 @@
 
 #profile-table .span2, #profile-table .span4, #profile-table .span10 {
 	margin:0;
-	border:1px solid green;
+	
+}
 
+#profile-table .span2 {
+	width: 90px;
+}
+
+#profile-table .span4{
+	width: 360px;
+}
+
+#profile-table .span10{
+	width: 900px;
 }
