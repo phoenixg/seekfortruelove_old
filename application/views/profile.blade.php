@@ -71,6 +71,20 @@ var_dump(gettype($user));
 		</div>
 
 		<div class="span10">
+
+
+
+		    <div class="row">
+			    <div class="span2">111</div>
+			    <div class="span2">222</div>
+			    <div class="span2">333</div>
+			    <div class="span2">444</div>
+			    <div class="span2">555</div>
+		    </div>
+
+
+
+			<!--
 			<table class="table table-bordered personal-info">
 		        <tbody>
 		          <tr>
@@ -142,10 +156,9 @@ var_dump(gettype($user));
 		          	<td><strong>个人博客</strong></td>
 		          	<td colspan="11">http://www.domain.com</td>
 		          </tr>
-
-		        
 		        </tbody>
 			</table>
+		    -->
 		</div>
 	</div>
 
