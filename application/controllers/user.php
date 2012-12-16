@@ -143,6 +143,8 @@ class User_Controller extends Base_Controller
 	    		)
 	    	);
 
+	    var_dump($user);die;
+
 		return View::make('profile')
 			->with('user', $user);
 	}
