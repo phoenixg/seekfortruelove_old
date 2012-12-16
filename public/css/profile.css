@@ -1,6 +1,11 @@
+#profile-info strong {
+	font-size: 1.2em;
+}
+
 #profile-info .span2, #profile-info .span4, #profile-info .span10 {
 	margin:0;
 	border-collapse:collapse;
+	height: 30px;
 }
 
 #profile-info .span2 {
