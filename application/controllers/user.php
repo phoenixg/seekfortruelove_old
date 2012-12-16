@@ -128,7 +128,7 @@ class User_Controller extends Base_Controller
 	    	->join('static_professions', 'users.profession', '=', 'static_professions.id')
 	    	->join('static_salaries', 'users.salary', '=', 'static_salaries.id')
 	    	->where('users.id', '=', $id)
-	    	->get(array(
+	    	->first(array(
 	    		'users.id',
 	    		'static_ethnics.name as ethnic',
 	    		'static_marriages.status as marriage',
