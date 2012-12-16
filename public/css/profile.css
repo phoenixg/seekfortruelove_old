@@ -2,3 +2,10 @@
 	color: #333;
 	margin-left: -30px;
 }
+
+#profile-table .span2, #profile-table .span3, #profile-table .span10 {
+	margin:0;
+	border:1px solid green;
+	
+
+}
