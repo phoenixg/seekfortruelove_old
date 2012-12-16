@@ -134,6 +134,7 @@ class User_Controller extends Base_Controller
 	    		'users.sex',
 	    		'users.height',
 	    		'users.weight',
+	    		'users.born',
 	    		'static_ethnics.name as ethnic',
 	    		'static_marriages.status as marriage',
 	    		'static_livings.status as living',
