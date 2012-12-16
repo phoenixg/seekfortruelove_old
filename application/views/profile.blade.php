@@ -72,32 +72,32 @@ var_dump(gettype($user));
 
 		<div class="span10" id="profile-info">
 		    <div class="row">
-			    <div class="span4"><strong>昵称:</strong>phx</div>
-			    <div class="span2"><strong>性别:</strong>男</div>
-			    <div class="span2"><strong>民族:</strong>汉</div>
-			    <div class="span2"><strong>籍贯:</strong>广东</div>
+			    <div class="span4"><strong>昵称:&nbsp;</strong>phx</div>
+			    <div class="span2"><strong>性别:&nbsp;</strong>男</div>
+			    <div class="span2"><strong>民族:&nbsp;</strong>汉</div>
+			    <div class="span2"><strong>籍贯:&nbsp;</strong>广东</div>
 		    </div>
 		    <div class="row">
-			    <div class="span2"><strong>身高/体重:</strong>188/69</div>
-			    <div class="span2"><strong>出生年份/年龄:</strong>1988/25</div>
-			    <div class="span2"><strong>婚姻状况:</strong>未婚</div>
-			 	<div class="span2"><strong>常住区域:</strong>黄浦</div>
-			    <div class="span2"><strong>住房情况:</strong>住自己家</div>
+			    <div class="span2"><strong>身高/体重:&nbsp;</strong>188/69</div>
+			    <div class="span2"><strong>出生年份/年龄:&nbsp;</strong>1988/25</div>
+			    <div class="span2"><strong>婚姻状况:&nbsp;</strong>未婚</div>
+			 	<div class="span2"><strong>常住区域:&nbsp;</strong>黄浦</div>
+			    <div class="span2"><strong>住房情况:&nbsp;</strong>住自己家</div>
 		    </div>
 
 		    <div class="row">
-			    <div class="span2"><strong>最高学历:</strong>本科</div>
-			    <div class="span2"><strong>毕业院校:</strong>中山大学</div>
-			    <div class="span2"><strong>专业:</strong>计算机</div>
+			    <div class="span2"><strong>最高学历:&nbsp;</strong>本科</div>
+			    <div class="span2"><strong>毕业院校:&nbsp;</strong>中山大学</div>
+			    <div class="span2"><strong>专业:&nbsp;</strong>计算机</div>
 		    </div>
 		    <div class="row">
-			    <div class="span2"><strong>行业:</strong>教会/神学</div>
-			    <div class="span2"><strong>职业:</strong>牧师</div>
-			    <div class="span2"><strong>公司类型:</strong>外企</div>
-			    <div class="span2"><strong>税前月薪:</strong>4000k</div>
+			    <div class="span2"><strong>行业:&nbsp;</strong>教会/神学</div>
+			    <div class="span2"><strong>职业:&nbsp;</strong>牧师</div>
+			    <div class="span2"><strong>公司类型:&nbsp;</strong>外企</div>
+			    <div class="span2"><strong>税前月薪:&nbsp;</strong>4000k</div>
 		    </div>
 		    <div class="row">
-			    <div class="span10"><strong>个人博客:</strong>http://www.domain.com</div>
+			    <div class="span10"><strong>个人博客:&nbsp;</strong>http://www.domain.com</div>
 		    </div> 
 		</div>
 	</div>
