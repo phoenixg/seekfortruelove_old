@@ -13,12 +13,6 @@
 
 @endsection
 @section('content')
-
-<?php var_dump($user);
-var_dump(gettype($user));
-?>
-
-
 <div class="container">
 	<div class="row">
 		<div class="span2">
