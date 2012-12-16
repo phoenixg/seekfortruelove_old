@@ -78,16 +78,12 @@ var_dump(gettype($user));
 			    <div class="span2"><strong>籍贯:</strong>广东</div>
 		    </div>
 		    <div class="row">
-			    <div class="span2"><strong>身高:</strong>188</div>
-			    <div class="span2"><strong>体重:</strong>69</div>
-			    <div class="span4"><strong>出生年份(年龄):</strong>1988(25)</div>
+			    <div class="span2"><strong>身高/体重:</strong>188/69</div>
+			    <div class="span2"><strong>出生年份/年龄:</strong>1988/25</div>
 			    <div class="span2"><strong>婚姻状况:</strong>未婚</div>
-		    </div>
-
-		    <div class="row">
-			    <div class="span2"><strong>常住区域:</strong>黄浦</div>
+			 	<div class="span2"><strong>常住区域:</strong>黄浦</div>
 			    <div class="span2"><strong>住房情况:</strong>住自己家</div>
-			</div>
+		    </div>
 
 		    <div class="row">
 			    <div class="span2"><strong>最高学历:</strong>本科</div>
