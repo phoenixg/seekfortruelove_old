@@ -70,10 +70,7 @@ var_dump(gettype($user));
 			</ul>
 		</div>
 
-		<div class="span10" id="profile-table">
-
-
-
+		<div class="span10" id="profile-info">
 		    <div class="row">
 			    <div class="span4"><strong>昵称:</strong>phx</div>
 			    <div class="span2"><strong>性别:</strong>男</div>
@@ -105,83 +102,7 @@ var_dump(gettype($user));
 		    </div>
 		    <div class="row">
 			    <div class="span10"><strong>个人博客:</strong>http://www.domain.com</div>
-		    </div>
-
-	
-			<table class="table table-bordered personal-info">
-		        <tbody>
-		          <tr>
-		            <td><strong>昵称</strong></td>
-		            <td colspan="3">phx</td>
-		            
-		            <td><strong>性别</strong></td>
-		            <td>男</td>
-
-		            <td><strong>民族</strong></td>
-		            <td>汉</td>
-		            
-		            <td><strong>籍贯</strong></td>
-		            <td>广东</td>
-
-					<td colspan="2"></td>
-		          </tr>
-
-		          <tr>
-		            <td><strong>身高</strong></td>
-		            <td>188</td>
-		            
-		            <td><strong>体重</strong></td>
-		            <td>69</td>
-
-		            <td><strong>出生年份</strong></td>
-		            <td>1988</td>
-
-					<td><strong>常住区域</strong></td>
-		            <td>黄浦</td>
-
-					<td><strong>婚姻状况</strong></td>
-		            <td>未婚</td>
-
-		           	<td><strong>住房情况</strong></td>
-		            <td>住自己家</td> 
-		          </tr>
-
-		          <tr>
-					<td><strong>最高学历</strong></td>
-		            <td>本科</td>
-
-					<td><strong>毕业院校</strong></td>
-		            <td>中山大学</td>
-					
-					<td><strong>专业</strong></td>
-		            <td>计算机</td>
-		            
-		            <td colspan="6"></td>
-		          </tr>
-
-		          <tr>
-					<td><strong>行业</strong></td>
-		            <td>教会/神学</td>
-
-					<td><strong>职业</strong></td>
-		            <td>牧师</td>	            
-
-					<td><strong>公司类型</strong></td>
-		            <td>外企</td>	
-
-					<td><strong>税前月薪</strong></td>
-		            <td>4000k</td>
-
-		        	<td colspan="4"></td>      
-		          </tr>
-
-		          <tr>
-		          	<td><strong>个人博客</strong></td>
-		          	<td colspan="11">http://www.domain.com</td>
-		          </tr>
-		        </tbody>
-			</table>
-		    
+		    </div> 
 		</div>
 	</div>
 
