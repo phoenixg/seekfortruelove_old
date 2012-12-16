@@ -72,7 +72,7 @@ var_dump(gettype($user));
 
 		<div class="span10" id="profile-info">
 		    <div class="row">
-			    <div class="span4"><strong>昵称:&nbsp;</strong>phx</div>
+			    <div class="span4"><strong>昵称:&nbsp;</strong>{{ $user->nickname }}</div>
 			    <div class="span2"><strong>性别:&nbsp;</strong>男</div>
 			    <div class="span2"><strong>民族:&nbsp;</strong>汉</div>
 			    <div class="span2"><strong>籍贯:&nbsp;</strong>广东</div>

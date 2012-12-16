@@ -130,6 +130,7 @@ class User_Controller extends Base_Controller
 	    	->where('users.id', '=', $id)
 	    	->first(array(
 	    		'users.id',
+	    		'users.nickname',
 	    		'static_ethnics.name as ethnic',
 	    		'static_marriages.status as marriage',
 	    		'static_livings.status as living',
@@ -142,8 +143,6 @@ class User_Controller extends Base_Controller
 	    		'static_salaries.range as salary'
 	    		)
 	    	);
-
-	    var_dump($user);die;
 
 		return View::make('profile')
 			->with('user', $user);
