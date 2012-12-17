@@ -168,8 +168,10 @@ class Account_Controller extends Base_Controller
 				exit;
 			}
 
-			// 如果是其他情况，就返回404页面
-			return Response::error('404');
+			// 如果是其他情况
+			return Redirect::to_route('verifymail')
+				->with('msg_verify_error_wrong', '');
+			exit;
 		}
 	}
 
