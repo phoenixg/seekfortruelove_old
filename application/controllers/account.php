@@ -73,8 +73,7 @@ class Account_Controller extends Base_Controller
 
 							此致<br />
 							SEEKFORTRUELOVE<br />
-							http://www.domain.com/<br />
-							此电邮为系统自动发出，请勿回复。如有疑问请发邮件至：test@gmail.com<br />
+							此电邮为系统自动发出，请勿回复。如有疑问请发邮件至：gopher.huang@gmail.com<br />
 							</body></html>';
 
 			// 发送激活邮件

@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container">
+	@if(Session::has('email'))
+	<div class="hero-unit">
+		<h2>太好了！</h2>
+		<p>一封邮件已经发送至您的注册邮箱，以便验证您所填写的邮箱（{{ Session::get('email') }}）的正确性</p>
+	</div>
+	@endif
+
 	@if(Session::has('msg_verify_error_wrong'))
 	<div class="hero-unit">
 		<h2>糟糕！</h2>
