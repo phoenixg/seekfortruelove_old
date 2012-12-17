@@ -47,7 +47,8 @@ class Account_Controller extends Base_Controller
 				'profession'      => trim(Input::get('profession')),
 				'companytype'     => trim(Input::get('companytype')),
 				'salary'          => trim(Input::get('salary')),
-				'blog'            => trim(Input::get('blog'))
+				'blog'            => trim(Input::get('blog')),
+				'verified'		  => '0'
 			));
 
 			$mailer = Laravel\IoC::resolve('mailer');

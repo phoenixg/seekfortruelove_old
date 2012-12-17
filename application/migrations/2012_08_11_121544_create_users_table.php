@@ -5,7 +5,12 @@ class Create_Users_Table{
   public function up()
   {
     /*
-      verified : 0 未验证， 1 已验证， 2 被封禁
+      verified : 
+            公开权限表
+            0 账号已注册，未激活邮箱，未审核资料 [都不能]
+            1 账号已注册，已激活邮箱，未审核资料 [能搜索]
+            2 账号已注册，已激活邮箱，已审核资料 [都可以]
+            9 账号被封禁 [都不能]
     */
     Schema::create('users', function($table){
       $table->increments('id');
