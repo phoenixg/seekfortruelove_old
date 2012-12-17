@@ -18,7 +18,7 @@
 		<div class="span2">
 			<ul id="thumbnails" class="thumbnails">
 				<li>
-					<img src="http://173.230.150.168/gitprojects/seekfortruelove/public/images/profile/icon/2.jpg" />
+					<img src="http://173.230.150.168/gitprojects/seekfortruelove/public/images/profile/icon/{{ $user->id }}.jpg" />
 				</li>
 			</ul>
 		</div>
