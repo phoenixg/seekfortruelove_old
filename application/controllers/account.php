@@ -84,14 +84,9 @@ class Account_Controller extends Base_Controller
 					    ->setBody($messageBody,'text/html');
 
 			$mailer->send($message);
- 	
 
 			return Redirect::to_route('verifymail')
 				->with('email', trim(Input::get('email')));
- 			/*
-			return Redirect::to_route('welcome')
-				->with('message', '注册成功！');
-			*/
 		}
 
 		exit;
@@ -152,25 +147,29 @@ class Account_Controller extends Base_Controller
 			$user = User::find($uid);
 
 			// 判断帐号是否已被禁用
-			if ($user->verified == '2') {
+			if ($user->verified == '9') {
 				return Redirect::to_route('verifymail')
-				->with('msg_verify_error_forbidden', '');
+					->with('msg_verify_error_forbidden', '');
 				exit;
 			}
 
 			// 判断帐号是否已激活过
-			if ($user->verified == '1') {
+			if ($user->verified == '1' || $user->verified == '2') {
 				return Redirect::to_route('verifymail')
-				->with('msg_verify_error_verified', '');
+					->with('msg_verify_error_verified', '');
 				exit;
 			}
-			
-			$user->verified = '1';
-			$user->save();
 
-			return Redirect::to_route('verifymail')
-				->with('msg_verify_pass', '');
-			exit;
+			// 判断账号是否未激活过
+			if ($user->verified == '0') {
+				$user->verified = '1';
+				$user->save();
+				return Redirect::to_route('verifymail')
+					->with('msg_verify_pass', '');
+				exit;
+			}
+
+
 		}
 	}
 

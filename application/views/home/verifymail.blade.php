@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-	@if(Session::has('msg_verify_wrong'))
+	@if(Session::has('msg_verify_error_wrong'))
 	<div class="hero-unit">
 		<h2>糟糕！</h2>
 		<p>这是无效的激活链接</p>
