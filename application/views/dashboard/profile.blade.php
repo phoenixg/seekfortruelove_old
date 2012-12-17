@@ -1,6 +1,6 @@
 @layout('layouts.dashboard')
-
 @section('main')
+	<h2>个人资料编辑</h2>
 
 	@if($errors->has())
 	<div class="alert alert-block alert-error fade in">
@@ -19,18 +19,23 @@
 	</div>
 	@endif
 
+	<div class="row">
+		<div class="span2">
+			<ul id="thumbnails" class="thumbnails">
+				<li>
+					{{ HTML::image('/images/profile/icon/'.Auth::user()->id.'.jpg', 'this is alt text', array('id' => 'icon')) }}
+				</li>
+			</ul>
+		</div>
+
+
+		<div class="span7">fjaiifjeaofjaojfaofjeafja;fja;ofja;fja;fjaiofjaofje</div>
+	</div>
+
+
 
 	{{ Form::open(URL::to_route('create'), 'POST', array('class' => 'form-horizontal')) }}
 		<fieldset>
-			
-			<h2>个人资料编辑</h2>
-			<hr />
-			
-			{{ HTML::image('/images/profile/icon/'.Auth::user()->id.'.jpg', 'this is alt text', array('id' => 'icon')) }}
-
-			<hr />
-
-
 			<div class="control-group">
 				{{ Form::label('email', '电子邮件', array('class' => 'control-label')) }}
 				<div class="controls">
