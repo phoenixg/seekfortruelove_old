@@ -5,7 +5,14 @@ class Admin_Dashboard_Controller extends Base_Controller
 
 	public function get_index()
 	{
-		Printer::write('管理员才能访问的控制器');
+		return View::make('dashboard.index')
+			->with('menuflg_index', true);
+	}
+
+
+	public function get_examine()
+	{
+		return 'examine';
 	}
 
 

@@ -50,6 +50,7 @@ Route::delete('dashboard/imagedelete',  array('as' => 'dashboard_imagedelete', 	
 
 //admin dashboard
 Route::get('admin/dashboard', 			array('as' => 'admin_dashboard', 								'uses' => 'admin.dashboard@index'));                                   
+Route::get('admin/dashboard/examine', 	array('as' => 'admin_dashboard_examine', 						'uses' => 'admin.dashboard@examine'));                               
 
 //test pages
 Route::controller(array(
