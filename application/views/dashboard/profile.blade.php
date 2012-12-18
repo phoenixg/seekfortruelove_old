@@ -56,7 +56,7 @@
 								<div class="controls">
 									<select class="span2" name="ethnic">
 										@foreach ($static_ethnics as $ethnics)
-										<option value="{{$ethnics->id}}">{{$ethnics->name}}</option>
+										<option value="{{$ethnics->id}}" <?php echo array_key_exists($ethnics, $static_ethnics) ? 'selected="selected"' : '';?>>{{$ethnics->name}}</option>
 										@endforeach
 									</select>
 								</div>
