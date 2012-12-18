@@ -21,7 +21,8 @@
 
 	@if(Session::has('message'))
     <div class="alert alert-success">
-    	{{ Session::get('message') }}
+    	<a data-dismiss="alert" class="close">×</a>
+    	<p>恭喜！个人资料修改成功</p>
     </div>
 	@endif
 

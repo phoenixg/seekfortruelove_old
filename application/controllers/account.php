@@ -7,24 +7,22 @@ class Account_Controller extends Base_Controller
 	public function get_register()
 	{
 		return View::make('home.register')
-			->with('static_ethnics', DB::table('static_ethnics')->get())
-			->with('static_nationalities', DB::table('static_nationalities')->get())
-			->with('static_districts', DB::table('static_districts')->get())
-			->with('static_marriages', DB::table('static_marriages')->get())
-			->with('static_livings', DB::table('static_livings')->get())
-			->with('static_academics', DB::table('static_academics')->get())
-			->with('static_industries', DB::table('static_industries')->get())
-			->with('static_professions', DB::table('static_professions')->get())
-			->with('static_companytypes', DB::table('static_companytypes')->get())
-			->with('static_salaries', DB::table('static_salaries')->get());
+			->with('static_ethnics', 		DB::table('static_ethnics')->get())
+			->with('static_nationalities',  DB::table('static_nationalities')->get())
+			->with('static_districts',		DB::table('static_districts')->get())
+			->with('static_marriages', 		DB::table('static_marriages')->get())
+			->with('static_livings', 		DB::table('static_livings')->get())
+			->with('static_academics', 		DB::table('static_academics')->get())
+			->with('static_industries', 	DB::table('static_industries')->get())
+			->with('static_professions', 	DB::table('static_professions')->get())
+			->with('static_companytypes', 	DB::table('static_companytypes')->get())
+			->with('static_salaries', 		DB::table('static_salaries')->get());
 	}
 
 	// 如果用户手动更改put的id值，会不会有危险，即更改了其他人的资料
 	public function put_update()
 	{
 		echo '<pre>';print_r(Input::get());
-
-		//die;
 			
 		$id = trim(Input::get('id'));
 		$validation = User::validate_update(Input::all());
@@ -54,7 +52,7 @@ class Account_Controller extends Base_Controller
 				'blog' 				=> trim(Input::get('blog'))
 			));
 			return Redirect::to_route('dashboard_profile', $id)
-				->with('message', '个人资料更新成功！');
+				->with('message', '');
 		}
 	}
 
