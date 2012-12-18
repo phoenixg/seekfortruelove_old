@@ -19,6 +19,11 @@
 	</div>
 	@endif
 
+	@if(Session::has('message'))
+    <div class="alert alert-success">
+    	{{ Session::get('message') }}
+    </div>
+	@endif
 
 	{{ Form::open(URL::to_route('update'), 'PUT', array('class' => 'form-horizontal')) }}
 		<fieldset>
