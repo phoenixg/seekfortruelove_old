@@ -79,7 +79,7 @@
 								{{ Form::label('height', '身高', array('class' => 'control-label')) }}
 								<div class="controls">
 									<div class="input-append">
-										{{ Form::text('height', Input::old('height'), array('class' => 'span1', 'size' => 10)) }}
+										{{ Form::text('height', Auth::user()->height, array('class' => 'span1', 'size' => 10)) }}
 										<span class="add-on">CM</span>
 									</div>
 								</div>
@@ -90,7 +90,7 @@
 								{{ Form::label('weight', '体重', array('class' => 'control-label')) }}
 								<div class="controls">
 									<div class="input-append">
-										{{ Form::text('weight', Input::old('weight'), array('class' => 'span1', 'size' => 10)) }}
+										{{ Form::text('weight', Auth::user()->weight, array('class' => 'span1', 'size' => 10)) }}
 										<span class="add-on">KG</span>
 									</div>
 								</div>
