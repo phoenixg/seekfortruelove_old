@@ -22,22 +22,6 @@
 
 	{{ Form::open(URL::to_route('create'), 'POST', array('class' => 'form-horizontal')) }}
 		<fieldset>
-			<!-- 头像 -->
-			<div class="row">
-				<div class="span2" style="float:right;">
-					<ul id="thumbnails" class="thumbnails">
-						<li>
-							{{ HTML::image('/images/profile/icon/'.Auth::user()->id.'.jpg', 'this is alt text', array('id' => 'icon')) }}
-						</li>
-					</ul>
-				</div>
-			</div>
-
-
-
-
-
-
 			<div class="row">
 				<div class="span12">
 					<div class="row">
@@ -157,6 +141,17 @@
 
 						<!-- 右边一排 -->
 						<div class="span5">
+							<!-- 头像 -->
+							<div class="row">
+								<div class="span2" style="float:right;">
+									<ul id="thumbnails" class="thumbnails">
+										<li>
+											{{ HTML::image('/images/profile/icon/'.Auth::user()->id.'.jpg', 'this is alt text', array('id' => 'icon')) }}
+										</li>
+									</ul>
+								</div>
+							</div>
+
 							<div class="control-group">
 								{{ Form::label('academic', '最高学历', array('class' => 'control-label')) }}
 								<div class="controls">
