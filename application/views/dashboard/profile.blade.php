@@ -22,7 +22,7 @@
 	@if(Session::has('message'))
     <div class="alert alert-success">
     	<a data-dismiss="alert" class="close">×</a>
-    	<p>恭喜！个人资料修改成功</p>
+    	个人资料修改成功！
     </div>
 	@endif
 
