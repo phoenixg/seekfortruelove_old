@@ -16,7 +16,7 @@
 		<div class="span2">
 			<ul id="thumbnails" class="thumbnails">
 				<li>
-					<img src="http://173.230.150.168/gitprojects/seekfortruelove/public/images/profile/icon/{{ $user->id }}.jpg" />
+					{{ HTML::image('/images/profile/icon/'.$user->id.'.jpg', '', array()) }}
 				</li>
 			</ul>
 		</div>
