@@ -39,7 +39,7 @@
 						{{ Form::label('email', '电子邮件', array('class' => 'control-label')) }}
 						<div class="controls">
 							{{ Form::text('email', Input::old('email'), array('class' => 'span3', 'placeholder' => 'eg. user@domain.com')) }}
-							<span class="label label-info">将作为你的登录用户名</span>
+							<span class="label label-info">将作为你的登录用户名，一经注册，无法修改</span>
 						</div>
 					</div>
 
