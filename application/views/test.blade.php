@@ -6,13 +6,32 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	<title></title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
-
+	
+	<link href="../../jquery_news_ticker/styles/ticker-style.css" rel="stylesheet" type="text/css" />
+	<script src="../../jquery_news_ticker/includes/jquery.ticker.js" type="text/javascript"></script>
 
 </head>
 
 <body>
 
+<ul id="js-news" class="js-hidden">
+    <li class="news-item"><a href="#">This is the 1st latest news item.</a></li>
+    <li class="news-item"><a href="#">This is the 2nd latest news item.</a></li>
+    <li class="news-item"><a href="#">This is the 3rd latest news item.</a></li>
+    <li class="news-item"><a href="#">This is the 4th latest news item.</a></li>
+</ul>
+<script type="text/javascript">
+    $(function () {
+        $('#js-news').ticker();
+    });
+</script>
+
+
+
 <h1>Boy you are in test, what can I do for you?</h1>
+
+
+
 
 </body>
 </html>
