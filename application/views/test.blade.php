@@ -7,8 +7,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
 	
-	<link href="../../jquery_news_ticker/styles/ticker-style.css" rel="stylesheet" type="text/css" />
-	<script src="../../jquery_news_ticker/includes/jquery.ticker.js" type="text/javascript"></script>
+	<link href="../../../jquery_news_ticker/styles/ticker-style.css" rel="stylesheet" type="text/css" />
+	<script src="../../../jquery_news_ticker/includes/jquery.ticker.js" type="text/javascript"></script>
 
 </head>
 
