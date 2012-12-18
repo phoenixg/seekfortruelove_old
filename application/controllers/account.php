@@ -23,6 +23,8 @@ class Account_Controller extends Base_Controller
 	public function put_update()
 	{
 		echo '<pre>';print_r(Input::get());
+
+		die;
 			
 		$id = trim(Input::get('id'));
 		$validation = User::validate_update(Input::all());
