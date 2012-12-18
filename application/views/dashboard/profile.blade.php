@@ -56,7 +56,8 @@
 								<div class="controls">
 									<select class="span2" name="ethnic">
 										@foreach ($static_ethnics as $ethnics)
-										<option value="{{$ethnics->id}}" <?php if(Auth::user()->ethnic == $ethnics->id) echo 'selected';?>>{{$ethnics->name}}</option>
+										<option value="{{$ethnics->id}}" 
+											<?php if(Auth::user()->ethnic == $ethnics->id) echo 'selected';?>>{{$ethnics->name}}</option>
 										@endforeach
 									</select>
 								</div>
@@ -67,7 +68,8 @@
 								<div class="controls">
 									<select class="span2" name="nationality">
 										@foreach ($static_nationalities as $nationality)
-										<option value="{{$nationality->id}}">{{$nationality->nationality}}</option>
+										<option value="{{$nationality->id}}" 
+											<?php if(Auth::user()->nationality == $nationality->id echo 'selected';?>>{{$nationality->nationality}}</option>
 										@endforeach
 									</select>
 								</div>
