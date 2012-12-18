@@ -28,8 +28,10 @@
 			</ul>
 		</div>
 
+		<div class="span7">
 
-		<div class="span7">fjaiifjeaofjaojfaofjeafja;fja;ofja;fja;fjaiofjaofje</div>
+
+		</div>
 	</div>
 
 
@@ -39,7 +41,7 @@
 			<div class="control-group">
 				{{ Form::label('email', '电子邮件', array('class' => 'control-label')) }}
 				<div class="controls">
-					{{ Form::text('email', Input::old('email'), array('class' => 'span3', 'placeholder' => 'eg. user@domain.com')) }}
+					{{ Form::text('email', Input::old('email'), array('class' => 'span3', 'placeholder' => 'eg. user@domain.com', 'disabled' => 'disabled')) }}
 				</div>
 			</div>
 
