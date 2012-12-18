@@ -124,7 +124,8 @@
 								<div class="controls">
 									<select class="span2" name="marriage">
 										@foreach ($static_marriages as $marriage)
-										<option value="{{$marriage->id}}">{{$marriage->status}}</option>
+										<option value="{{$marriage->id}}" 
+											<?php if(Auth::user()->marriage == $marriage->id) echo 'selected';?>>{{$marriage->status}}</option>
 										@endforeach
 									</select>
 								</div>
@@ -135,7 +136,8 @@
 								<div class="controls">
 									<select class="span2" name="living">
 										@foreach ($static_livings as $living)
-										<option value="{{$living->id}}">{{$living->status}}</option>
+										<option value="{{$living->id}}" 
+											<?php if(Auth::user()->living == $living->id) echo 'selected';?>>{{$living->status}}</option>
 										@endforeach
 									</select>
 								</div>
@@ -156,7 +158,8 @@
 								<div class="controls">
 									<select class="span2" name="academic">
 										@foreach ($static_academics as $academic)
-										<option value="{{$academic->id}}">{{$academic->academic}}</option>
+										<option value="{{$academic->id}}" 
+											<?php if(Auth::user()->academic == $academic->id) echo 'selected';?>>{{$academic->academic}}</option>
 										@endforeach
 									</select>
 								</div>
@@ -165,14 +168,14 @@
 							<div class="control-group">
 								{{ Form::label('school', '毕业院校', array('class' => 'control-label')) }}
 								<div class="controls">
-									{{ Form::text('school', Input::old('school'), array('class' => 'span2')) }}
+									{{ Form::text('school', Auth::user()->school, array('class' => 'span2')) }}
 								</div>
 							</div>
 
 							<div class="control-group">
 								{{ Form::label('major', '专业', array('class' => 'control-label')) }}
 								<div class="controls">
-									{{ Form::text('major', Input::old('major'), array('class' => 'span2')) }}
+									{{ Form::text('major', Auth::user()->major, array('class' => 'span2')) }}
 									
 								</div>
 							</div>
@@ -182,7 +185,8 @@
 								<div class="controls">
 									<select class="span2" name="industry">
 										@foreach ($static_industries as $industry)
-										<option value="{{$industry->id}}">{{$industry->type}}</option>
+										<option value="{{$industry->id}}" 
+											<?php if(Auth::user()->industry == $industry->id) echo 'selected';?>>{{$industry->type}}</option>
 										@endforeach
 									</select>
 								</div>
@@ -193,7 +197,8 @@
 								<div class="controls">
 									<select class="span2" name="profession">
 										@foreach ($static_professions as $profession)
-										<option value="{{$profession->id}}">{{$profession->profession}}</option>
+										<option value="{{$profession->id}}" 
+											<?php if(Auth::user()->profession == $profession->id) echo 'selected';?>>{{$profession->profession}}</option>
 										@endforeach
 									</select>
 								</div>
@@ -204,7 +209,8 @@
 								<div class="controls">
 									<select class="span2" name="companytype">
 										@foreach ($static_companytypes as $companytype)
-										<option value="{{$companytype->id}}">{{$companytype->type}}</option>
+										<option value="{{$companytype->id}}" 
+											<?php if(Auth::user()->companytype == $companytype->id) echo 'selected';?>>{{$companytype->type}}</option>
 										@endforeach
 									</select>
 								</div>
@@ -217,7 +223,8 @@
 										<span class="add-on">￥</span>
 										<select class="span2" name="salary">
 											@foreach ($static_salaries as $salary)
-											<option value="{{$salary->id}}">{{$salary->range}}</option>
+											<option value="{{$salary->id}}" 
+												<?php if(Auth::user()->salary  == $salary->id) echo 'selected';?>>{{$salary->range}}</option>
 											@endforeach
 										</select>
 									</div>
@@ -235,7 +242,7 @@
 				<div class="controls">
 					<div class="input-prepend">
 						<span class="add-on">http://</span>
-						{{ Form::text('blog', Input::old('blog'), array('class' => 'span4', 'size' => 100, 'placeholder' => 'eg. blog.domain.com')) }}
+						{{ Form::text('blog', Auth::user()->blog, array('class' => 'span4', 'size' => 100, 'placeholder' => 'eg. blog.domain.com')) }}
 					</div>
 				</div>
 			</div>
