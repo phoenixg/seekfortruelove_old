@@ -24,7 +24,7 @@ class Account_Controller extends Base_Controller
 	{
 		echo '<pre>';print_r(Input::get());
 		die;
-
+		/*
 		$id = trim(Input::get('id'));
 		$validation = User::validate(Input::all());
 
