@@ -100,7 +100,7 @@
 								{{ Form::label('born', '出生年份', array('class' => 'control-label')) }}
 								<div class="controls">
 									<div class="input-append">
-										{{ Form::text('born', Input::old('born'), array('class' => 'span1', 'size' => 10)) }}
+										{{ Form::text('born', Auth::user()->born, array('class' => 'span1', 'size' => 10)) }}
 										<span class="add-on">年</span>
 									</div>
 								</div>
@@ -112,7 +112,8 @@
 								<div class="controls">
 									<select class="span2" name="district">
 										@foreach ($static_districts as $district)
-										<option value="{{$district->id}}">{{$district->district}}</option>
+										<option value="{{$district->id}}" 
+											<?php if(Auth::user()->district == $district->id) echo 'selected';?>>{{$district->district}}</option>
 										@endforeach
 									</select>
 								</div>
