@@ -30,7 +30,7 @@
 							<div class="control-group">
 								{{ Form::label('email', '电子邮件', array('class' => 'control-label')) }}
 								<div class="controls">
-									{{ Form::text('email', Auth::user->email, array('class' => 'span3', 'placeholder' => 'eg. user@domain.com', 'disabled' => 'disabled')) }}
+									{{ Form::text('email', Auth::user()->email, array('class' => 'span3', 'placeholder' => 'eg. user@domain.com', 'disabled' => 'disabled')) }}
 								</div>
 							</div>
 
