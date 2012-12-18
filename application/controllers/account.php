@@ -23,8 +23,7 @@ class Account_Controller extends Base_Controller
 	public function put_update()
 	{
 		echo '<pre>';print_r(Input::get());
-		die;
-		/*
+			
 		$id = trim(Input::get('id'));
 		$validation = User::validate(Input::all());
 
@@ -33,15 +32,28 @@ class Account_Controller extends Base_Controller
 					->with_errors($validation);
 		} else {
 			User::update($id, array(
-				'name' => Input::get('name'),
-				'bio' => Input::get('bio')
+				'nickname' 			=> Input::get('nickname'),
+				'sex'				=> Input::get('sex'),
+				'ethnic' 			=> Input::get('ethnic'),
+				'nationality' 		=> Input::get('nationality'),
+				'height' 			=> Input::get('height'),
+				'weight' 			=> Input::get('weight'),
+				'born'				=> Input::get('born'),
+				'district'			=> Input::get('district'),
+				'marriage' 			=> Input::get('marriage'),
+				'living' 			=> Input::get('living'),
+				'academic' 			=> Input::get('academic'),
+				'school' 			=> Input::get('school'),
+				'major' 			=> Input::get('major'),
+				'industry' 			=> Input::get('industry'),
+				'profession' 		=> Input::get('profession'),
+				'companytype' 		=> Input::get('companytype'),
+				'salary' 			=> Input::get('salary'),
+				'blog' 				=> Input::get('blog')
 			));
 			return Redirect::to_route('author', $id)
-				->with('message', 'Author updated successfully!');
+				->with('message', '个人资料更新成功！');
 		}
-		*/
-
-
 	}
 
 	public function post_create() 
