@@ -142,9 +142,9 @@
 						<!-- 右边一排 -->
 						<div class="span5">
 							<!-- 头像 -->
-							<ul id="thumbnails" class="thumbnails" style="margin-left:140px;">
+							<ul id="thumbnails" class="thumbnails" style="margin-left:130px;">
 								<li>
-									{{ HTML::image('/images/profile/icon/'.Auth::user()->id.'.jpg', 'this is alt text', array('id' => 'icon')) }}
+									{{ HTML::image('/images/profile/icon/'.Auth::user()->id.'.jpg', '头像', array('id' => 'icon')) }}
 								</li>
 							</ul>
 
