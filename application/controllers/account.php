@@ -32,24 +32,24 @@ class Account_Controller extends Base_Controller
 					->with_errors($validation);
 		} else {
 			User::update($id, array(
-				'nickname' 			=> Input::get('nickname'),
-				'sex'				=> Input::get('sex'),
-				'ethnic' 			=> Input::get('ethnic'),
-				'nationality' 		=> Input::get('nationality'),
-				'height' 			=> Input::get('height'),
-				'weight' 			=> Input::get('weight'),
-				'born'				=> Input::get('born'),
-				'district'			=> Input::get('district'),
-				'marriage' 			=> Input::get('marriage'),
-				'living' 			=> Input::get('living'),
-				'academic' 			=> Input::get('academic'),
-				'school' 			=> Input::get('school'),
-				'major' 			=> Input::get('major'),
-				'industry' 			=> Input::get('industry'),
-				'profession' 		=> Input::get('profession'),
-				'companytype' 		=> Input::get('companytype'),
-				'salary' 			=> Input::get('salary'),
-				'blog' 				=> Input::get('blog')
+				'nickname' 			=> trim(Input::get('nickname')),
+				'sex'				=> trim(Input::get('sex')),
+				'ethnic' 			=> trim(Input::get('ethnic')),
+				'nationality' 		=> trim(Input::get('nationality')),
+				'height' 			=> trim(Input::get('height')),
+				'weight' 			=> trim(Input::get('weight')),
+				'born'				=> trim(Input::get('born')),
+				'district'			=> trim(Input::get('district')),
+				'marriage' 			=> trim(Input::get('marriage')),
+				'living' 			=> trim(Input::get('living')),
+				'academic' 			=> trim(Input::get('academic')),
+				'school' 			=> trim(Input::get('school')),
+				'major' 			=> trim(Input::get('major')),
+				'industry' 			=> trim(Input::get('industry')),
+				'profession' 		=> trim(Input::get('profession')),
+				'companytype' 		=> trim(Input::get('companytype')),
+				'salary' 			=> trim(Input::get('salary')),
+				'blog' 				=> trim(Input::get('blog'))
 			));
 			return Redirect::to_route('dashboard_profile', $id)
 				->with('message', '个人资料更新成功！');

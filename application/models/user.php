@@ -29,7 +29,7 @@ class User extends Eloquent{
 	);
 
 	public static $rules_update = array(
-		'nickname'       => 'required|min:2|max:30|unique:users',
+		'nickname'       => 'required|min:2|max:30',
 		'sex'            => 'required',
 		'ethnic'         => 'required',
 		'nationality'    => 'required',
