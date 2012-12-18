@@ -247,6 +247,8 @@
 				</div>
 			</div>
 
+			{{ Form::text('id', Auth::user()->id) }}
+
 			<div class="control-group">
 				<div class="controls">
 					{{ Form::submit('更新', array('class' => 'btn btn-primary')) }}

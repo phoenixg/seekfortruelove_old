@@ -22,6 +22,25 @@ class Account_Controller extends Base_Controller
 	public function put_update()
 	{
 		var_dump(Input::get());
+
+		
+		/*
+		$id = Input::get('id');
+		$validation = Author::validate(Input::all());
+
+		if ($validation->fails()) {
+			return Redirect::to_route('dashboard_profile', $id)->with_errors($validation);
+		} else {
+			Author::update($id, array(
+				'name' => Input::get('name'),
+				'bio' => Input::get('bio')
+			));
+			return Redirect::to_route('author', $id)
+				->with('message', 'Author updated successfully!');
+		}
+		*/
+
+
 	}
 
 	public function post_create() 
