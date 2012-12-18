@@ -25,7 +25,7 @@ class Account_Controller extends Base_Controller
 		echo '<pre>';print_r(Input::get());
 			
 		$id = trim(Input::get('id'));
-		$validation = User::validate(Input::all());
+		$validation = User::validate_update(Input::all());
 
 		if ($validation->fails()) {
 			return Redirect::to_route('dashboard_profile')
@@ -51,7 +51,7 @@ class Account_Controller extends Base_Controller
 				'salary' 			=> Input::get('salary'),
 				'blog' 				=> Input::get('blog')
 			));
-			return Redirect::to_route('author', $id)
+			return Redirect::to_route('dashboard_profile', $id)
 				->with('message', '个人资料更新成功！');
 		}
 	}

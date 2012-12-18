@@ -25,8 +25,28 @@ class User extends Eloquent{
 		'companytype'    => 'required',
 		'salary'         => 'required',
 		'blog'           => 'min:2|max:100|active_url',
-		'terms'          => 'accepted'
-		
+		'terms'          => 'accepted'		
+	);
+
+	public static $rules_update = array(
+		'nickname'       => 'required|min:2|max:30|unique:users',
+		'sex'            => 'required',
+		'ethnic'         => 'required',
+		'nationality'    => 'required',
+		'height'         => 'required|between:140,230|integer',
+		'weight'         => 'required|between:30,110|integer',
+		'born'           => 'required|between:1950,1995|integer',
+		'district'       => 'required',
+		'marriage'       => 'required',
+		'living'         => 'required',
+		'academic'       => 'required',
+		'school'         => 'required|min:2|max:50',
+		'major'          => 'min:2|max:50',
+		'industry'       => 'required',
+		'profession'     => 'required',
+		'companytype'    => 'required',
+		'salary'         => 'required',
+		'blog'           => 'min:2|max:100|active_url',
 	);
 
 	public function images()
@@ -38,6 +58,8 @@ class User extends Eloquent{
 		return Validator::make($data, static::$rules);
 	}
 
-
+	public static function validate_update($data) {
+		return Validator::make($data, static::$rules_update);
+	}
 
 }
