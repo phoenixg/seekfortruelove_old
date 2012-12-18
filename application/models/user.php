@@ -46,7 +46,7 @@ class User extends Eloquent{
 		'profession'     => 'required',
 		'companytype'    => 'required',
 		'salary'         => 'required',
-		'blog'           => 'min:2|max:100|active_url',
+		'blog'           => 'min:2|max:100|active_url'
 	);
 
 	public function images()
