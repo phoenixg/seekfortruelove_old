@@ -47,7 +47,7 @@
 								<div class="controls">
 									<select class="span1" name="sex">
 										<option value="男" @if(Auth::user()->sex == '男')selected@endif>男</option>
-										<option value="女" selected>女</option>
+										<option value="女" @if(Auth::user()->sex == '女')selected@endif>女</option>
 									</select>
 								</div>
 							</div>
