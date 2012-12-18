@@ -142,7 +142,7 @@
 						<!-- 右边一排 -->
 						<div class="span5">
 							<!-- 头像 -->
-							<ul id="thumbnails" class="thumbnails" style="margin-left:100px;">
+							<ul id="thumbnails" class="thumbnails" style="margin-left:140px;">
 								<li>
 									{{ HTML::image('/images/profile/icon/'.Auth::user()->id.'.jpg', 'this is alt text', array('id' => 'icon')) }}
 								</li>
@@ -226,17 +226,6 @@
 					</div>
 				</div>
 			</div>
-
-
-
-
-
-
-
-
-
-
-
 
 			<div class="control-group">
 				{{ Form::label('blog', '个人博客', array('class' => 'control-label')) }}
