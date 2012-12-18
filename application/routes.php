@@ -32,28 +32,29 @@ Route::get('/', array('as' => 'home', function(){
 }));
 
 //common pages
-Route::get('register', 			array('as' => 'register', 	'uses' => 'account@register'));
-Route::post('create', 			array('as' => 'create',		'uses' => 'account@create'));
-Route::get('verifymail', 		array('as' => 'verifymail', 'uses' => 'account@verifymail'));
-Route::get('verify/(:all)',		array('as' => 'verify', 	'uses' => 'account@verify'));
-Route::get('welcome',			array('as' => 'welcome', 	'uses' => 'account@welcome'));
-Route::get('login', 			array('as' => 'login', 		'uses' => 'account@login'));
-Route::post('login', 			array('as' => 'login', 		'uses' => 'account@login'));
-Route::get('logout', 			array('as' => 'logout', 	'uses' => 'account@logout'));
+Route::get('register', 					array('as' => 'register', 										'uses' => 'account@register'));
+Route::post('create', 					array('as' => 'create',											'uses' => 'account@create'));
+Route::put('update', 					array('as' => 'update', 				'before' => 'csrf', 	'uses' => 'account@update'));
+Route::get('verifymail', 				array('as' => 'verifymail',										'uses' => 'account@verifymail'));
+Route::get('verify/(:all)',				array('as' => 'verify', 										'uses' => 'account@verify'));
+Route::get('welcome',					array('as' => 'welcome', 										'uses' => 'account@welcome'));
+Route::get('login', 					array('as' => 'login', 											'uses' => 'account@login'));
+Route::post('login', 					array('as' => 'login', 											'uses' => 'account@login'));
+Route::get('logout', 					array('as' => 'logout', 										'uses' => 'account@logout'));
 
 //function pages
-Route::get('search', 			array('as' => 'search', 	'before' => 'auth', 	'uses' => 'user@search'));
-Route::post('search', 			array('as' => 'search', 							'uses' => 'user@search'));
-Route::get('profile/(:any)', 	array('as' => 'profile', 							'uses' => 'user@profile'));
+Route::get('search', 					array('as' => 'search', 				'before' => 'auth', 	'uses' => 'user@search'));
+Route::post('search', 					array('as' => 'search', 										'uses' => 'user@search'));
+Route::get('profile/(:any)', 			array('as' => 'profile', 										'uses' => 'user@profile'));
 
 //user dashboard
-Route::get('dashboard', 				array('as' => 'dashboard', 					'uses' => 'dashboard@index'));
-Route::get('dashboard/profile', 		array('as' => 'dashboard_profile',			'uses' => 'dashboard@profile'));
-Route::get('dashboard/image', 			array('as' => 'dashboard_image', 			'uses' => 'dashboard@image'));
-Route::post('dashboard/imageupload',	array('as' => 'dashboard_imageupload', 		'uses' => 'dashboard@imageupload'));
-Route::post('dashboard/imagehandle', 	array('as' => 'dashboard_imagehandle',		'uses' => 'dashboard@imagehandle'));
-Route::post('dashboard/imagecrop', 		array('as' => 'dashboard_imagecrop',		'uses' => 'dashboard@imagecrop'));
-Route::delete('dashboard/imagedelete',  array('as' => 'dashboard_imagedelete', 		'uses' => 'dashboard@imagedelete'));
+Route::get('dashboard', 				array('as' => 'dashboard', 										'uses' => 'dashboard@index'));
+Route::get('dashboard/profile', 		array('as' => 'dashboard_profile',								'uses' => 'dashboard@profile'));
+Route::get('dashboard/image', 			array('as' => 'dashboard_image', 								'uses' => 'dashboard@image'));
+Route::post('dashboard/imageupload',	array('as' => 'dashboard_imageupload', 							'uses' => 'dashboard@imageupload'));
+Route::post('dashboard/imagehandle', 	array('as' => 'dashboard_imagehandle',							'uses' => 'dashboard@imagehandle'));
+Route::post('dashboard/imagecrop', 		array('as' => 'dashboard_imagecrop',							'uses' => 'dashboard@imagecrop'));
+Route::delete('dashboard/imagedelete',  array('as' => 'dashboard_imagedelete', 							'uses' => 'dashboard@imagedelete'));
 
 //test pages
 Route::controller(array(

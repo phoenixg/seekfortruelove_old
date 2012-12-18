@@ -19,6 +19,11 @@ class Account_Controller extends Base_Controller
 			->with('static_salaries', DB::table('static_salaries')->get());
 	}
 
+	public function put_update()
+	{
+		var_dump(Input::get());
+	}
+
 	public function post_create() 
 	{
 		$validation = User::validate(Input::all());

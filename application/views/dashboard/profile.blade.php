@@ -20,7 +20,7 @@
 	@endif
 
 
-	{{ Form::open(URL::to_route('create'), 'POST', array('class' => 'form-horizontal')) }}
+	{{ Form::open(URL::to_route('update'), 'POST', array('class' => 'form-horizontal')) }}
 		<fieldset>
 			<div class="row">
 				<div class="span12">
