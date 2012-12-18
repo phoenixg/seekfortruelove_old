@@ -143,7 +143,7 @@
 						<div class="span5">
 							<!-- 头像 -->
 							<div class="row">
-								<div class="span2" style="float:right;">
+								<div class="span2">
 									<ul id="thumbnails" class="thumbnails">
 										<li>
 											{{ HTML::image('/images/profile/icon/'.Auth::user()->id.'.jpg', 'this is alt text', array('id' => 'icon')) }}
