@@ -19,19 +19,20 @@ class Account_Controller extends Base_Controller
 			->with('static_salaries', DB::table('static_salaries')->get());
 	}
 
+	// 如果用户手动更改put的id值，会不会有危险，即更改了其他人的资料
 	public function put_update()
 	{
-		var_dump(Input::get());
+		echo '<pre>';print_r(Input::get());
+		die;
 
-		
-		/*
-		$id = Input::get('id');
-		$validation = Author::validate(Input::all());
+		$id = trim(Input::get('id'));
+		$validation = User::validate(Input::all());
 
 		if ($validation->fails()) {
-			return Redirect::to_route('dashboard_profile', $id)->with_errors($validation);
+			return Redirect::to_route('dashboard_profile')
+					->with_errors($validation);
 		} else {
-			Author::update($id, array(
+			User::update($id, array(
 				'name' => Input::get('name'),
 				'bio' => Input::get('bio')
 			));
