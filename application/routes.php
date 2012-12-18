@@ -7,17 +7,9 @@
 	GET http://domain.com/contact/ - 联系我们
 	GET http://domain.com/privacy/ - 隐私声明
 	GET http://domain.com/help/ - 帮助中心
-	
-	GET http://domain.com/search/ - 搜索页面， 需要登陆
-	GET http://domain.com/profile/(:any) - 个人信息页面，需要登陆
-
 
 	GET http://domain.com/dashboard/ - 普通用户控制面板
-	GET http://domain.com/dashboard/profile/ - 普通用户个人信息
 	GET http://domain.com/dashboard/stats/ - 普通用户统计信息
-	GET http://domain.com/login/ - 普通用户登陆
-	POST? http://domain.com/logout/ - 普通用户注销
-	GET http://domain.com/register/ - 普通用户注册
 
 	GET http://domain.com/admin/dashboard/ - 管理员控制面板
 	GET http://domain.com/admin/dashboard/profile/ - 管理员个人信息
@@ -55,6 +47,9 @@ Route::post('dashboard/imageupload',	array('as' => 'dashboard_imageupload', 				
 Route::post('dashboard/imagehandle', 	array('as' => 'dashboard_imagehandle',							'uses' => 'dashboard@imagehandle'));
 Route::post('dashboard/imagecrop', 		array('as' => 'dashboard_imagecrop',							'uses' => 'dashboard@imagecrop'));
 Route::delete('dashboard/imagedelete',  array('as' => 'dashboard_imagedelete', 							'uses' => 'dashboard@imagedelete'));
+
+//admin dashboard
+Route::get('admin/dashboard', 			array('as' => 'admin_dashboard'), 								'uses' => 'admin/dashboard@index');                                   
 
 //test pages
 Route::controller(array(
