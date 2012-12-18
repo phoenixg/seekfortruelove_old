@@ -37,7 +37,7 @@
 							<div class="control-group">
 								{{ Form::label('nickname', '显示昵称', array('class' => 'control-label')) }}
 								<div class="controls">
-									{{ Form::text('nickname', Input::old('nickname'), array('class' => 'span2')) }}
+									{{ Form::text('nickname', Auth::user()->nickname, array('class' => 'span2')) }}
 								</div>
 							</div>
 
@@ -46,7 +46,7 @@
 								<div class="controls">
 									<select class="span1" name="sex">
 										<option value="男">男</option>
-										<option value="女">女</option>
+										<option value="女" selected>女</option>
 									</select>
 								</div>
 							</div>
