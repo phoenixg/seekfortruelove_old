@@ -23,33 +23,56 @@
 	{{ Form::open(URL::to_route('create'), 'POST', array('class' => 'form-horizontal')) }}
 		<fieldset>
 			<div class="row">
-				<div class="span2">
+				<div class="span2" style="float:right;">
 					<ul id="thumbnails" class="thumbnails">
 						<li>
 							{{ HTML::image('/images/profile/icon/'.Auth::user()->id.'.jpg', 'this is alt text', array('id' => 'icon')) }}
 						</li>
 					</ul>
 				</div>
-
-				<div class="span7">
-					<div class="control-group">
-						{{ Form::label('email', '电子邮件', array('class' => 'control-label')) }}
-						<div class="controls">
-							{{ Form::text('email', Input::old('email'), array('class' => 'span3', 'placeholder' => 'eg. user@domain.com', 'disabled' => 'disabled')) }}
-						</div>
-					</div>
-
-					<div class="control-group">
-						{{ Form::label('nickname', '显示昵称', array('class' => 'control-label')) }}
-						<div class="controls">
-							{{ Form::text('nickname', Input::old('nickname'), array('class' => 'span2')) }}
-						</div>
-					</div>
-				</div>
 			</div>
 		</fieldset>
 		{{ Form::token() }}
 	{{ Form::close() }}
+
+
+
+
+
+<div class="row">
+	<div class="span12">
+		<div class="row">
+			<!-- 左边一排 -->
+			<div class="span4">
+				<div class="control-group">
+					{{ Form::label('email', '电子邮件', array('class' => 'control-label')) }}
+					<div class="controls">
+						{{ Form::text('email', Input::old('email'), array('class' => 'span3', 'placeholder' => 'eg. user@domain.com', 'disabled' => 'disabled')) }}
+					</div>
+				</div>
+
+				<div class="control-group">
+					{{ Form::label('nickname', '显示昵称', array('class' => 'control-label')) }}
+					<div class="controls">
+						{{ Form::text('nickname', Input::old('nickname'), array('class' => 'span2')) }}
+					</div>
+				</div>
+
+
+			</div>
+
+			<!-- 右边一排 -->
+			<div class="span5">
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
 
 
 
