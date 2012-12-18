@@ -142,24 +142,11 @@
 						<!-- 右边一排 -->
 						<div class="span5">
 							<!-- 头像 -->
-							<!--
-							<div class="row">
-								<div class="span2">
-									<ul id="thumbnails" class="thumbnails">
-										<li>
-											{{ HTML::image('/images/profile/icon/'.Auth::user()->id.'.jpg', 'this is alt text', array('id' => 'icon')) }}
-										</li>
-									</ul>
-								</div>
-							</div>
-							-->
-							<div class="control-group">
-								<ul id="thumbnails" class="thumbnails">
-									<li>
-										{{ HTML::image('/images/profile/icon/'.Auth::user()->id.'.jpg', 'this is alt text', array('id' => 'icon')) }}
-									</li>
-								</ul>
-							</div>
+							<ul id="thumbnails" class="thumbnails" style="margin-left:100px;">
+								<li>
+									{{ HTML::image('/images/profile/icon/'.Auth::user()->id.'.jpg', 'this is alt text', array('id' => 'icon')) }}
+								</li>
+							</ul>
 
 							<div class="control-group">
 								{{ Form::label('academic', '最高学历', array('class' => 'control-label')) }}
