@@ -69,7 +69,7 @@
 									<select class="span2" name="nationality">
 										@foreach ($static_nationalities as $nationality)
 										<option value="{{$nationality->id}}" 
-											<?php if(Auth::user()->nationality == $nationality->id echo 'selected';?>>{{$nationality->nationality}}</option>
+											<?php if(Auth::user()->nationality == $nationality->id) echo 'selected';?>>{{$nationality->nationality}}</option>
 										@endforeach
 									</select>
 								</div>
