@@ -247,7 +247,7 @@
 				</div>
 			</div>
 
-			{{ Form::text('id', Auth::user()->id) }}
+			{{ Form::hidden('id', Auth::user()->id) }}
 
 			<div class="control-group">
 				<div class="controls">
