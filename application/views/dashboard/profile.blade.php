@@ -43,15 +43,10 @@
 
 							<div class="control-group">
 								{{ Form::label('sex', '性别', array('class' => 'control-label')) }}
-								{{ Auth::user()->sex }}
-								@if(Auth::user()->sex == '男')
-									$man = 'selected';
-								@endif
-
 								<div class="controls">
 									<select class="span1" name="sex">
-										<option value="男" >男</option>
-										<option value="女" @if(Auth::user()->sex == '女')selected@endif>女</option>
+										<option value="男" <?php if(Auth::user()->sex == '男') echo 'selected';?>>男</option>
+										<option value="女" <?php if(Auth::user()->sex == '女') echo 'selected';?>>女</option>
 									</select>
 								</div>
 							</div>
