@@ -7,6 +7,8 @@ class Admin_Admin_Controller extends Base_Controller
 	{
 		if (Auth::check()) {
 			return 'you are logged in';
+		}else{
+			return 'you are not logged in';
 		}
 
 		return View::make('admin.login');
