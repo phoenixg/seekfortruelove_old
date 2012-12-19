@@ -13,6 +13,17 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <style type="text/css">
 
 
+ul, li {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}                  
+
+
 </style>
 
 
