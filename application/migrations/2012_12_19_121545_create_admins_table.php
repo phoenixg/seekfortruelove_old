@@ -9,6 +9,12 @@ class Create_Admins_Table{
       $table->timestamps();
     });
 
+
+    DB::table('users')->insert(array(
+      'password' => Hash::make('111111'),
+      'created_at' => date('Y-m-d H:i:s'),
+      'updated_at' => date('Y-m-d H:i:s')
+    ));
   }
 
   public function down()
