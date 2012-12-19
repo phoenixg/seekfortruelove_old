@@ -5,6 +5,7 @@
 @endsection
 @section('page_scripts_header')
 	{{ HTML::script('js/jquery.ticker.js') }}
+	{{ HTML::script('js/index.js') }}
 @endsection
 @section('content')
 	<div class="container">
