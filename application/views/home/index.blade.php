@@ -1,6 +1,44 @@
 @layout('layouts.default')
 
 @section('content')
+
+
+	<style type="text/css">
+
+
+	ul, li {
+	  margin:0;
+	  padding:0;
+	  border:0;
+	  outline:0;
+	  font-size:100%;
+	  vertical-align:baseline;
+	  background:transparent;
+	}                  
+
+
+	</style>
+	<link href="http://173.230.150.168/gitprojects/seekfortruelove/jquery_news_ticker/styles/ticker-style.css" rel="stylesheet" type="text/css" />
+	<script src="http://173.230.150.168/gitprojects/seekfortruelove/jquery_news_ticker/includes/jquery.ticker.js" type="text/javascript"></script>
+
+
+	<ul id="js-news" class="js-hidden">
+	    <li class="news-item"><a href="#">This is the 1st latest news item.</a></li>
+	    <li class="news-item"><a href="#">This is the 2nd latest news item.</a></li>
+	    <li class="news-item"><a href="#">This is the 3rd latest news item.</a></li>
+	    <li class="news-item"><a href="#">This is the 4th latest news item.</a></li>
+	</ul>
+	<script type="text/javascript">
+	$(function () {
+	     // start the ticker 
+	    $('#js-news').ticker();
+	    
+
+	});
+	</script>
+
+
+
 	<div class="container">
 		<div class="hero-unit">
 			<h2 style="visibility:hidden;">本站是由一名基督徒发起，定位于上海地区，面向所有主内单身青年男女，以婚恋为目的的免费交友平台。</h2>
