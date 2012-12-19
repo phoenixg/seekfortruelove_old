@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<!-- 
-
-TODO
-
--->
-
 <html lang="en">
 <head>
 	<meta charset="utf-8">
