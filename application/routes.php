@@ -68,7 +68,7 @@ Route::controller(array(
 */
 
 
-View::composer(array('layouts.default', 'layouts.dashboard'), function()
+View::composer(array('layouts.default', 'layouts.dashboard', 'admin.panelindex'), function()
 {
 	//CSS
 	Asset::add('css-bootstrap', 'css/bootstrap.min.css');
