@@ -16,14 +16,12 @@ class Admin_Admin_Controller extends Base_Controller
 
 		if(Hash::check(trim(Input::get('password')), $admin->password))
 		{	
-
-			return Redirect::to_route('search');
+			return View::make('admin.panelindex');
 			exit;
 		}
 		
-		return Redirect::to_route('login');
+		return Redirect::to_route('admin_login');
 			//->with('login_errors', true);
-
 	}
 
 }
