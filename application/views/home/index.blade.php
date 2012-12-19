@@ -1,23 +1,8 @@
 @layout('layouts.default')
-
+@section('page_styles_header')
+	{{ HTML::style('css/index.css') }}
+@endsection
 @section('content')
-
-
-	<style type="text/css">
-
-
-	ul, li {
-	  margin:0;
-	  padding:0;
-	  border:0;
-	  outline:0;
-	  font-size:100%;
-	  vertical-align:baseline;
-	  background:transparent;
-	}                  
-
-
-	</style>
 	<link href="http://173.230.150.168/gitprojects/seekfortruelove/jquery_news_ticker/styles/ticker-style.css" rel="stylesheet" type="text/css" />
 	<script src="http://173.230.150.168/gitprojects/seekfortruelove/jquery_news_ticker/includes/jquery.ticker.js" type="text/javascript"></script>
 
