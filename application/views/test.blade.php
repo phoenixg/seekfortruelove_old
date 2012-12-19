@@ -109,12 +109,10 @@ input, select { vertical-align:middle; }
 </ul>
 <script type="text/javascript">
 $(function () {
-    $('#js-news').ticker({
-        speed: 0.10,
-        htmlFeed: false,
-        fadeInSpeed: 600,
-        titleText: 'Latest News'
-    });
+     // start the ticker 
+    $('#js-news').ticker();
+    
+
 });         
 </script>
 
