@@ -3,11 +3,11 @@ class Admin_Dashboard_Controller extends Base_Controller
 {
 	public $restful = true;
 
-	/* todo
+	
 	public function __construct() {
-		$this->filter('before', 'auth');
+		$this->filter('before', 'auth_admin');
 	}
-	*/
+	
 
 	public function get_index()
 	{
