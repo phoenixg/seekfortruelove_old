@@ -5,7 +5,7 @@ class Admin_Dashboard_Controller extends Base_Controller
 
 	
 	public function __construct() {
-		$this->filter('before', 'auth_admin');
+		$this->filter('auth_admin');
 	}
 	
 
