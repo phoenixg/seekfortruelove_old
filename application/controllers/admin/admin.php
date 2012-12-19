@@ -23,6 +23,15 @@ class Admin_Admin_Controller extends Base_Controller
 		return Redirect::to_route('admin_login');
 	}
 
+	// TODO
+	public function get_logout()
+	{
+		/*
+		Auth::logout();
+		return Redirect::to_route('login');
+		*/
+	}
+
 }
 
 
