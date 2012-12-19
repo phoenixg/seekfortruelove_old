@@ -16,7 +16,7 @@ class Admin_Admin_Controller extends Base_Controller
 
 		echo '<pre>';print_r(DB::table('admins')->first());
 die;
-		if(Hash::check(trim(Input::get('password')), ))
+		if(Hash::check(trim(Input::get('password')), ''))
 		{
 			//return Redirect::to_route('search');
 			return Redirect::to('search');
