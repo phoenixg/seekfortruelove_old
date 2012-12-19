@@ -7,8 +7,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
 	
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script> 
+
+    <link href="http://173.230.150.168/gitprojects/seekfortruelove/jquery_news_ticker/styles/style.css?v=2011-04-25" rel="stylesheet" type="text/css" />
 	<link href="http://173.230.150.168/gitprojects/seekfortruelove/jquery_news_ticker/styles/ticker-style.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script> 
 	<script src="http://173.230.150.168/gitprojects/seekfortruelove/jquery_news_ticker/includes/jquery.ticker.js" type="text/javascript"></script>
 
 </head>
