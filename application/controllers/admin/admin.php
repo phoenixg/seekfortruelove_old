@@ -5,11 +5,7 @@ class Admin_Admin_Controller extends Base_Controller
 
 	public function get_login()
 	{
-		if (Auth::check()) {
-			return 'you are logged in';
-		}else{
-			return 'you are not logged in';
-		}
+		if (Auth::check()) Auth::logout();
 
 		return View::make('admin.login');
 	}
