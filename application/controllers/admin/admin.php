@@ -14,14 +14,9 @@ class Admin_Admin_Controller extends Base_Controller
 	{
 		var_dump(Input::get());
 
-
-		
-		die;
-		$credentials = array(
-			'password' => trim(Input::get('password'))
-		);
-
-		if(Auth::attempt($credentials))
+		echo '<pre>';print_r(DB::table('admins')->first());
+die;
+		if(Hash::check(trim(Input::get('password')), ))
 		{
 			//return Redirect::to_route('search');
 			return Redirect::to('search');
