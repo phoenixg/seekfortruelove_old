@@ -9,12 +9,10 @@
 			{{ Form::open(URL::to_route('login'), 'POST', array('class' => 'form-horizontal')) }}
 				<fieldset>	
 					<div class="control-group">
-						{{ Form::label('password', '密码', array('class' => 'control-label')) }}
+						{{ Form::label('password', '', array('class' => 'control-label')) }}
 						<div class="controls">
 							<input type="password" name="password" placeholder="密码" class="span3">
-						</div>
-
-						<div class="controls">
+							&nbsp;
 							{{ Form::submit('登录', array('class' => 'btn btn-primary')) }}
 						</div>
 					</div>
@@ -24,7 +22,6 @@
 				{{ Form::token() }}
 
 			{{ Form::close() }}
-
 		</div>
 	</div>
 </div>
