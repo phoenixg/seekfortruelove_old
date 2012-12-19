@@ -10,7 +10,7 @@ class Create_Admins_Table{
     });
 
 
-    DB::table('users')->insert(array(
+    DB::table('admins')->insert(array(
       'password' => Hash::make('111111'),
       'created_at' => date('Y-m-d H:i:s'),
       'updated_at' => date('Y-m-d H:i:s')
