@@ -7,20 +7,11 @@
 	<div class="row">
 		<div class="span12">
 			{{ Form::open(URL::to_route('login'), 'POST', array('class' => 'form-horizontal')) }}
-				<fieldset>	
-					<div class="control-group">
-						<div class="controls">
-							<input type="password" name="password" placeholder="密码" class="span3">
-							&nbsp;
-							{{ Form::submit('登录', array('class' => 'btn btn-primary')) }}
-							{{ Form::label('password', '', array('class' => 'control-label')) }}
-						</div>
-					</div>
-				
-				</fieldset>
-
+				<input type="password" name="password" placeholder="密码" class="span3">
+				&nbsp;
+				{{ Form::submit('登录', array('class' => 'btn btn-primary')) }}
+				{{ Form::label('password', '', array('class' => 'control-label')) }}
 				{{ Form::token() }}
-
 			{{ Form::close() }}
 		</div>
 	</div>
