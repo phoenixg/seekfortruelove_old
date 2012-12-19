@@ -28,7 +28,7 @@
 
 				<div class="nav-collapse pull-right">
 					<ul class="nav">
-						<li>{{ HTML::link('logout', '注销') }}</li>
+						<li>{{ HTML::link('admin/logout', '注销') }}</li>
 					</ul>
 				</div>
 			</div>
