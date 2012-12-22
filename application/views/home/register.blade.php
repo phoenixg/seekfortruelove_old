@@ -284,7 +284,7 @@
 			
 		</div>
 		<div class="span4">
-			information box
+			<!--information box-->
 		</div>
 	</div>
 </div>
