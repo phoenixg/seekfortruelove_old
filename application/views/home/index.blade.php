@@ -12,7 +12,7 @@
 
 		<div class="row">
 			<div class="span12" style="text-align: center;">
-				更多期待请加QQ群：287539779
+				<i>更多期待请加QQ群：287539779</i>
 			</div>
 		</div>
 

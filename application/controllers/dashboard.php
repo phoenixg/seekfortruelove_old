@@ -9,7 +9,8 @@ class Dashboard_Controller extends Base_Controller {
 	
 
 	public function get_index() {
-		return View::make('dashboard.index')
+		// 应该到index去的，暂时缺省去profile
+		return View::make('dashboard.profile')
 			->with('menuflg_index', true);
 	}
 
