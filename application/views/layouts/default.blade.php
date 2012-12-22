@@ -68,14 +68,23 @@
 		<h5 style="visibility:hidden;">谨以此站，献给一位把我带到基督面前的女人</h5>
 	</div>
 
+
 	<footer>
+		<!--
 		<div class="container">
 			<div class="row">
 				<div class="span2">使用条款</div>
 				<div class="span2">隐私声明</div>
 			</div>
 		</div>
+		-->
+		<div style="height:350px;text-algin:center;">
+			copyright 2012 All rights reserved
+		</div>
 	</footer>
+
+
+
 
 	@yield('page_scripts_footer')
 	
