@@ -8,11 +8,11 @@
 		<div class="hero-unit" style="text-align: center;">
 			<h2>本站是由一名基督徒发起，定位于上海地区，面向所有主内单身青年男女，以婚恋为目的的免费交友平台。</h2>
 			<p><a class="btn btn-primary btn-large" href="register">免费注册</a></p>
-			<h4>[ 公测中 ]</h4>
 		</div>
 
 		<div class="row">
 			<div class="span12" style="text-align: center;">
+				<i>[ 公测中 ]</i><br>
 				<i>更多期待请加QQ群：287539779</i>
 			</div>
 		</div>
