@@ -50,7 +50,7 @@
 								<!--<li><a href="#">其他</a></li>-->
 								
 								<li class="divider"></li>
-								<!--<li class="nav-header">标题</li><!--
+								<!--<li class="nav-header">标题</li>-->
 								<li>{{ HTML::link_to_route('logout', '注销') }}</li>
 								</ul>
 							</li>
