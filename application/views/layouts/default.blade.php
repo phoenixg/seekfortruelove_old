@@ -30,8 +30,10 @@
 					<ul class="nav">
 						<li>{{ HTML::link_to_route('home', '首页') }}</li>
 						<li>{{ HTML::link_to_route('search', '搜索') }}</li>
+						<!--
 						<li><a href="#">常见问题（FAQ）</a></li>
 						<li><a href="#">关于我们</a></li>
+						-->
 					</ul>
 				</div>
 
@@ -76,9 +78,6 @@
 				</div>
 			</div>
 			-->
-			<div class="span5"></div>
-			<div class="span2">Copyright 2012 All Rights Reserved</div>
-			<div class="span5"></div>
 		</footer>
 	</div>
 
