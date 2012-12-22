@@ -10,10 +10,22 @@ class Dashboard_Controller extends Base_Controller {
 
 	public function get_index() {
 		// 应该到index去的，暂时缺省去profile
-		$this->get_profile();
-
+		return View::make('dashboard.profile')
+			->with('static_ethnics', DB::table('static_ethnics')->get())
+			->with('static_nationalities', DB::table('static_nationalities')->get())
+			->with('static_districts', DB::table('static_districts')->get())
+			->with('static_marriages', DB::table('static_marriages')->get())
+			->with('static_livings', DB::table('static_livings')->get())
+			->with('static_academics', DB::table('static_academics')->get())
+			->with('static_industries', DB::table('static_industries')->get())
+			->with('static_professions', DB::table('static_professions')->get())
+			->with('static_companytypes', DB::table('static_companytypes')->get())
+			->with('static_salaries', DB::table('static_salaries')->get())
+			->with('menuflg_profile', true);
+		/*
 		return View::make('dashboard.index')
 			->with('menuflg_index', true);
+		*/
 	}
 
 	public function get_profile() {
