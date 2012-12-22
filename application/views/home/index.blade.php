@@ -10,6 +10,12 @@
 			<p><a class="btn btn-primary btn-large" href="register">免费注册</a></p>
 		</div>
 
+		<div class="row">
+			<div class="span12" style="text-align: center;">
+				更多期待请加QQ群：287539779
+			</div>
+		</div>
+
 		<!--
 		是否想知道本站如何与众不同？
 

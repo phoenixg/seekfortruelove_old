@@ -46,10 +46,11 @@
 								<a data-toggle="dropdown" class="dropdown-toggle" href="#">管理 <b class="caret"></b></a>
 								<ul class="dropdown-menu">
 								<li>{{ HTML::link_to_route('dashboard', '控制面板') }}</li>
-								<li><a href="#">其他</a></li>
+								
+								<!--<li><a href="#">其他</a></li>-->
 								
 								<li class="divider"></li>
-								<li class="nav-header">标题</li>
+								<!--<li class="nav-header">标题</li><!--
 								<li>{{ HTML::link_to_route('logout', '注销') }}</li>
 								</ul>
 							</li>
