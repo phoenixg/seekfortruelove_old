@@ -76,9 +76,9 @@
 				</div>
 			</div>
 			-->
-			<div>
-				copyright 2012 All rights reserved
-			</div>
+			<div class="span5"></div>
+			<div class="span2">Copyright 2012 All Rights Reserved</div>
+			<div class="span5"></div>
 		</footer>
 	</div>
 
