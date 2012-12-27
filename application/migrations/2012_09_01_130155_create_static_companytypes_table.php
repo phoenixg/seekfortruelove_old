@@ -16,12 +16,6 @@ class Create_Static_Companytypes_Table {
 		});
 
 		DB::table('static_companytypes')->insert(array(
-			'type' => '教会',
-			'created_at' => date('Y-m-d H:i:s'),
-			'updated_at' => date('Y-m-d H:i:s')
-		));
-
-		DB::table('static_companytypes')->insert(array(
 			'type' => '外资',
 			'created_at' => date('Y-m-d H:i:s'),
 			'updated_at' => date('Y-m-d H:i:s')

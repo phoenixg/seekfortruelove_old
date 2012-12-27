@@ -16,12 +16,6 @@ class Create_Static_Professions_Table {
 		});
 
 		DB::table('static_professions')->insert(array(
-			'profession' => '教会侍奉',
-			'created_at' => date('Y-m-d H:i:s'),
-			'updated_at' => date('Y-m-d H:i:s')
-		));
-
-		DB::table('static_professions')->insert(array(
 			'profession' => '技术',
 			'created_at' => date('Y-m-d H:i:s'),
 			'updated_at' => date('Y-m-d H:i:s')

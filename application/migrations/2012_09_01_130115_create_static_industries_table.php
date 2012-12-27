@@ -16,12 +16,6 @@ class Create_Static_Industries_Table {
 		});
 
 		DB::table('static_industries')->insert(array(
-			'type' => '教会/神学',
-			'created_at' => date('Y-m-d H:i:s'),
-			'updated_at' => date('Y-m-d H:i:s')
-		));
-
-		DB::table('static_industries')->insert(array(
 			'type' => '计算机/互联网',
 			'created_at' => date('Y-m-d H:i:s'),
 			'updated_at' => date('Y-m-d H:i:s')

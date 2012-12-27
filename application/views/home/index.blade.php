@@ -6,7 +6,7 @@
 @section('content')
 	<div class="container">
 		<div class="hero-unit" style="text-align: center;">
-			<h2>本站是由一名基督徒发起，定位于上海地区，面向所有主内单身青年男女，以婚恋为目的的免费交友平台。</h2>
+			<h2>定位于上海地区，面向所有不满于当代婚恋价值观的单身青年男女，以婚恋为目的的免费交友平台</h2>
 			<p><a class="btn btn-primary btn-large" href="register">免费注册</a></p>
 		</div>
 
