@@ -35,7 +35,7 @@ require path('sys').'laravel.php';
 
 
 
-
+echo 'aaa';
 dd(date('Y-m-d H:i:s'));
-
+echo 'bbb';
 //var_dump(new DateTime('now'))->format('Y-m-d H:i:s')))
