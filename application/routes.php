@@ -20,6 +20,12 @@
 
 //homepage
 Route::get('/', array('as' => 'home', function(){
+
+	
+	echo 'aaa';
+	dd(date('Y-m-d H:i:s'));
+	echo 'bbb';
+	//var_dump(new DateTime('now'))->format('Y-m-d H:i:s')))
 	return View::make('home.index');
 }));
 
