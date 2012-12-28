@@ -192,3 +192,6 @@ Laravel\IoC::register('mailer.transport', function()
 
 
 
+var_dump(date('Y-m-d H:i:s');
+
+//var_dump(new DateTime('now'))->format('Y-m-d H:i:s')))
