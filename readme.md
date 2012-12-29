@@ -6,7 +6,7 @@ FAQ：
 倒计时更新时间
 当前注册数
 统计信息图表共享
-
+想办法让注册的女生多一点，以免男生过多比例失衡
 
 I made this because of faith!
 
