@@ -104,7 +104,7 @@ class Account_Controller extends Base_Controller
 							如果您并没有访问过seekfortruelove网站，请忽略这封邮件。<br /><br />
 
 							您只需点击下面的链接即可激活您的帐号：<br />'.
-							Config::get('application.url').'verify/'.$key.'?uid='.$user->id.'
+							Config::get('application.url').'/verify/'.$key.'?uid='.$user->id.'
 							<br />
 							(如果上面不是链接形式，请将该地址手工粘贴到浏览器地址栏再访问)<br /><br />
 
