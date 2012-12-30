@@ -10,6 +10,13 @@ FAQ：
 这不是一个一夜情网站！你不能找到炮友
 推荐浏览器：firefox，chrome，IE 6屏蔽
 
+
+donate:
+请我吃一包薯片（5元）
+请我喝一杯星巴克（30元）
+请我吃一份pizza（50元）
+请我
+
 I made this because of faith!
 
 功能备忘
