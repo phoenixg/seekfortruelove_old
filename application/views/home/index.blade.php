@@ -14,7 +14,7 @@
 			@endif
 		</div>
 
-		<h2 style="text-align:center;"><a href="#difference">想知道本站如何与众不同？</a></h2>
+		<h2 id="diff"><a href="#difference">想知道本站如何与众不同？</a></h2>
 
 		<div class="row" id="difference">
 			<div class="span12">
