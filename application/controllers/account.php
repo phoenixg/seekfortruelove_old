@@ -6,6 +6,10 @@ class Account_Controller extends Base_Controller
 
 	public function get_register()
 	{
+		if(Auth::check()){
+			return Redirect::to_route('dashboard');
+		}
+
 		return View::make('home.register')
 			->with('static_ethnics', 		DB::table('static_ethnics')->get())
 			->with('static_nationalities',  DB::table('static_nationalities')->get())
