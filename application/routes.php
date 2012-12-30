@@ -75,7 +75,6 @@ View::composer(array('layouts.default', 'layouts.dashboard', 'admin.panelindex')
 	Asset::add('css-bootstrap', 'css/bootstrap.min.css');
 	Asset::add('css-bootstrap-responsive', 'css/bootstrap-responsive.min.css');
 	Asset::add('css-global', 'css/global.css');
-	Asset::add('css-googlefonts', 'css/googlefonts.css');
 
 	//JavaScript
 	Asset::add('jquery', 'js/jquery-1.8.0.min.js');
