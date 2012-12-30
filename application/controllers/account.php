@@ -144,6 +144,9 @@ class Account_Controller extends Base_Controller
 
 	public function get_login()
 	{
+		if(Auth::check()){
+			return Redirect::to('dashboard.index');
+		}
 		return View::make('home.login');
 	}
 
