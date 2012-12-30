@@ -144,11 +144,11 @@ class Account_Controller extends Base_Controller
 
 	public function get_login()
 	{
-		if(Auth::check()){
-			return Redirect::to_route('dashboard');
+		if(!Auth::check()){
+			return View::make('home.login');
 		}
-		
-		return View::make('home.login');
+
+		return Redirect::to_route('dashboard');
 	}
 
 	public function post_login()
