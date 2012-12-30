@@ -11,3 +11,13 @@
 h3 .diff_title {
 	font-family: 'Leckerli One', cursive;
 }
+
+
+.share-buttons {
+	text-align: center;
+}
+
+.fb-like, .twitter-share-button  {
+	display:inline;
+	float:left;
+}
