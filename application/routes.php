@@ -39,6 +39,9 @@ Route::get('search', 					array('as' => 'search', 				'before' => 'auth', 	'uses
 Route::post('search', 					array('as' => 'search', 										'uses' => 'user@search'));
 Route::get('profile/(:any)', 			array('as' => 'profile', 										'uses' => 'user@profile'));
 
+//site pages
+Route::get('memorabilia', 				array('as' => 'memorabilia', 									'uses' => 'site@memorabilia'));
+
 //user dashboard
 Route::get('dashboard', 				array('as' => 'dashboard', 										'uses' => 'dashboard@index'));
 Route::get('dashboard/profile', 		array('as' => 'dashboard_profile',								'uses' => 'dashboard@profile'));
