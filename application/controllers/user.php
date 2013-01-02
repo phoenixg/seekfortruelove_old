@@ -118,8 +118,6 @@ class User_Controller extends Base_Controller
     }
 
     public function get_profile($id) {
-echo '<pre>';var_dump(User::profile($id));die;
-
         return View::make('profile')
             ->with('user', User::profile($id));
     }

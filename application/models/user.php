@@ -64,40 +64,40 @@ class User extends Eloquent{
 
 
 	public static function profile($uid){
-	        $user = DB::table('users')
-	            ->join('static_ethnics', 'users.ethnic', '=', 'static_ethnics.id')
-	            ->join('static_marriages', 'users.marriage', '=', 'static_marriages.id')
-	            ->join('static_livings', 'users.living', '=', 'static_livings.id')
-	            ->join('static_districts', 'users.district', '=', 'static_districts.id')
-	            ->join('static_industries', 'users.industry', '=', 'static_industries.id')
-	            ->join('static_companytypes', 'users.companytype', '=', 'static_companytypes.id')
-	            ->join('static_academics', 'users.academic', '=', 'static_academics.id')
-	            ->join('static_nationalities', 'users.nationality', '=', 'static_nationalities.id')
-	            ->join('static_professions', 'users.profession', '=', 'static_professions.id')
-	            ->join('static_salaries', 'users.salary', '=', 'static_salaries.id')
-	            ->where('users.id', '=', $uid)
-	            ->first(array(
-	                'users.id',
-	                'users.nickname',
-	                'users.sex',
-	                'users.height',
-	                'users.weight',
-	                'users.born',
-	                'users.school',
-	                'users.major',
-	                'users.blog',
-	                'static_ethnics.name as ethnic',
-	                'static_marriages.status as marriage',
-	                'static_livings.status as living',
-	                'static_districts.district as district',
-	                'static_industries.type as industry',
-	                'static_companytypes.type as companytype',
-	                'static_academics.academic as academic',
-	                'static_nationalities.nationality as nationality',
-	                'static_professions.profession as profession',
-	                'static_salaries.range as salary'
-	                )
-	            );
+	        return DB::table('users')
+		            ->join('static_ethnics', 'users.ethnic', '=', 'static_ethnics.id')
+		            ->join('static_marriages', 'users.marriage', '=', 'static_marriages.id')
+		            ->join('static_livings', 'users.living', '=', 'static_livings.id')
+		            ->join('static_districts', 'users.district', '=', 'static_districts.id')
+		            ->join('static_industries', 'users.industry', '=', 'static_industries.id')
+		            ->join('static_companytypes', 'users.companytype', '=', 'static_companytypes.id')
+		            ->join('static_academics', 'users.academic', '=', 'static_academics.id')
+		            ->join('static_nationalities', 'users.nationality', '=', 'static_nationalities.id')
+		            ->join('static_professions', 'users.profession', '=', 'static_professions.id')
+		            ->join('static_salaries', 'users.salary', '=', 'static_salaries.id')
+		            ->where('users.id', '=', $uid)
+		            ->first(array(
+			                'users.id',
+			                'users.nickname',
+			                'users.sex',
+			                'users.height',
+			                'users.weight',
+			                'users.born',
+			                'users.school',
+			                'users.major',
+			                'users.blog',
+			                'static_ethnics.name as ethnic',
+			                'static_marriages.status as marriage',
+			                'static_livings.status as living',
+			                'static_districts.district as district',
+			                'static_industries.type as industry',
+			                'static_companytypes.type as companytype',
+			                'static_academics.academic as academic',
+			                'static_nationalities.nationality as nationality',
+			                'static_professions.profession as profession',
+			                'static_salaries.range as salary'
+		               	 )
+	        		);
 	}
 
 }
