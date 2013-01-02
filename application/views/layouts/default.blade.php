@@ -30,8 +30,8 @@
 					<ul class="nav">
 						<li>{{ HTML::link_to_route('home', '首页') }}</li>
 						<li>{{ HTML::link_to_route('search', '搜索') }}</li>
+						<li>{{ HTML::link_to_route('faq', '常见问题（FAQ）') }}</li>
 						<!--
-						<li><a href="#">常见问题（FAQ）</a></li>
 						<li><a href="#">关于我们</a></li>
 						-->
 					</ul>
