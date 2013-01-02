@@ -13,6 +13,8 @@
 			<p><a class="btn btn-primary btn-large" href="register">免费注册</a></p>
 			@endif
 
+			<wb:share-button ></wb:share-button>
+			
 			<p class="share-buttons">
 				<!-- twitter share button -->
 				<a href="https://twitter.com/share" class="twitter-share-button" data-lang="zh-cn">发推</a>

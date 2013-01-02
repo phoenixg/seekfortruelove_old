@@ -10,6 +10,9 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<!-- sina weibo -->
+	<html xmlns:wb="http://open.weibo.com/wb">
+
 	{{ Asset::styles() }}
 	@yield('page_styles_header')
 
@@ -19,6 +22,9 @@
 	<script type="text/javascript">
 		var BASE = "<?php echo URL::base(); ?>";
 	</script>
+	
+	<!-- sina weibo -->	
+	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">
