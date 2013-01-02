@@ -109,6 +109,8 @@ class User_Controller extends Base_Controller
                     ->where('sex',            '=',   $qSex)
                     ->where_in('nationality', $qNationalityArr)
                     ->where_in('district',    $qDistrictArr)
+                    ->where('verified',     '=', 1)
+                    ->join('images',        'users.id', '=', 'images.user_id')
                     ->order_by('id',          'desc')
                     ->get();
                     //->get(array('id', 'nickname'));
