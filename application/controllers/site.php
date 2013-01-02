@@ -14,5 +14,10 @@ class Site_Controller extends Base_Controller
 		return View::make('site.memorabilia');
 	}
 
+	public function get_faq()
+	{
+		return View::make('site.faq');
+	}
+
 
 }
