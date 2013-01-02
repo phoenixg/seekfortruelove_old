@@ -1,5 +1,7 @@
 @layout('layouts.default')
-
+@section('page_styles_header')
+	{{ HTML::style('css/faq.css') }}
+@endsection
 @section('content')
 <div class="container">
 	<h1>常见问题解答</h1>
