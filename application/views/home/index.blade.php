@@ -13,7 +13,7 @@
 			<p><a class="btn btn-primary btn-large" href="register">免费注册</a></p>
 			@endif
 
-			<wb:share-button url="" title="推荐一个定位于上海地区，面向所有单身青年男女，以婚恋为目的的免费交友平台 http://seekfortruelove.org"></wb:share-button>
+			<wb:share-button url="n" title="推荐一个定位于上海地区，面向所有单身青年男女，以婚恋为目的的免费交友平台 http://seekfortruelove.org"></wb:share-button>
 			
 			<p class="share-buttons">
 				<!-- twitter share button -->
