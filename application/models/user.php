@@ -75,7 +75,7 @@ class User extends Eloquent{
 	            ->join('static_nationalities', 'users.nationality', '=', 'static_nationalities.id')
 	            ->join('static_professions', 'users.profession', '=', 'static_professions.id')
 	            ->join('static_salaries', 'users.salary', '=', 'static_salaries.id')
-	            ->where('users.id', '=', $id)
+	            ->where('users.id', '=', $uid)
 	            ->first(array(
 	                'users.id',
 	                'users.nickname',
