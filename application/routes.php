@@ -35,7 +35,7 @@ Route::post('login',                      array('as' => 'login',                
 Route::get('logout',                      array('as' => 'logout',                                                  'uses' => 'account@logout'));
 
 //function pages
-Route::get('search',                    array('as' => 'search',                 'before' => 'auth',     'uses' => 'user@search'));
+Route::get('search',                    array('as' => 'search',                                                  'uses' => 'user@search'));
 Route::post('search',                  array('as' => 'search',                                                   'uses' => 'user@search'));
 Route::get('profile/(:any)',           array('as' => 'profile',                                                    'uses' => 'user@profile'));
 

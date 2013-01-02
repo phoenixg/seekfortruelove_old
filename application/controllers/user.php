@@ -2,6 +2,10 @@
 
 class User_Controller extends Base_Controller
 {
+    public function __construct() {
+        $this->filter('before', 'auth');
+    }
+
     public $restful = true;
 
     public function get_search() {
