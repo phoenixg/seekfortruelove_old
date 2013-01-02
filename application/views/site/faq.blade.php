@@ -5,6 +5,9 @@
 @section('content')
 <div class="container">
 	<h1>常见问题解答</h1>
+
+	<hr />
+
 	<div id="faq">
 		<h4>这是一个基督教事工吗？</h4>
 		<p>简单地讲，不是。</p>
