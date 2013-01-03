@@ -24,7 +24,7 @@
 	</script>
 	
 	<!-- sina weibo -->	
-	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=" type="text/javascript" charset="utf-8"></script>
+	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">

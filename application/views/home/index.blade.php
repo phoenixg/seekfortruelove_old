@@ -12,9 +12,9 @@
 			@if ( !Auth::check() )
 			<p><a class="btn btn-primary btn-large" href="register">免费注册</a></p>
 			@endif
+						
+			<wb:follow-button uid="3210798063" type="red_1" width="67" height="24" ></wb:follow-button>
 
-			<wb:share-button url="n" title="推荐一个定位于上海地区，面向所有单身青年男女，以婚恋为目的的免费交友平台 http://seekfortruelove.org"></wb:share-button>
-			
 			<p class="share-buttons">
 				<!-- twitter share button -->
 				<a href="https://twitter.com/share" class="twitter-share-button" data-lang="zh-cn">发推</a>
