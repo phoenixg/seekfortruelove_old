@@ -32,6 +32,8 @@
 			<div class="container">
 				{{ HTML::link_to_route('home', 'Seek For Truelove', array() , array('class' => 'brand')) }}
 
+				{{ HTML::image('/img/logo.png', '', array('class' => 'brand')) }}
+
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li>{{ HTML::link_to_route('home', '首页') }}</li>
