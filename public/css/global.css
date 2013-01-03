@@ -7,7 +7,8 @@
 }
 
 a.brand {
-	font-family: 'Leckerli One', cursive;
+    font-family: 'Leckerli One', cursive;
+    margin: 100px;        
 }
 
 /* 解决fancybox图片打开后背景移动问题 */
@@ -16,7 +17,7 @@ div.navbar-fixed-top{position: relative;}
 
 
 #main {
-	margin-top: 40px;
+    margin-top: 40px;
 }
 
 
