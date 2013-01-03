@@ -30,7 +30,7 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				{{ HTML::image('/img/logo.png', '', array('class' => 'brand'())) }}
+				{{ HTML::image('/img/logo.png', '', array('class' => 'brand')) }}
 
 				<div class="nav-collapse">
 					<ul class="nav">
