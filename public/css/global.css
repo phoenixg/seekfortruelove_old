@@ -6,9 +6,10 @@
     src: local('Leckerli One'), local('LeckerliOne-Regular'), url(./googlefonts/leckerli.woff) format('woff');
 }
 
-a.brand {
+.brand {
     font-family: 'Leckerli One', cursive;
-    margin: 100px;        
+    width:200px;
+    height:20px;         
 }
 
 /* 解决fancybox图片打开后背景移动问题 */
