@@ -58,7 +58,7 @@
                                     @if($verified_status == 2)bb<span class="label label-success nav-status">已审核</span>@endif
                                     @if($verified_status == 1)cc@endif
                                     @if($verified_status == 2)dd@endif
-                                    ee
+                                    ee {{ $verified_status }}
                                 </a>
                             </li>
                             <li class="@if(isset($menuflg_image))active@endif">
