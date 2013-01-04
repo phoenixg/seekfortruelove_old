@@ -30,7 +30,7 @@ class Dashboard_Controller extends Base_Controller {
 
 	public function get_profile() {
 		// 判断验证状态
-		var_dump(Auth::user()->verified);die;
+		var_dump(Auth::user()->verified);
 
 		return View::make('dashboard.profile')
 			->with('static_ethnics', DB::table('static_ethnics')->get())
