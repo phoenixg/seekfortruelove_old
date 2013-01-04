@@ -54,8 +54,8 @@
                             <li class="@if(isset($menuflg_profile))active@endif">
                                 <a href="{{ URL::to_route('dashboard_profile') }}"><i class="icon-user@if(isset($menuflg_profile)) icon-white@endif"></i> 
                                     资料
-                                    @if($verified_status == 2)22222@endif
-                                    <span class="label label-important nav-status">等待审核</span>
+                                    @if($verified_status == 1)<span class="label label-important nav-status">等待审核</span>@endif
+                                    @if($verified_status == 2)<span class="label label-success nav-status">已审核</span>@endif
                                 </a>
                             </li>
                             <li class="@if(isset($menuflg_image))active@endif">
