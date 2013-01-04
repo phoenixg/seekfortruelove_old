@@ -4,7 +4,9 @@
 @endsection
 @section('main')
 	<h2>个人资料编辑</h2>
-	<span class="preview">[&nbsp;{{ HTML::link_to_route('profile', '预览个人主页', array(Auth::user()->id)) }}&nbsp;]</span>
+	<span class="preview" target="_blank">
+		[&nbsp;{{ HTML::link_to_route('profile', '预览个人主页', array(Auth::user()->id)) }}&nbsp;]
+	</span>
 
 	@if($errors->has())
 	<div class="alert alert-block alert-error fade in">
