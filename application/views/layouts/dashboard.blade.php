@@ -12,6 +12,7 @@
 
     {{ Asset::styles() }}
     @yield('page_styles_header')
+    <link href="{{ HTML::style('css/dashboard.css') }}" media="all" type="text/css" rel="stylesheet" />
 
     {{ Asset::scripts() }}
     @yield('page_scripts_header')
