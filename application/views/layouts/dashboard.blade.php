@@ -53,7 +53,7 @@
                             <li class="@if(isset($menuflg_profile))active@endif">
                                 <a href="{{ URL::to_route('dashboard_profile') }}"><i class="icon-user@if(isset($menuflg_profile)) icon-white@endif"></i> 
                                     资料
-                                    <span class="label label-warning nav-status">等待审核</span>
+                                    <span class="label label-important nav-status">等待审核</span>
                                 </a>
                             </li>
                             <li class="@if(isset($menuflg_image))active@endif">
