@@ -15,7 +15,7 @@
 						
 			<wb:follow-button uid="3210798063" type="red_1" width="67" height="24" ></wb:follow-button>
 
-			<small>近期因系统开发和调试可能引起网站无法正常访问，向各位抱歉，但用户数据不会丢失！</small>
+			<p><small><i>近期因系统开发和调试可能引起网站无法正常访问，向各位抱歉，但用户数据不会丢失！</i></small></p>
 		</div>
 
 		<h2 id="diff"><a href="#difference">想知道本站如何与众不同？</a></h2>
