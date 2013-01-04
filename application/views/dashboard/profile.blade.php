@@ -1,6 +1,7 @@
 @layout('layouts.dashboard')
 @section('main')
 	<h2>个人资料编辑</h2>
+	[{{ HTML::link_to_route('profile', '预览个人主页', array(Auth::user()->id)) }}]
 
 	@if($errors->has())
 	<div class="alert alert-block alert-error fade in">
