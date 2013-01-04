@@ -11,10 +11,3 @@
 h3 .diff_title {
 	font-family: 'Leckerli One', cursive;
 }
-
-/* TODO */
-.twitter-share-button  {
-	display:inline;
-	float:left;
-	display:none;
-}
