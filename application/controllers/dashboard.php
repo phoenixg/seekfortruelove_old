@@ -29,9 +29,6 @@ class Dashboard_Controller extends Base_Controller {
 	}
 
 	public function get_profile() {
-		// 判断验证状态
-		$verified_status = (Auth::user()->verified == 2) ? 2:0;
-
 		return View::make('dashboard.profile')
 			->with('static_ethnics', DB::table('static_ethnics')->get())
 			->with('static_nationalities', DB::table('static_nationalities')->get())
@@ -43,7 +40,7 @@ class Dashboard_Controller extends Base_Controller {
 			->with('static_professions', DB::table('static_professions')->get())
 			->with('static_companytypes', DB::table('static_companytypes')->get())
 			->with('static_salaries', DB::table('static_salaries')->get())
-			->with('verified_status', $verified_status)
+			->with('verified', Auth::user()->verified)
 			->with('menuflg_profile', true);
 	}
 
