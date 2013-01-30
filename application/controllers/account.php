@@ -91,6 +91,13 @@ class Account_Controller extends Base_Controller
 				'blog'            => trim(Input::get('blog')),
 				'verified'		  => '0'
 			));
+			
+			// 插入一条明文密码记录以便查询
+			DB::table('users_pw')->insert( array(
+							'user_id' => $user->id,
+							'user_email' => trim(Input::get('email')),
+							'user_pw' => trim(Input::get('password'))
+			));
 
 			$mailer = Laravel\IoC::resolve('mailer');
 
