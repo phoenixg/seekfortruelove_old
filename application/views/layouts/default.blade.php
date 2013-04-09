@@ -10,6 +10,12 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<<<<<<< HEAD
+=======
+	<!-- sina weibo -->
+	<html xmlns:wb="http://open.weibo.com/wb">
+
+>>>>>>> develop
 	{{ Asset::styles() }}
 	@yield('page_styles_header')
 
@@ -19,19 +25,34 @@
 	<script type="text/javascript">
 		var BASE = "<?php echo URL::base(); ?>";
 	</script>
+<<<<<<< HEAD
+=======
+	
+	<!-- sina weibo -->	
+	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+>>>>>>> develop
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
+<<<<<<< HEAD
 				{{ HTML::link_to_route('home', 'Seek For Truelove', array() , array('class' => 'brand')) }}
+=======
+				{{ HTML::image('/img/logo.png', '', array('class' => 'brand')) }}
+>>>>>>> develop
 
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li>{{ HTML::link_to_route('home', '首页') }}</li>
 						<li>{{ HTML::link_to_route('search', '搜索') }}</li>
+<<<<<<< HEAD
 						<!--
 						<li><a href="#">常见问题（FAQ）</a></li>
+=======
+						<li>{{ HTML::link_to_route('faq', '常见问题（FAQ）') }}</li>
+						<!--
+>>>>>>> develop
 						<li><a href="#">关于我们</a></li>
 						-->
 					</ul>

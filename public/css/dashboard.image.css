@@ -1,0 +1,36 @@
+/* 上传区域 */
+#image-uploader{
+	margin-bottom: 60px;
+}
+
+/* 相册里的照片 */
+#image-group img {
+	float:left;
+	margin-right: 6px;
+	margin-bottom: 6px;
+	height:120px;
+	width:auto;
+	background-color: #f5f5f5;
+	padding:1px;
+	border:3px solid #e3e3e3;
+}
+
+/* 让文本居中 */
+#image-group p {
+	text-align: center;
+	color: #aaa;
+}
+
+/* 头像裁剪区域居中 */
+#image-icon {
+	text-align: center;
+}
+
+.jcrop-holder {
+	margin:0 auto;
+}
+
+/* 头像裁剪操作按钮 */
+#image-icon-nav {
+	margin-bottom:20px;
+}

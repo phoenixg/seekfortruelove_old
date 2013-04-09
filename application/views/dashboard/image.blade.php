@@ -3,7 +3,11 @@
 	{{ HTML::style('css/fileuploader.css') }}
 	{{ HTML::style('css/jquery.Jcrop.min.css') }}
 	{{ HTML::style('css/fancybox/jquery.fancybox.css?v=2.1.0') }}
+<<<<<<< HEAD
 	{{ HTML::style('css/dashboard.css') }}
+=======
+	{{ HTML::style('css/dashboard.image.css') }}
+>>>>>>> develop
 @endsection
 @section('page_scripts_header')
 	{{ HTML::script('js/fileuploader.js') }}

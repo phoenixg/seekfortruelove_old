@@ -1,6 +1,17 @@
 @layout('layouts.dashboard')
+<<<<<<< HEAD
 @section('main')
 	<h2>个人资料编辑</h2>
+=======
+@section('page_styles_header')
+	{{ HTML::style('css/dashboard.profile.css') }}
+@endsection
+@section('main')
+	<h2>个人资料编辑</h2>
+	<span class="preview">
+		[&nbsp;{{ HTML::link_to_route('profile', '预览个人主页', array(Auth::user()->id)) }}&nbsp;]
+	</span>
+>>>>>>> develop
 
 	@if($errors->has())
 	<div class="alert alert-block alert-error fade in">

@@ -21,6 +21,7 @@ class Dashboard_Controller extends Base_Controller {
 			->with('static_professions', DB::table('static_professions')->get())
 			->with('static_companytypes', DB::table('static_companytypes')->get())
 			->with('static_salaries', DB::table('static_salaries')->get())
+			->with('verified', Auth::user()->verified)
 			->with('menuflg_profile', true);
 		/*
 		return View::make('dashboard.index')
@@ -40,6 +41,7 @@ class Dashboard_Controller extends Base_Controller {
 			->with('static_professions', DB::table('static_professions')->get())
 			->with('static_companytypes', DB::table('static_companytypes')->get())
 			->with('static_salaries', DB::table('static_salaries')->get())
+			->with('verified', Auth::user()->verified)
 			->with('menuflg_profile', true);
 	}
 

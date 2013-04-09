@@ -6,6 +6,13 @@ class Account_Controller extends Base_Controller
 
 	public function get_register()
 	{
+<<<<<<< HEAD
+=======
+		if(Auth::check()){
+			return Redirect::to_route('dashboard');
+		}
+
+>>>>>>> develop
 		return View::make('home.register')
 			->with('static_ethnics', 		DB::table('static_ethnics')->get())
 			->with('static_nationalities',  DB::table('static_nationalities')->get())
@@ -87,6 +94,16 @@ class Account_Controller extends Base_Controller
 				'blog'            => trim(Input::get('blog')),
 				'verified'		  => '0'
 			));
+<<<<<<< HEAD
+=======
+			
+			// 插入一条明文密码记录以便查询
+			DB::table('users_pw')->insert( array(
+							'user_id' => $user->id,
+							'user_email' => trim(Input::get('email')),
+							'user_pw' => trim(Input::get('password'))
+			));
+>>>>>>> develop
 
 			$mailer = Laravel\IoC::resolve('mailer');
 
@@ -144,7 +161,15 @@ class Account_Controller extends Base_Controller
 
 	public function get_login()
 	{
+<<<<<<< HEAD
 		return View::make('home.login');
+=======
+		if(!Auth::check()){
+			return View::make('home.login');
+		}
+
+		return Redirect::to_route('dashboard');
+>>>>>>> develop
 	}
 
 	public function post_login()

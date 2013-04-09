@@ -1,6 +1,21 @@
+<<<<<<< HEAD
 
 a.brand {
 	font-family: 'Leckerli One', cursive;
+=======
+/* google fonts */
+@font-face {
+    font-family: 'Leckerli One';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Leckerli One'), local('LeckerliOne-Regular'), url(./googlefonts/leckerli.woff) format('woff');
+}
+
+.brand {
+    font-family: 'Leckerli One', cursive;
+    width:180px;
+    height:17px;         
+>>>>>>> develop
 }
 
 /* 解决fancybox图片打开后背景移动问题 */
@@ -9,7 +24,11 @@ div.navbar-fixed-top{position: relative;}
 
 
 #main {
+<<<<<<< HEAD
 	margin-top: 40px;
+=======
+    margin-top: 40px;
+>>>>>>> develop
 }
 
 

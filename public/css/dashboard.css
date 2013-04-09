@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* 上传区域 */
 #image-uploader{
 	margin-bottom: 60px;
@@ -34,3 +35,6 @@
 #image-icon-nav {
 	margin-bottom:20px;
 }
+=======
+.nav-status {margin-left:10px; position:relative; top:-1px;}
+>>>>>>> develop

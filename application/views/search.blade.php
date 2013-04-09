@@ -23,6 +23,13 @@
 <div class="container">
 	<h1>搜索</h1>
 
+<<<<<<< HEAD
+=======
+	<div class="alert alert-info">
+		只有经过验证并上传了照片的用户才能被搜索到哦！
+	</div>
+
+>>>>>>> develop
 	<div class="row">
 		<div class="span12">
 			<table class="search_filter">
@@ -142,7 +149,17 @@
 				<!-- ajax result -->
 			</ul>
 		</div>
+<<<<<<< HEAD
 	</div>
+=======
+
+
+		
+	</div>
+
+
+	<div style="height:600px;"></div>
+>>>>>>> develop
 </div>
 
 <div id="toTop">TOP</div>

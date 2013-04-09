@@ -1,0 +1,13 @@
+.hero-unit {
+	padding: 30px 20px 30px 20px;
+	text-align: center;
+}
+
+#diff {
+	text-align: center;
+	text-decoration: none;
+}
+
+h3 .diff_title {
+	font-family: 'Leckerli One', cursive;
+}
